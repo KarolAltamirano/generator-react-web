@@ -1,0 +1,19 @@
+/* src/entry/views/version/version.scss */
+
+.version {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    padding: 0.5em;
+    background: $color01;
+    color: $color03;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    opacity: 0.9;
+    z-index: 9999;
+
+    span {
+        color: $color02;
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "loader": {
+        "start": "0%",
+        "progress": "%"
+    },
+    "incompatible": {
+        "title": "Incompatible browser page"
+    }
+}

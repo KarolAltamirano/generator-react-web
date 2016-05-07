@@ -1,0 +1,47 @@
+@import '~breakpoint-sass';
+@import '~susy';
+
+// susy setting (debug - image: show | hide | show-columns | show-baseline)
+$susy: (
+    columns: 12,
+    global-box-sizing: border-box,
+    debug: (
+        image: hide,
+        output: overlay
+    )
+);
+
+// colors
+$color01: #eee;
+$color02: #aaa;
+$color03: #666;
+$color04: #009;
+$color05: #006;
+
+// retina pixel ratio
+$retina: min-resolution 1.5dppx;
+
+// mixins
+@mixin clearfix {
+    &::after {
+        display: table;
+        clear: both;
+        content: '';
+    }
+}
+
+@mixin retina-asset($name, $ext: 'png') {
+    $image: $name + '.' + $ext;
+    $image-retina: $name + '@2x.' + $ext;
+
+    display: block;
+    width: width($image);
+    height: height($image);
+    background-repeat: no-repeat;
+    background-size: size($image);
+    background-image: url($image);
+
+    @include susy-breakpoint($retina) {
+        background-image: url($image-retina);
+    }
+}

@@ -1,0 +1,16 @@
+@mixin retina-inline-asset($name, $ext: 'png') {
+    $image: 'images/' + $name + '.' + $ext;
+    $image-retina: 'images/' + $name + '@2x.' + $ext;
+
+    display: block;
+    width: width($image);
+    height: height($image);
+    background-repeat: no-repeat;
+    background-size: size($image);
+
+    @if $assets-retina {
+        background-image: inline($image-retina);
+    } @else {
+        background-image: inline($image);
+    }
+}

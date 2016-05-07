@@ -1,0 +1,11 @@
+{
+    "buildDir": "dist",
+
+    "autoprefixer": [
+        "last 2 versions"
+    ],
+
+    "root": [
+        "src/favicon.ico"
+    ]
+}

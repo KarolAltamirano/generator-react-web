@@ -1,0 +1,21 @@
+linters:
+
+    Indentation:
+        width: 4
+
+    PropertySortOrder:
+        order: smacss
+
+    NestingDepth:
+        enabled: false
+
+    LeadingZero:
+        enabled: true
+        style: 'include_zero'
+
+    Comment:
+        enabled: false
+
+    SelectorFormat:
+        enabled: true
+        convention: camel_case
