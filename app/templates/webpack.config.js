@@ -2,7 +2,6 @@ import path from 'path';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import WebpackNotifierPlugin from 'webpack-notifier';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
 import assets from 'postcss-assets';
 import autoprefixer from 'autoprefixer';
 import config from './config.json';
@@ -10,7 +9,7 @@ import config from './config.json';
 export default {
     output: {
         path: path.resolve(__dirname, config.buildDir),
-        publicPath: '',
+        publicPath: '/',
         filename: '[name].js',
         sourceMapFilename: 'maps/[file].map'
     },
@@ -18,8 +17,7 @@ export default {
     plugins: [
         new ProgressBarPlugin(),
         new WebpackNotifierPlugin({ alwaysNotify: true }),
-        new CopyWebpackPlugin(config.root.map(function (item) { return { from: item }; })),
-        new HtmlWebpackPlugin({ template: 'src/index.ejs', inject: false })
+        new HtmlWebpackPlugin({ template: 'src/index.ejs', favicon: 'src/favicon.ico', inject: false })
     ],
 
     resolve: {

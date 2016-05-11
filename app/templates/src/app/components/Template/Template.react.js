@@ -31,7 +31,7 @@ class Template extends React.Component {
 
     render() {
         return (
-            <div className={style.root} onClick={this.onClick}>Hello react</div>
+            <div className={style.template} onClick={this.onClick}>Hello react</div>
         );
     }
 }
