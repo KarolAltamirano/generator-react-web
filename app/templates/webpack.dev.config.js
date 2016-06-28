@@ -10,6 +10,12 @@ var config = extend(true, {}, webpackConfig, {
 
     devtool: '#cheap-module-source-map',
 
+    module: {
+        loaders: webpackConfig.module.loaders.concat([
+            { test: /\.js$/, exclude: /node_modules/, loader: 'react-hot!babel' }
+        ])
+    },
+
     plugins: webpackConfig.plugins.concat([
         new webpack.DefinePlugin({
             'process.env': { NODE_ENV: JSON.stringify('development') }
