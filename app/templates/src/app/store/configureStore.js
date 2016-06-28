@@ -4,16 +4,25 @@ import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 
+/**
+ * Create Redux store
+ *
+ * @param  {Object} initialState - initial state
+ *
+ * @return {Store}               - redux store
+ */
 export default function configureStore(initialState) {
     var middleware,
         logger = createLogger({ collapsed: true });
 
+    // set middleware for development or production build
     if (process.env.NODE_ENV === 'development') {
         middleware = [thunk, reduxImmutableStateInvariant(), logger];
     } else {
         middleware = [thunk];
     }
 
+    // create store
     return createStore(
         rootReducer,
         initialState,

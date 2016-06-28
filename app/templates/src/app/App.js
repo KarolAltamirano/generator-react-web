@@ -10,11 +10,17 @@ import AppActions from './actions/AppActions';
 
 var App = {};
 
+/**
+ * Run application
+ */
 App.run = function () {
-    var initialState = {},
-        store = configureStore(initialState),
-        history = syncHistoryWithStore(browserHistory, store);
+    // create store
+    var store = configureStore();
 
+    // create browser history for router
+    var history = syncHistoryWithStore(browserHistory, store);
+
+    // render aplication
     ReactDOM.render(
         <Provider store={store}>
             <Router history={history}>{routes}</Router>
@@ -22,6 +28,7 @@ App.run = function () {
         document.getElementById('container')
     );
 
+    // dispatch initialize action
     store.dispatch(AppActions.initialize());
 };
 
