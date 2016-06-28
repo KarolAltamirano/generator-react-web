@@ -4,7 +4,7 @@ import webpackConfig from './webpack.config.js';
 
 var config = extend(true, {}, webpackConfig, {
     entry: [
-        'webpack-hot-middleware/client?reload=true&quiet=true',
+        'webpack-hot-middleware/client?reload=true',
         './src/entry/main.js'
     ],
 

@@ -1,20 +1,29 @@
-import AppDispatcher from '../dispatcher/AppDispatcher';
-import AppConstants from '../constants/AppConstants';
+import ActionTypes from '../constants/ActionTypes';
 // import WebAPIUtils from '../utils/WebAPIUtils';
 
-var AppActions = {
+const AppActions = {
     initialize() {
-        AppDispatcher.dispatch({
-            type: AppConstants.INITIALIZE,
-            data: null
-        });
+        return {
+            type: ActionTypes.INITIALIZE
+        };
     },
 
-    placeholder(data) {
-        AppDispatcher.dispatch({
-            type: AppConstants.PLACEHOLDER,
-            data: data
-        });
+    placeholder(inc) {
+        return {
+            type: ActionTypes.PLACEHOLDER,
+            inc
+        };
+    },
+
+    placeholderAsync(inc) {
+        return function (dispatch) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    dispatch(AppActions.placeholder(inc));
+                    resolve();
+                }, 500);
+            });
+        };
     }
 };
 

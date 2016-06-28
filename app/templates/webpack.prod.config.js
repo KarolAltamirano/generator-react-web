@@ -5,6 +5,8 @@ import webpackConfig from './webpack.config.js';
 var config = extend(true, {}, webpackConfig, {
     entry: './src/entry/main.js',
 
+    devtool: '#source-map',
+
     module: {
         loaders: webpackConfig.module.loaders.concat([
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel' }

@@ -29,7 +29,6 @@
     "imports-loader": "^0.6.5",
     "js-beautify": "^1.6.2",
     "json-loader": "^0.5.4",
-    "keymirror": "^0.1.1",
     "mocha": "^2.4.5",
     "modernizr": "^3.3.1",
     "modernizr-loader": "0.0.4",
