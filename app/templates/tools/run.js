@@ -5,7 +5,7 @@ import moment from 'moment';
  *
  * @param  {Object} time - moment.js Object
  *
- * @return {String}      - formated time
+ * @return {string}      - formated time
  */
 function formatTime(time) {
     return time.format('HH:mm:ss');

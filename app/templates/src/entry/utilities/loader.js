@@ -10,7 +10,7 @@ var loader = {},
 /**
  * Check if loader should be run in fallback mode
  *
- * @return {Boolean}
+ * @return {boolean}
  */
 function _runFallback() {
     var result = false;
@@ -23,7 +23,7 @@ function _runFallback() {
 /**
  * Create loader
  *
- * @param  {String}   id       - id of new loader
+ * @param  {string}   id       - id of new loader
  * @param  {Function} progress - callback function during loading
  * @param  {Function} complete - callback function when loading is completed
  */
@@ -59,7 +59,7 @@ loader.createLoader = function (id, progress, complete) {
 /**
  * Get loader by its id
  *
- * @param  {String} id - id of a loaderData
+ * @param  {string} id - id of a loaderData
  */
 loader.getLoader = function (id) {
     if (_loaderList[id] == null) {
@@ -72,7 +72,7 @@ loader.getLoader = function (id) {
 /**
  * Check if loader with id exists
  *
- * @param  {String} id - id of the loader
+ * @param  {string} id - id of the loader
  */
 loader.exists = function (id) {
     return _loaderList[id] != null;
@@ -81,8 +81,8 @@ loader.exists = function (id) {
 /**
  * Get asset from loader
  *
- * @param {String} loaderId - id of the loader
- * @param {String} assetId  - id of asset
+ * @param {string} loaderId - id of the loader
+ * @param {string} assetId  - id of asset
  */
 loader.getAsset = function (loaderId, assetId) {
     var cachedAsset = _cache[loaderId].find(element => element.id === assetId);
@@ -115,8 +115,8 @@ loader.getAsset = function (loaderId, assetId) {
 /**
  * Destroy loaded asset
  *
- * @param {String} loaderId - id of the loader
- * @param {String} assetId  - id of asset
+ * @param {string} loaderId - id of the loader
+ * @param {string} assetId  - id of asset
  */
 loader.destroyAsset = function (loaderId, assetId) {
     var cachedAsset = _cache[loaderId].find(element => element.id === assetId);
@@ -130,7 +130,7 @@ loader.destroyAsset = function (loaderId, assetId) {
 /**
  * Render loader to the DOM
  *
- * @param  {String} template - thml template
+ * @param  {string} template - thml template
  * @param  {Object} style    - css style object
  * @param  {Object} copy     - page copy
  */

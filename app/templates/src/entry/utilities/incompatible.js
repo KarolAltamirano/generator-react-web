@@ -11,7 +11,7 @@ incompatible.uaResult = uaParser.getResult();
 /**
  * Check browser compatibility
  *
- * @return {Boolean} - for uncompatible browser return 'true', otherwise 'false'
+ * @return {boolean} - for uncompatible browser return 'true', otherwise 'false'
  */
 incompatible.isIncompatibleBrowser = function () {
     var listOfSupported = [
@@ -49,7 +49,7 @@ incompatible.addClass = function () {
 /**
  * Render incompatible browser page to the DOM
  *
- * @param  {String} template - thml template
+ * @param  {string} template - thml template
  * @param  {Object} style    - css style object
  * @param  {Object} copy     - page copy
  */

@@ -37,7 +37,7 @@ version.getCopy = function () {
 /**
  * Render version info to the DOM
  *
- * @param  {String} template - thml template
+ * @param  {string} template - thml template
  * @param  {Object} style    - css style object
  * @param  {Object} copy     - page copy
  */
