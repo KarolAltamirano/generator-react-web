@@ -133,16 +133,3 @@ Use linter in your text editor for JavaScript and SCSS.
   image encoded in base64 for non-retina and retina screens used in scssSprite.
 - `@include retina-asset($name, $ext: 'png')` mixin for generating stile with background
   image for non-retina and retina screens.		
-
-# Hot Module Replacement (experimental)
-HMR is not enabled for any file by default. To enable HMR for particular file add following code
-to the file:
-
-```
-if (module.hot) {
-    module.hot.accept();
-}
-```
-
-- More about HMR with webpack [here](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html)
-- HMR API documentation [here](https://webpack.github.io/docs/hot-module-replacement.html)
