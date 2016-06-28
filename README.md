@@ -1,13 +1,16 @@
 # React web
-> Yeoman generator for React with Flux + Webpack, ES6, Babel, npm Scripts, CSS Modules
+> Yeoman generator for creating interactive web sites with React and Redux + Webpack, ES6, Babel, npm Scripts, CSS Modules
 
 [![Build Status](https://travis-ci.org/KarolAltamirano/generator-react-web.svg?branch=master)](https://travis-ci.org/KarolAltamirano/generator-react-web)
 [![Dependency Status](https://david-dm.org/KarolAltamirano/generator-react-web.svg)](https://david-dm.org/KarolAltamirano/generator-react-web)
 [![npm version](https://badge.fury.io/js/generator-react-web.svg)](https://badge.fury.io/js/generator-react-web)
 
+## About generator
+Generator helps you bootstrap new interactive web site project. It contains asset loader and browser version detection.
+
 ## Features
 - React
-- Flux
+- Redux
 - Webpack
 - ES6 (ES2015)
 - Babel
