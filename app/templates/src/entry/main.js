@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 import 'modernizr';
-import 'normalize.css/normalize.css';
+import 'normalize.css';
 
 // import global styles
 import './style/global/global.scss';
