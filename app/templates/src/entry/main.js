@@ -9,12 +9,12 @@ import './style/global/global.scss';
 import copy from '../copy/copy.json';
 
 // render incompatible browser screen
-import incompatible from './utilities/incompatible';
+import Incompatible from './utilities/Incompatible';
 import incompatibleTemplate from './views/incompatible/incompatible.html';
 import incompatibleStyle from './views/incompatible/incompatible.scss';
 
-incompatible.addClass();
-incompatible.render(incompatibleTemplate, incompatibleStyle, copy.incompatible);
+Incompatible.addClass();
+Incompatible.render(incompatibleTemplate, incompatibleStyle, copy.incompatible);
 
 // render build version
 import version from './utilities/version';
@@ -52,7 +52,7 @@ function _complete() {
 
 // bootstrap application
 window.addEventListener('load', () => {
-    if (!incompatible.isIncompatibleBrowser()) {
+    if (!Incompatible.isIncompatibleBrowser()) {
         // show loader
         loader.render(loaderTemplate, loaderStyle, { loader: copy.loader.start });
         loader.show();
