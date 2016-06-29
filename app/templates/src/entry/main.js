@@ -17,12 +17,12 @@ Incompatible.addClass();
 Incompatible.render(incompatibleTemplate, incompatibleStyle, copy.incompatible);
 
 // render build version
-import version from './utilities/version';
+import Version from './utilities/Version';
 import versionTemplate from './views/version/version.html';
 import versionStyle from './views/version/version.scss';
 
-version.logConsole();
-version.render(versionTemplate, versionStyle, version.getCopy());
+Version.logConsole();
+Version.render(versionTemplate, versionStyle, Version.getCopy());
 
 // render loader
 import Loader from './utilities/Loader';
