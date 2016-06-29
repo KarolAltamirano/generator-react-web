@@ -28,7 +28,7 @@ Version.logConsole = function () {
 /**
  * Get version data object
  *
- * @return {object} - version information
+ * @return {Object} - version information
  */
 Version.getCopy = function () {
     return data;
