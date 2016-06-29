@@ -1,5 +1,14 @@
 import { jsdom } from 'jsdom';
 
+function noop() { return null; }
+
+require.extensions['.css'] = noop;
+require.extensions['.scss'] = noop;
+require.extensions['.svg'] = noop;
+require.extensions['.png'] = noop;
+require.extensions['.jpg'] = noop;
+require.extensions['.gif'] = noop;
+
 var exposedProperties = ['window', 'document'];
 
 global.document = jsdom('<!doctype html><html><body></body></html>');

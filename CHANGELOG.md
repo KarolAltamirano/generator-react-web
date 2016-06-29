@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.2.0 - 2016-06-29
+- Replace Flux with Redux
+- Enable HMR
+- Use enzyme for test
+- Rename entry Singletons
+- Update all dependencies
+- Add tern file
+
 ## v0.1.1 - 2016-05-11
 - Refactor favicon adding
 

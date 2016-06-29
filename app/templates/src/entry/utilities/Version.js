@@ -1,15 +1,15 @@
 import Mustache from 'mustache';
 
 import data from '../../../package.json';
-import appSettings from './appSettings';
+import AppSettings from './AppSettings';
 
-var version = {};
+var Version = {};
 
 /**
  * Print version info to console
  */
-version.logConsole = function () {
-    if (!appSettings.renderVersionInfo) {
+Version.logConsole = function () {
+    if (!AppSettings.renderVersionInfo) {
         return;
     }
 
@@ -30,22 +30,22 @@ version.logConsole = function () {
  *
  * @return {object} - version information
  */
-version.getCopy = function () {
+Version.getCopy = function () {
     return data;
 };
 
 /**
  * Render version info to the DOM
  *
- * @param  {String} template - thml template
+ * @param  {string} template - thml template
  * @param  {Object} style    - css style object
  * @param  {Object} copy     - page copy
  */
-version.render = function (template, style, copy) {
+Version.render = function (template, style, copy) {
     var output = Mustache.render(template, { style, copy }),
         el = document.createElement('div');
 
-    if (!appSettings.renderVersionInfo) {
+    if (!AppSettings.renderVersionInfo) {
         return;
     }
 
@@ -54,4 +54,4 @@ version.render = function (template, style, copy) {
     document.body.appendChild(el.firstChild);
 };
 
-export default version;
+export default Version;

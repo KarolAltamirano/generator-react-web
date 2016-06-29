@@ -32,7 +32,6 @@ export default {
             { test: /\.js$/, exclude: /node_modules/, loader: 'eslint' }
         ],
         loaders: [
-            { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
             { test: /\.json$/, loader: 'json' },
             { test: /\.html$/, loader: 'html' },
             { test: /\.(eot|woff(2)?|ttf|svg)(\?v=\d+\.\d+\.\d+)?$/, loader: 'file?name=fonts/[name]---[hash].[ext]' },

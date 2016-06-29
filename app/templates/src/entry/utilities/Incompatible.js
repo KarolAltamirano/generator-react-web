@@ -4,16 +4,16 @@ import UAParser from 'ua-parser-js';
 import Mustache from 'mustache';
 
 var uaParser = new UAParser(),
-    incompatible = {};
+    Incompatible = {};
 
-incompatible.uaResult = uaParser.getResult();
+Incompatible.uaResult = uaParser.getResult();
 
 /**
  * Check browser compatibility
  *
- * @return {Boolean} - for uncompatible browser return 'true', otherwise 'false'
+ * @return {boolean} - for uncompatible browser return 'true', otherwise 'false'
  */
-incompatible.isIncompatibleBrowser = function () {
+Incompatible.isIncompatibleBrowser = function () {
     var listOfSupported = [
             { browser: 'Chrome'       , version: 43 },
             { browser: 'Firefox'      , version: 38 },
@@ -27,8 +27,8 @@ incompatible.isIncompatibleBrowser = function () {
         i;
 
     for (i = 0; i < listOfSupported.length; i++) {
-        if (listOfSupported[i].browser === incompatible.uaResult.browser.name &&
-            listOfSupported[i].version <= parseInt(incompatible.uaResult.browser.major, 10))  {
+        if (listOfSupported[i].browser === Incompatible.uaResult.browser.name &&
+            listOfSupported[i].version <= parseInt(Incompatible.uaResult.browser.major, 10))  {
             incomp = false;
         }
     }
@@ -39,8 +39,8 @@ incompatible.isIncompatibleBrowser = function () {
 /**
  * Add 'incompatible' class to documentElement in unsupported browsers
  */
-incompatible.addClass = function () {
-    if (incompatible.isIncompatibleBrowser()) {
+Incompatible.addClass = function () {
+    if (Incompatible.isIncompatibleBrowser()) {
         // if browser is incompatible
         document.documentElement.className = 'incompatible ' + document.documentElement.className;
     }
@@ -49,17 +49,17 @@ incompatible.addClass = function () {
 /**
  * Render incompatible browser page to the DOM
  *
- * @param  {String} template - thml template
+ * @param  {string} template - thml template
  * @param  {Object} style    - css style object
  * @param  {Object} copy     - page copy
  */
-incompatible.render = function (template, style, copy) {
+Incompatible.render = function (template, style, copy) {
     var output = Mustache.render(template, { style, copy }),
         el = document.getElementById('incompatibleBrowser');
 
-    if (incompatible.isIncompatibleBrowser()) {
+    if (Incompatible.isIncompatibleBrowser()) {
         el.innerHTML = output;
     }
 };
 
-export default incompatible;
+export default Incompatible;

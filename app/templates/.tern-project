@@ -1,0 +1,16 @@
+{
+    "ecmaVersion": 6,
+    "libs": [
+        "browser"
+    ],
+    "loadEagerly": [
+        "src/**/*.js",
+        "test/**/*.js",
+        "tools/**/*.js"
+    ],
+    "plugins": {
+        "doc_comment": {},
+        "modules": {},
+        "es_modules": {}
+    }
+}

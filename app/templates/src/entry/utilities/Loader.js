@@ -2,7 +2,7 @@ import Mustache from 'mustache';
 import createjs from 'createjs';
 import loaderData from './loaderData';
 
-var loader = {},
+var Loader = {},
     _loaderList = {},
     _cache = {},
     _loaderElement = document.querySelector('.loader');
@@ -10,7 +10,7 @@ var loader = {},
 /**
  * Check if loader should be run in fallback mode
  *
- * @return {Boolean}
+ * @return {boolean}
  */
 function _runFallback() {
     var result = false;
@@ -23,11 +23,11 @@ function _runFallback() {
 /**
  * Create loader
  *
- * @param  {String}   id       - id of new loader
+ * @param  {string}   id       - id of new loader
  * @param  {Function} progress - callback function during loading
  * @param  {Function} complete - callback function when loading is completed
  */
-loader.createLoader = function (id, progress, complete) {
+Loader.createLoader = function (id, progress, complete) {
     if (_loaderList[id] != null) {
         throw new Error(`Loader with id: '${id}' already exists.`);
     }
@@ -59,9 +59,9 @@ loader.createLoader = function (id, progress, complete) {
 /**
  * Get loader by its id
  *
- * @param  {String} id - id of a loaderData
+ * @param  {string} id - id of a loaderData
  */
-loader.getLoader = function (id) {
+Loader.getLoader = function (id) {
     if (_loaderList[id] == null) {
         throw new Error(`Loader with id: '${id}' does not exist.`);
     }
@@ -72,19 +72,19 @@ loader.getLoader = function (id) {
 /**
  * Check if loader with id exists
  *
- * @param  {String} id - id of the loader
+ * @param  {string} id - id of the loader
  */
-loader.exists = function (id) {
+Loader.exists = function (id) {
     return _loaderList[id] != null;
 };
 
 /**
  * Get asset from loader
  *
- * @param {String} loaderId - id of the loader
- * @param {String} assetId  - id of asset
+ * @param {string} loaderId - id of the loader
+ * @param {string} assetId  - id of asset
  */
-loader.getAsset = function (loaderId, assetId) {
+Loader.getAsset = function (loaderId, assetId) {
     var cachedAsset = _cache[loaderId].find(element => element.id === assetId);
 
     if (cachedAsset) {
@@ -99,7 +99,7 @@ loader.getAsset = function (loaderId, assetId) {
     }
 
     var newAssetURL = URL.createObjectURL(
-        new Blob([loader.getLoader(loaderId).getResult(assetId)], {
+        new Blob([Loader.getLoader(loaderId).getResult(assetId)], {
             type: asset.mimeType
         })
     );
@@ -115,10 +115,10 @@ loader.getAsset = function (loaderId, assetId) {
 /**
  * Destroy loaded asset
  *
- * @param {String} loaderId - id of the loader
- * @param {String} assetId  - id of asset
+ * @param {string} loaderId - id of the loader
+ * @param {string} assetId  - id of asset
  */
-loader.destroyAsset = function (loaderId, assetId) {
+Loader.destroyAsset = function (loaderId, assetId) {
     var cachedAsset = _cache[loaderId].find(element => element.id === assetId);
 
     if (cachedAsset) {
@@ -130,11 +130,11 @@ loader.destroyAsset = function (loaderId, assetId) {
 /**
  * Render loader to the DOM
  *
- * @param  {String} template - thml template
+ * @param  {string} template - thml template
  * @param  {Object} style    - css style object
  * @param  {Object} copy     - page copy
  */
-loader.render = function (template, style, copy) {
+Loader.render = function (template, style, copy) {
     var output = Mustache.render(template, { style, copy });
 
     _loaderElement.innerHTML = output;
@@ -143,15 +143,15 @@ loader.render = function (template, style, copy) {
 /**
  * Show loader
  */
-loader.show = function () {
+Loader.show = function () {
     _loaderElement.style.display = 'block';
 };
 
 /**
  * Hide loader
  */
-loader.hide = function () {
+Loader.hide = function () {
     _loaderElement.style.display = 'none';
 };
 
-export default loader;
+export default Loader;

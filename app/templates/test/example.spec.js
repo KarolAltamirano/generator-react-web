@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactTestUtils from 'react-addons-test-utils';
+import React, { PropTypes } from 'react';
+import { shallow } from 'enzyme';
 
 import { expect } from 'chai';
 // import sinon from 'sinon';
 
 describe('Example test', function () {
-    var result;
+    var wrapper;
 
     var TestComponent = function ({ title }) {
         return (
@@ -14,22 +14,18 @@ describe('Example test', function () {
     };
 
     TestComponent.propTypes = {
-        title: React.PropTypes.string.isRequired
+        title: PropTypes.string.isRequired
     };
 
     beforeEach(function () {
-        var renderer;
-
-        renderer = ReactTestUtils.createRenderer();
-        renderer.render(<TestComponent title="ahoj" />);
-        result = renderer.getRenderOutput();
+        wrapper = shallow(<TestComponent title="ahoj" />);
     });
 
     it('should run successfully', function () {
-        expect(result.type).to.equal('div');
+        expect(wrapper.type()).to.equal('div');
     });
 
     it('should run successfully too', function () {
-        expect(result.props.children).to.equal('ahoj');
+        expect(wrapper.text()).to.equal('ahoj');
     });
 });
