@@ -3,12 +3,12 @@ import Mustache from 'mustache';
 import data from '../../../package.json';
 import AppSettings from './AppSettings';
 
-var version = {};
+var Version = {};
 
 /**
  * Print version info to console
  */
-version.logConsole = function () {
+Version.logConsole = function () {
     if (!AppSettings.renderVersionInfo) {
         return;
     }
@@ -30,7 +30,7 @@ version.logConsole = function () {
  *
  * @return {object} - version information
  */
-version.getCopy = function () {
+Version.getCopy = function () {
     return data;
 };
 
@@ -41,7 +41,7 @@ version.getCopy = function () {
  * @param  {Object} style    - css style object
  * @param  {Object} copy     - page copy
  */
-version.render = function (template, style, copy) {
+Version.render = function (template, style, copy) {
     var output = Mustache.render(template, { style, copy }),
         el = document.createElement('div');
 
@@ -54,4 +54,4 @@ version.render = function (template, style, copy) {
     document.body.appendChild(el.firstChild);
 };
 
-export default version;
+export default Version;
