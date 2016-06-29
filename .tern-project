@@ -4,8 +4,7 @@
         "browser"
     ],
     "loadEagerly": [
-        "src/**/*.js",
-        "test/**/*.js",
+        "app/**/*.js",
         "tools/**/*.js"
     ],
     "plugins": {
