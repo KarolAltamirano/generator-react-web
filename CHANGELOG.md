@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.2.1 - 2016-06-30
+- Update readme
+- Fix code comment
+
 ## v0.2.0 - 2016-06-29
 - Replace Flux with Redux
 - Enable HMR
