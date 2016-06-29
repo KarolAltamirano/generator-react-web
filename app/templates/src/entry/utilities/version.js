@@ -1,7 +1,7 @@
 import Mustache from 'mustache';
 
 import data from '../../../package.json';
-import appSettings from './appSettings';
+import AppSettings from './AppSettings';
 
 var version = {};
 
@@ -9,7 +9,7 @@ var version = {};
  * Print version info to console
  */
 version.logConsole = function () {
-    if (!appSettings.renderVersionInfo) {
+    if (!AppSettings.renderVersionInfo) {
         return;
     }
 
@@ -45,7 +45,7 @@ version.render = function (template, style, copy) {
     var output = Mustache.render(template, { style, copy }),
         el = document.createElement('div');
 
-    if (!appSettings.renderVersionInfo) {
+    if (!AppSettings.renderVersionInfo) {
         return;
     }
 

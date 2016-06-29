@@ -1,11 +1,11 @@
-var appSettings = {};
+var AppSettings = {};
 
 /**
  * Helper method for detecting production enviroment
  *
  * @return {boolean} - 'true' for production enviroment, 'false' for development
  */
-appSettings.isProduction = function () {
+AppSettings.isProduction = function () {
     var host = window.location.hostname;
 
     if (host === 'localhost') {
@@ -20,8 +20,8 @@ appSettings.isProduction = function () {
  *
  * @return {boolean} - 'false' for production enviroment, 'true' for development
  */
-appSettings.isNotProduction = function () {
-    return !appSettings.isProduction();
+AppSettings.isNotProduction = function () {
+    return !AppSettings.isProduction();
 };
 
 /**
@@ -29,6 +29,6 @@ appSettings.isNotProduction = function () {
  *
  * @type {boolean}
  */
-appSettings.renderVersionInfo = true;
+AppSettings.renderVersionInfo = true;
 
-export default appSettings;
+export default AppSettings;
