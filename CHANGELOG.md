@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.2.3 - 2016-07-05
+- Remove GSAP
+- Add velocity react
+- Update dependencies
+
 ## v0.2.2 - 2016-06-30
 - Add .gitattributes file
 - Update .editorconfig to force lf line ending
