@@ -58,7 +58,6 @@ export default {
                 loader: 'file?name=cssSprite/[name]---[hash].css!postcss!sass!sass-resources'
             },
             { test: /\.modernizrrc$/, loader: 'modernizr' },
-            { test: /.*gsap.*/, loader: 'imports?gs=>window.GreenSockGlobals={}!exports?gs' },
             { test: /.*PreloadJS.*/, loader: 'imports?this=>global!exports?window.createjs' }
         ]
     },
