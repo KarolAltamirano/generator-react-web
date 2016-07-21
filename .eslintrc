@@ -56,7 +56,8 @@
         "object-curly-spacing": [2, "always"],
         "space-in-parens": [2, "never"],
         "arrow-spacing": 2,
-        "radix": 2
+        "radix": 2,
+        "comma-dangle": 2
     },
 
     "env": {
