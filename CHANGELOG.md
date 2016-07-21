@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.2.4 - 2016-07-21
+- Update dependencies
+
 ## v0.2.3 - 2016-07-05
 - Remove GSAP
 - Add velocity react
