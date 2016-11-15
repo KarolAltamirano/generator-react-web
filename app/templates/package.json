@@ -63,6 +63,7 @@
   "dependencies": {
     "babel-polyfill": "^6.9.1",
     "breakpoint-sass": "^2.7.0",
+    "createjs-preloadjs": "^0.6.2",
     "debug": "^2.2.0",
     "ismobilejs": "^0.4.0",
     "isomorphic-fetch": "^2.2.1",
@@ -80,7 +81,5 @@
     "ua-parser-js": "^0.7.10",
     "velocity-react": "^1.1.5"
   },
-  "napa": {
-    "PreloadJS": "CreateJS/PreloadJS#0.6.2"
-  }
+  "napa": {}
 }

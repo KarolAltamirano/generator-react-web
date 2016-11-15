@@ -22,7 +22,7 @@ export default {
 
     resolve: {
         alias: {
-            createjs$: 'PreloadJS/lib/preloadjs-0.6.2.combined.js',
+            'createjs-preloadjs$': 'createjs-preloadjs/lib/preloadjs-0.6.2.combined.js',
             modernizr$: path.resolve(__dirname, '.modernizrrc')
         }
     },
@@ -58,7 +58,7 @@ export default {
                 loader: 'file?name=cssSprite/[name]---[hash].css!postcss!sass!sass-resources'
             },
             { test: /\.modernizrrc$/, loader: 'modernizr' },
-            { test: /.*PreloadJS.*/, loader: 'imports?this=>global!exports?window.createjs' }
+            { test: /createjs-preloadjs/, loader: 'imports?this=>global!exports?window.createjs' }
         ]
     },
 

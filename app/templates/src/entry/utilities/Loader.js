@@ -1,5 +1,5 @@
 import Mustache from 'mustache';
-import createjs from 'createjs';
+import createjs from 'createjs-preloadjs';
 import loaderData from './loaderData';
 
 var Loader = {},
