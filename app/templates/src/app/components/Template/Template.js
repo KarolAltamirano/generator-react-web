@@ -8,6 +8,10 @@ import 'velocity-animate';
 import 'velocity-animate/velocity.ui';
 import { VelocityComponent, velocityHelpers } from 'velocity-react';
 
+import gsap from 'gsap';
+
+console.log(gsap);
+
 /**
  * Template React Component
  */

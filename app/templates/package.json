@@ -68,6 +68,7 @@
     "breakpoint-sass": "^2.7.0",
     "createjs-preloadjs": "^0.6.2",
     "debug": "^2.2.0",
+    "gsap": "^1.19.0",
     "ismobilejs": "^0.4.0",
     "isomorphic-fetch": "^2.2.1",
     "mustache": "^2.2.1",
