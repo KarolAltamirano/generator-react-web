@@ -4,13 +4,7 @@ import { bindActionCreators } from 'redux';
 import AppActions from '../../actions/AppActions';
 import style from './template.scss';
 
-import 'velocity-animate';
-import 'velocity-animate/velocity.ui';
-import { VelocityComponent, velocityHelpers } from 'velocity-react';
-
 import gsap from 'gsap';
-
-console.log(gsap);
 
 /**
  * Template React Component
@@ -23,31 +17,20 @@ class Template extends React.Component {
 
     static defaultProps = {};
 
+    elOne = null;
+    elTwo = null;
+
+    componentDidUpdate() {
+        gsap.TweenMax.to(this.elOne, 0.4, {
+            x: this.props.template * 10
+        });
+        gsap.TweenMax.to(this.elTwo, 0.4, {
+            x: this.props.template * 10,
+            rotation: this.props.template * 90
+        });
+    }
+
     render() {
-        var animationProps = {
-            duration: 400,
-            easing: 'spring',
-            // delay: 1500,
-            begin: () => console.log('animation begin'),
-            progress: () => console.log('animation progress'),
-            complete: () => console.log('animation complete'),
-            animation: {
-                translateX: this.props.template * 10
-            }
-        };
-
-        var animationPropsTwo = {
-            duration: 400,
-            // delay: 0,
-            animation: velocityHelpers.registerEffect({
-                defaultDuration: 1000,
-                calls: [
-                    [{ translateX: this.props.template * 10 }, 0.5, { easing: 'linear' }],
-                    [{ rotateZ: this.props.template * 90 }, 0.5, { easing: 'spring' }]
-                ]
-            })
-        };
-
         return (
             <div>
                 <button
@@ -64,14 +47,10 @@ class Template extends React.Component {
                 </button>
                 <span className={style.template}>{this.props.template}</span>
                 <div className={style.container}>
-                    <VelocityComponent {...animationProps}>
-                        <div className={style.element}></div>
-                    </VelocityComponent>
+                    <div ref={(el) => this.elOne = el} className={style.element}></div>
                 </div>
                 <div className={style.container}>
-                    <VelocityComponent {...animationPropsTwo}>
-                        <div className={style.element}></div>
-                    </VelocityComponent>
+                    <div ref={(el) => this.elTwo = el} className={style.element}></div>
                 </div>
             </div>
         );

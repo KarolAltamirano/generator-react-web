@@ -82,8 +82,7 @@
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
     "susy": "^2.2.12",
-    "ua-parser-js": "^0.7.10",
-    "velocity-react": "^1.1.5"
+    "ua-parser-js": "^0.7.10"
   },
   "napa": {}
 }
