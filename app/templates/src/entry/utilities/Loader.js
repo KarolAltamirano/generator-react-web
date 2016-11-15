@@ -1,5 +1,5 @@
 import Mustache from 'mustache';
-import createjs from 'createjs-preloadjs';
+import createjs from 'createjs-preloadjs'; // eslint-disable-line import/no-unresolved
 import loaderData from './loaderData';
 
 var Loader = {},
