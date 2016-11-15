@@ -23,9 +23,9 @@ function _runFallback() {
 /**
  * Create loader
  *
- * @param  {string}   id       - id of new loader
- * @param  {Function} progress - callback function during loading
- * @param  {Function} complete - callback function when loading is completed
+ * @param  {string}   id       id of new loader
+ * @param  {Function} progress callback function during loading
+ * @param  {Function} complete callback function when loading is completed
  */
 Loader.createLoader = function (id, progress, complete) {
     if (_loaderList[id] != null) {
@@ -59,7 +59,7 @@ Loader.createLoader = function (id, progress, complete) {
 /**
  * Get loader by its id
  *
- * @param  {string} id - id of a loaderData
+ * @param  {string} id loaderData id
  */
 Loader.getLoader = function (id) {
     if (_loaderList[id] == null) {
@@ -72,7 +72,7 @@ Loader.getLoader = function (id) {
 /**
  * Check if loader with id exists
  *
- * @param  {string} id - id of the loader
+ * @param  {string} id loader id
  */
 Loader.exists = function (id) {
     return _loaderList[id] != null;
@@ -81,8 +81,8 @@ Loader.exists = function (id) {
 /**
  * Get asset from loader
  *
- * @param {string} loaderId - id of the loader
- * @param {string} assetId  - id of asset
+ * @param {string} loaderId loader id
+ * @param {string} assetId  asset id
  */
 Loader.getAsset = function (loaderId, assetId) {
     var cachedAsset = _cache[loaderId].find(element => element.id === assetId);
@@ -115,8 +115,8 @@ Loader.getAsset = function (loaderId, assetId) {
 /**
  * Destroy loaded asset
  *
- * @param {string} loaderId - id of the loader
- * @param {string} assetId  - id of asset
+ * @param {string} loaderId loader id
+ * @param {string} assetId  asset id
  */
 Loader.destroyAsset = function (loaderId, assetId) {
     var cachedAsset = _cache[loaderId].find(element => element.id === assetId);
@@ -130,9 +130,9 @@ Loader.destroyAsset = function (loaderId, assetId) {
 /**
  * Render loader to the DOM
  *
- * @param  {string} template - thml template
- * @param  {Object} style    - css style object
- * @param  {Object} copy     - page copy
+ * @param  {string} template html template
+ * @param  {Object} style    css style object
+ * @param  {Object} copy     page copy
  */
 Loader.render = function (template, style, copy) {
     var output = Mustache.render(template, { style, copy });

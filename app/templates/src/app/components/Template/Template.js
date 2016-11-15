@@ -78,7 +78,7 @@ Template.propTypes = {
 /**
  * Map Redux store state to Component props
  *
- * @param  {Object} state - Redux store state
+ * @param  {Object} state Redux store state
  *
  * @return {Object}
  */
@@ -91,7 +91,7 @@ function mapStateToProps(state) {
 /**
  * Bind AppActions to Redux store function and map them to Component props
  *
- * @param  {Function} dispatch - Redux store dispatch function
+ * @param  {Function} dispatch Redux store dispatch function
  *
  * @return {Object}
  */

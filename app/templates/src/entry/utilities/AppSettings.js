@@ -3,7 +3,7 @@ var AppSettings = {};
 /**
  * Helper method for detecting production enviroment
  *
- * @return {boolean} - 'true' for production enviroment, 'false' for development
+ * @return {boolean} 'true' for production enviroment, 'false' for development
  */
 AppSettings.isProduction = function () {
     var host = window.location.hostname;
@@ -18,7 +18,7 @@ AppSettings.isProduction = function () {
 /**
  * Helper method for detecting development enviroment
  *
- * @return {boolean} - 'false' for production enviroment, 'true' for development
+ * @return {boolean} 'false' for production enviroment, 'true' for development
  */
 AppSettings.isNotProduction = function () {
     return !AppSettings.isProduction();

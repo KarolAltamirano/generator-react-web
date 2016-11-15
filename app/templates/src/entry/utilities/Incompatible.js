@@ -11,7 +11,7 @@ Incompatible.uaResult = uaParser.getResult();
 /**
  * Check browser compatibility
  *
- * @return {boolean} - for uncompatible browser return 'true', otherwise 'false'
+ * @return {boolean} for uncompatible browser return 'true', otherwise 'false'
  */
 Incompatible.isIncompatibleBrowser = function () {
     var listOfSupported = [
@@ -49,9 +49,9 @@ Incompatible.addClass = function () {
 /**
  * Render incompatible browser page to the DOM
  *
- * @param  {string} template - thml template
- * @param  {Object} style    - css style object
- * @param  {Object} copy     - page copy
+ * @param  {string} template html template
+ * @param  {Object} style    css style object
+ * @param  {Object} copy     page copy
  */
 Incompatible.render = function (template, style, copy) {
     var output = Mustache.render(template, { style, copy }),
