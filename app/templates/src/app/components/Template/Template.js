@@ -12,6 +12,13 @@ import { VelocityComponent, velocityHelpers } from 'velocity-react';
  * Template React Component
  */
 class Template extends React.Component {
+    static propTypes = {
+        actions: PropTypes.object.isRequired,
+        template: PropTypes.number.isRequired
+    };
+
+    static defaultProps = {};
+
     render() {
         var animationProps = {
             duration: 400,
@@ -66,14 +73,6 @@ class Template extends React.Component {
         );
     }
 }
-
-// define propTypes
-Template.propTypes = {
-    actions: PropTypes.object.isRequired,
-    template: PropTypes.number.isRequired
-};
-
-// Template.defaultProps = {};
 
 /**
  * Map Redux store state to Component props
