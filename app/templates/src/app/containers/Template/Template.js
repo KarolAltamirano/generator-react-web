@@ -1,10 +1,12 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import AppActions from '../../actions/AppActions';
-import style from './template.scss';
-
 import gsap from 'gsap';
+
+import style from './template.scss';
+import AppActions from '../../actions/AppActions';
+
+import TemplateTwo from '../../components/TemplateTwo/TemplateTwo';
 
 /**
  * Template React Component
@@ -45,7 +47,7 @@ class Template extends React.Component {
                 >
                     Hello React (Async)
                 </button>
-                <span className={style.template}>{this.props.template}</span>
+                <TemplateTwo number={this.props.template}></TemplateTwo>
                 <div className={style.container}>
                     <div ref={(el) => this.elOne = el} className={style.element}></div>
                 </div>
