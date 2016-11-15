@@ -1,25 +1,23 @@
-import extend from 'extend';
 import webpack from 'webpack';
-import webpackConfig from './webpack.config.js';
+import merge from 'webpack-merge';
+import common from './webpack.config.js';
 
-var config = extend(true, {}, webpackConfig, {
+export default merge(common, {
     entry: './src/entry/main.js',
 
     devtool: '#source-map',
 
     module: {
-        loaders: webpackConfig.module.loaders.concat([
+        loaders: [
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel' }
-        ])
+        ]
     },
 
-    plugins: webpackConfig.plugins.concat([
+    plugins: [
         new webpack.DefinePlugin({
             'process.env': { NODE_ENV: JSON.stringify('production') }
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } })
-    ])
+    ]
 });
-
-export default config;
