@@ -11,7 +11,7 @@
     "start": "babel-node tools/run start",
     "lint": "eslint src test tools",
     "test": "mocha --compilers js:babel-register test/utils/setup.js test/**/*.spec.js",
-    "test-watch": "npm run test -- -w"
+    "test-watch": "yarn run test -- -w"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",
