@@ -29,18 +29,18 @@ class Template extends React.Component {
     }
 
     componentDidMount() {
-        this.animate();
+        this.animate(0);
     }
 
     componentDidUpdate() {
-        this.animate();
+        this.animate(0.4);
     }
 
-    animate() {
-        gsap.TweenMax.to(this.elOne, 0.4, {
+    animate(time) {
+        gsap.TweenMax.to(this.elOne, time, {
             x: this.props.template * 10
         });
-        gsap.TweenMax.to(this.elTwo, 0.4, {
+        gsap.TweenMax.to(this.elTwo, time, {
             x: this.props.template * 10,
             rotation: this.props.template * 90
         });
