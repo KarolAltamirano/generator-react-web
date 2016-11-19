@@ -22,7 +22,21 @@ class Template extends React.Component {
     elOne = null;
     elTwo = null;
 
+    constructor(props, context) {
+        super(props, context);
+
+        this.animate = this.animate.bind(this);
+    }
+
+    componentDidMount() {
+        this.animate();
+    }
+
     componentDidUpdate() {
+        this.animate();
+    }
+
+    animate() {
         gsap.TweenMax.to(this.elOne, 0.4, {
             x: this.props.template * 10
         });
