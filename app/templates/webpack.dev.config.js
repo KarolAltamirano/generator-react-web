@@ -4,17 +4,12 @@ import common from './webpack.config.js';
 
 export default merge(common, {
     entry: [
+        'react-hot-loader/patch',
         'webpack-hot-middleware/client?reload=true',
         './src/entry/main.js'
     ],
 
     devtool: '#cheap-module-source-map',
-
-    module: {
-        loaders: [
-            { test: /\.js$/, exclude: /node_modules/, loader: 'react-hot!babel' }
-        ]
-    },
 
     plugins: [
         new webpack.DefinePlugin({
