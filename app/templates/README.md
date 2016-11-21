@@ -128,6 +128,11 @@ Use linter in your text editor for JavaScript and SCSS.
   Sass library Breakpoint. Check out Breakpoint [homepage](http://breakpoint-sass.com/) for
   all possible queries.
 
+# Image sprite-sheet
+- Inside directory `src/app/assets/scssSprite` there are `scss` files that handle
+  generating image sprite-sheet. To add image to sprite-sheet use `etina-inline-asset`
+  mixin inside `_assets.scss` file.
+
 # Assets mixins
 - `@include retina-inline-asset($name, $ext: 'png')` mixin for generating css with background
   image encoded in base64 for non-retina and retina screens used in scssSprite.
