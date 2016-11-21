@@ -20,8 +20,8 @@ module.exports = generators.Base.extend({
             {
                 type: 'input',
                 name: 'name',
-                message: 'Your project name (use camelCase)',
-                default: _.camelCase(this.appname)
+                message: 'Your project name (use kebab-case)',
+                default: _.kebabCase(this.appname)
             }
         ];
 
@@ -59,6 +59,6 @@ module.exports = generators.Base.extend({
     },
 
     install: function () {
-        this.npmInstall();
+        this.runInstall('yarn');
     }
 });

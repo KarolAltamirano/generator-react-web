@@ -3,9 +3,9 @@ import moment from 'moment';
 /**
  * Transform time in ms to formated time
  *
- * @param  {Object} time - moment.js Object
+ * @param  {Object} time moment.js Object
  *
- * @return {string}      - formated time
+ * @return {string}      formated time
  */
 function formatTime(time) {
     return time.format('HH:mm:ss');
@@ -14,7 +14,7 @@ function formatTime(time) {
 /**
  * Execute task
  *
- * @param  {Function} fn - task function that returns Promise
+ * @param  {Function} task function that returns Promise
  *
  * @return {Promise}
  */

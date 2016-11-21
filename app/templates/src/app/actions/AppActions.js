@@ -21,7 +21,7 @@ const AppActions = {
     /**
      * Placeholder action (example)
      *
-     * @param  {number} inc - increment value
+     * @param  {number} inc increment value
      *
      * @return {Object}
      */
@@ -35,7 +35,7 @@ const AppActions = {
     /**
      * Example of async action
      *
-     * @param  {number} inc - increment value
+     * @param  {number} inc increment value
      *
      * @return {Function}
      */

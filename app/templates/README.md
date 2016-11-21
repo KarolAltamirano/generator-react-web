@@ -3,12 +3,13 @@ Project was generated with Yeoman generator
 [generator-react-web](https://www.npmjs.com/package/generator-react-web)
 
 # Requirements
-- NodeJS v4.0 or newer
-- npm v3.3 or newer
+- NodeJS v6.0 or newer
+- npm v3.10 or newer
+- yarn
 
-# Install all npm dependencies for development
+# Install all dependencies for development
 - Skip this step if you have generated the project with Yeoman. Yeoman install all dependencies for you.
-- To install all development dependencies of existing project run `npm install` inside the root
+- To install all development dependencies of existing project run `yarn` inside the root
   directory of the project.
 
 # Root folders
@@ -38,22 +39,22 @@ Project was generated with Yeoman generator
  └─── views                    : app entry views (loader, incompatible browser ...)
 ```
 
-# NPM tasks
+# Tasks
 ```
-npm start          : start dev server and rebuild on file change
-npm test           : run unit tests
-npm run test-watch : run unit tests in watch mode
-npm run lint       : run JavaScript linter
-npm run bump major : bump major version
-npm run bump minor : bump minor version
-npm run bump patch : bump patch version
-npm run build      : build for production
-npm run server     : run server to test production build
+yarn run start      : start dev server and rebuild on file change
+yarn test           : run unit tests
+yarn run test-watch : run unit tests in watch mode
+yarn run lint       : run JavaScript linter
+yarn run bump major : bump major version
+yarn run bump minor : bump minor version
+yarn run bump patch : bump patch version
+yarn run build      : build for production
+yarn run server     : run server to test production build
 ```
 
 # Webpack
 ## Installing JavaScript libraries
-- Install libraries with npm.
+- Install libraries with yarn.
 
 ## Installing JavaScript libraries with broken module style
 - If new installed library doesn't work properly with webpack read more about shimming modules
@@ -96,14 +97,14 @@ npm run server     : run server to test production build
 - List of available values: [show](https://github.com/ai/browserslist#queries)
 
 # Config file 'config.json'
-```  
+```
 buildDir     : Directory where built page will be placed (default 'dist')
 autoprefixer : Configuration of autoprefixer
 ```
 
 # Build version
 To hide build version info set `renderVersionInfo` to `false` inside `src/entry/utilities/appSettings.js` file.
-To bump version use npm task `npm run bump [ major | minor | patch ]`
+To bump version use yarn task `yarn run bump [ major | minor | patch ]`
 
 # Linting
 Use linter in your text editor for JavaScript and SCSS.
@@ -127,8 +128,13 @@ Use linter in your text editor for JavaScript and SCSS.
   Sass library Breakpoint. Check out Breakpoint [homepage](http://breakpoint-sass.com/) for
   all possible queries.
 
+# Image sprite-sheet
+- Inside directory `src/app/assets/scssSprite` there are `scss` files that handle
+  generating image sprite-sheet. To add image to sprite-sheet use `etina-inline-asset`
+  mixin inside `_assets.scss` file.
+
 # Assets mixins
 - `@include retina-inline-asset($name, $ext: 'png')` mixin for generating css with background
   image encoded in base64 for non-retina and retina screens used in scssSprite.
 - `@include retina-asset($name, $ext: 'png')` mixin for generating stile with background
-  image for non-retina and retina screens.		
+  image for non-retina and retina screens.

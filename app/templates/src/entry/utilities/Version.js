@@ -28,7 +28,7 @@ Version.logConsole = function () {
 /**
  * Get version data object
  *
- * @return {Object} - version information
+ * @return {Object} version information
  */
 Version.getCopy = function () {
     return data;
@@ -37,9 +37,9 @@ Version.getCopy = function () {
 /**
  * Render version info to the DOM
  *
- * @param  {string} template - thml template
- * @param  {Object} style    - css style object
- * @param  {Object} copy     - page copy
+ * @param  {string} template html template
+ * @param  {Object} style    css style object
+ * @param  {Object} copy     page copy
  */
 Version.render = function (template, style, copy) {
     var output = Mustache.render(template, { style, copy }),

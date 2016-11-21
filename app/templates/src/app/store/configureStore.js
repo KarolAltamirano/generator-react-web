@@ -7,9 +7,9 @@ import rootReducer from '../reducers';
 /**
  * Create Redux store
  *
- * @param  {Object} initialState - initial state
+ * @param  {Object} initialState initial state
  *
- * @return {Store}               - redux store
+ * @return {Store}               redux store
  */
 export default function configureStore(initialState) {
     var middleware,
