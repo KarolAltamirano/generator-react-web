@@ -1,6 +1,16 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.3.0 - 2016-11-21
+- Add eslint-plugin-import
+- Add Babel Stage 0
+- Add GSAP for animations
+- Remove velocity react
+- Add container folder
+- Use yarn instead of npm
+- Update HMR
+- Update dependencies
+
 ## v0.2.4 - 2016-07-21
 - Update dependencies
 
