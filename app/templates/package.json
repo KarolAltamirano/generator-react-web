@@ -1,5 +1,5 @@
 {
-  "name": "<%= name %>",
+  "name": "development-mode",
   "version": "0.0.0",
   "time": "00.00.0000 00:00:00 (+0000)",
   "private": true,
@@ -30,8 +30,10 @@
     "del": "^2.2.2",
     "enzyme": "^2.6.0",
     "eslint": "^3.10.2",
+    "eslint-config-airbnb": "^13.0.0",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.7.1",
     "exports-loader": "^0.6.3",
     "file-loader": "^0.9.0",
