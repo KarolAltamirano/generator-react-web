@@ -11,7 +11,8 @@ function bundle() {
     return new Promise((resolve, reject) => {
         webpack(webpackProdConfig, (err, stats) => {
             if (err) {
-                return reject(err);
+                reject(err);
+                return;
             }
 
             console.log(stats.toString({ chunks: false, colors: true }));

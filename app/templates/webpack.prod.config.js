@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 import merge from 'webpack-merge';
-import common from './webpack.config.js';
+import common from './webpack.config';
 
 export default merge(common, {
     entry: './src/entry/main.js',

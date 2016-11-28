@@ -19,13 +19,13 @@ function formatTime(time) {
  * @return {Promise}
  */
 function exec(task) {
-    var start = moment();
+    const start = moment();
 
     console.log(`[${formatTime(start)}] Starting '${task.name}'...`);
 
     return task().then((data) => {
-        var end = moment(),
-            duration = end.valueOf() - start.valueOf();
+        const end = moment();
+        const duration = end.valueOf() - start.valueOf();
 
         if (typeof data === 'object' && data.skip === true) {
             return;
@@ -37,7 +37,8 @@ function exec(task) {
 
 // run task
 if (process.argv[2]) {
-    let module = require(`./${process.argv[2]}`).default;
+    // eslint-disable-next-line import/no-dynamic-require
+    const module = require(`./${process.argv[2]}`).default;
 
     exec(module).catch(err => console.error(err));
 }

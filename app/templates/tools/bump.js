@@ -4,7 +4,7 @@ import { exec } from 'child_process';
 import { js_beautify as beautify } from 'js-beautify'; // eslint-disable-line camelcase
 import pkg from '../package.json';
 
-var _argv = process.argv[3];
+const argv = process.argv[3];
 
 /**
  * Validate argument
@@ -13,8 +13,9 @@ var _argv = process.argv[3];
  */
 function validateParam() {
     return new Promise((resolve, reject) => {
-        if (_argv !== 'patch' && _argv !== 'minor' && _argv !== 'major') {
-            return reject('Specify valid semver version type to bump!');
+        if (argv !== 'patch' && argv !== 'minor' && argv !== 'major') {
+            reject('Specify valid semver version type to bump!');
+            return;
         }
 
         resolve();
@@ -27,18 +28,20 @@ function validateParam() {
  * @return {Promise}
  */
 function updateBuildTime() {
-    var time,
-        content;
+    let time;
+    let content;
 
     return new Promise((resolve, reject) => {
         time = moment().format('DD.MM.YYYY HH:mm:ss (ZZ)');
         pkg.time = time;
 
-        content = beautify(JSON.stringify(pkg), { 'indent_size': 2, 'end_with_newline': true });
+        // eslint-disable-next-line camelcase
+        content = beautify(JSON.stringify(pkg), { indent_size: 2, end_with_newline: true });
 
         fs.writeFile('package.json', content, (err) => {
             if (err) {
-                return reject(err);
+                reject(err);
+                return;
             }
 
             resolve();
@@ -53,17 +56,18 @@ function updateBuildTime() {
  */
 function bumpVersion() {
     return new Promise((resolve, reject) => {
-        var oldVersion = pkg.version,
-            newVersion;
+        const oldVersion = pkg.version;
+        let newVersion;
 
-        exec(`npm --no-git-tag-version version ${_argv}`, (err, stdout) => {
+        exec(`npm --no-git-tag-version version ${argv}`, (err, stdout) => {
             if (err) {
-                return reject(err);
+                reject(err);
+                return;
             }
 
             newVersion = stdout.slice(0, -1);
 
-            console.log(`Bumped v${oldVersion} to ${newVersion} with type: ${_argv}`);
+            console.log(`Bumped v${oldVersion} to ${newVersion} with type: ${argv}`);
             resolve();
         });
     });

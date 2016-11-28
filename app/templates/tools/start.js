@@ -13,8 +13,8 @@ import config from '../config.json';
  * @return {Promise}
  */
 function serve() {
-    var compiler = webpack(webpackDevConfig),
-        bs = browserSync.create();
+    const compiler = webpack(webpackDevConfig);
+    const bs = browserSync.create();
 
     bs.init({
         open: false,
