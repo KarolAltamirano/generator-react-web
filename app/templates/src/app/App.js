@@ -9,38 +9,39 @@ import configureStore from './store/configureStore';
 import routes from './routes';
 import AppActions from './actions/AppActions';
 
-var App = {},
-    store,
-    history;
+let store;
+let history;
 
-/**
- * Run application
- */
-App.run = function () {
-    // create store
-    store = configureStore();
+const App = {
+    /**
+     * Run application
+     */
+    run() {
+        // create store
+        store = configureStore();
 
-    // create browser history for router
-    history = syncHistoryWithStore(browserHistory, store);
+        // create browser history for router
+        history = syncHistoryWithStore(browserHistory, store);
 
-    // render aplication
-    ReactDOM.render(
-        <AppContainer key={Math.random()}>
-            <Provider store={store}>
-                <Router history={history}>{routes}</Router>
-            </Provider>
-        </AppContainer>,
-        document.getElementById('container')
-    );
+        // render aplication
+        ReactDOM.render(
+            <AppContainer key={Math.random()}>
+                <Provider store={store}>
+                    <Router history={history}>{routes}</Router>
+                </Provider>
+            </AppContainer>,
+            document.getElementById('container')
+        );
 
-    // dispatch initialize action
-    store.dispatch(AppActions.initialize());
+        // dispatch initialize action
+        store.dispatch(AppActions.initialize());
+    }
 };
 
 
 if (module.hot) {
     module.hot.accept('./routes', () => {
-        var nextRoutes = require('./routes').default;
+        const nextRoutes = require('./routes').default;
 
         ReactDOM.render(
             <AppContainer key={Math.random()}>
