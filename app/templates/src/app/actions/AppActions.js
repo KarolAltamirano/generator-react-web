@@ -40,7 +40,7 @@ const AppActions = {
      * @return {Function}
      */
     placeholderAsync(inc) {
-        return function asyncAction(dispatch) {
+        return function thunk(dispatch) {
             return new Promise((resolve) => {
                 setTimeout(() => {
                     dispatch(AppActions.placeholder(inc));
