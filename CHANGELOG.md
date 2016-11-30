@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.3.2 - 2016-12-01
+- Fix package name not using kebab-case
+- Rename task test-watch to test:watch
+
 ## v0.3.1 - 2016-11-30
 - Add airbnb eslint
 - Update eslint rules

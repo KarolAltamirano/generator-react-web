@@ -43,7 +43,7 @@ Project was generated with Yeoman generator
 ```
 yarn run start      : start dev server and rebuild on file change
 yarn test           : run unit tests
-yarn run test-watch : run unit tests in watch mode
+yarn run test:watch : run unit tests in watch mode
 yarn run lint       : run JavaScript linter
 yarn run bump major : bump major version
 yarn run bump minor : bump minor version
