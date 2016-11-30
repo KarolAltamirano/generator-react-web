@@ -56,7 +56,7 @@ module.exports = generators.Base.extend({
         this.fs.copyTpl(
             this.templatePath('package.json'),
             this.destinationPath('package.json'),
-            { name: _.camelCase(this.props.name) }
+            { name: _.kebabCase(this.props.name) }
         );
     },
 
