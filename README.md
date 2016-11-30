@@ -1,5 +1,5 @@
 # React web
-> Yeoman generator for creating interactive web sites with React and Redux + Webpack, ES6, Babel, Yarn, npm Scripts, CSS Modules
+> Yeoman generator for creating interactive web sites with React and Redux + Webpack, ES7+, Babel, Yarn, npm Scripts, CSS Modules
 
 [![Build Status](https://travis-ci.org/KarolAltamirano/generator-react-web.svg?branch=master)](https://travis-ci.org/KarolAltamirano/generator-react-web)
 [![Dependency Status](https://david-dm.org/KarolAltamirano/generator-react-web.svg)](https://david-dm.org/KarolAltamirano/generator-react-web)
@@ -12,7 +12,7 @@ Generator helps you initialize new interactive web site project. It contains ass
 - React
 - Redux
 - Webpack
-- ES6 (ES2015)
+- ES7+
 - Babel
 - Yarn
 - npm Scripts
