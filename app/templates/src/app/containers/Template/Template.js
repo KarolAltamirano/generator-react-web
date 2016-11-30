@@ -19,11 +19,11 @@ class Template extends React.Component {
 
     static defaultProps = {};
 
-    elOne = null;
-    elTwo = null;
-
     constructor(props, context) {
         super(props, context);
+
+        this.elOne = null;
+        this.elTwo = null;
 
         this.animate = this.animate.bind(this);
     }
@@ -61,12 +61,12 @@ class Template extends React.Component {
                 >
                     Hello React (Async)
                 </button>
-                <TemplateTwo number={this.props.template}></TemplateTwo>
+                <TemplateTwo number={this.props.template} />
                 <div className={style.container}>
-                    <div ref={(el) => this.elOne = el} className={style.element}></div>
+                    <div ref={el => this.elOne = el} className={style.element} />
                 </div>
                 <div className={style.container}>
-                    <div ref={(el) => this.elTwo = el} className={style.element}></div>
+                    <div ref={el => this.elTwo = el} className={style.element} />
                 </div>
             </div>
         );

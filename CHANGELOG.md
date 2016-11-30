@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.3.1 - 2016-11-30
+- Add airbnb eslint
+- Update eslint rules
+- Update all js files to pass new linting rules
+- Add eslintignore file
+
 ## v0.3.0 - 2016-11-21
 - Add eslint-plugin-import
 - Add Babel Stage 0

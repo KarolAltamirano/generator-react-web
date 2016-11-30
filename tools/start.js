@@ -4,15 +4,15 @@ import pkg from '../app/templates/package.json';
 
 function build() {
     return new Promise((resolve, reject) => {
-        var content;
-
         pkg.name = '<%= name %>';
 
-        content = beautify(JSON.stringify(pkg), { 'indent_size': 2, 'end_with_newline': true });
+        // eslint-disable-next-line camelcase
+        const content = beautify(JSON.stringify(pkg), { indent_size: 2, end_with_newline: true });
 
         fs.writeFile('app/templates/package.json', content, (err) => {
             if (err) {
-                return reject(err);
+                reject(err);
+                return;
             }
 
             resolve();

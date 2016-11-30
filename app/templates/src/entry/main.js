@@ -8,39 +8,39 @@ import './style/global/global.scss';
 // import copy
 import copy from '../copy/copy.json';
 
-// render incompatible browser screen
+// incompatible browser screen
 import Incompatible from './utilities/Incompatible';
 import incompatibleTemplate from './views/incompatible/incompatible.html';
 import incompatibleStyle from './views/incompatible/incompatible.scss';
 
-Incompatible.addClass();
-Incompatible.render(incompatibleTemplate, incompatibleStyle, copy.incompatible);
-
-// render build version
+// build version
 import Version from './utilities/Version';
 import versionTemplate from './views/version/version.html';
 import versionStyle from './views/version/version.scss';
 
-Version.logConsole();
-Version.render(versionTemplate, versionStyle, Version.getCopy());
-
-// render loader
+// loader
 import Loader from './utilities/Loader';
 import loaderTemplate from './views/loader/loader.html';
 import loaderStyle from './views/loader/loader.scss';
 
+Incompatible.addClass();
+Incompatible.render(incompatibleTemplate, incompatibleStyle, copy.incompatible);
+
+Version.logConsole();
+Version.render(versionTemplate, versionStyle, Version.getCopy());
+
 // set loader callbacks
-function _progress(e) {
-    var p = Math.round(100 * e.progress);
+function progress(e) {
+    const p = Math.round(100 * e.progress);
 
     // render progress in loader
     Loader.render(loaderTemplate, loaderStyle, { loader: p + copy.loader.progress });
 }
 
-function _complete() {
+function complete() {
     // create new chunk
-    require.ensure([], function (require) {
-        var App = require('../app/App').default;
+    require.ensure([], (require) => {
+        const App = require('../app/App').default;
 
         // hide loader
         Loader.hide();
@@ -58,6 +58,6 @@ window.addEventListener('load', () => {
         Loader.show();
 
         // start loader
-        Loader.createLoader('main', _progress, _complete);
+        Loader.createLoader('main', progress, complete);
     }
 });

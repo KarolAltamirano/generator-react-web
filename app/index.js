@@ -5,6 +5,8 @@
  * @license     MIT
  */
 
+/* eslint-disable */
+
 'use strict';
 
 var generators = require('yeoman-generator'),

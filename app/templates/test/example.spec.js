@@ -4,28 +4,26 @@ import { shallow } from 'enzyme';
 import { expect } from 'chai';
 // import sinon from 'sinon';
 
-describe('Example test', function () {
-    var wrapper;
+describe('Example test', () => {
+    let wrapper;
 
-    var TestComponent = function ({ title }) {
-        return (
-            <div>{title}</div>
-        );
-    };
+    const TestComponent = ({ title }) => (
+        <div>{title}</div>
+    );
 
     TestComponent.propTypes = {
         title: PropTypes.string.isRequired
     };
 
-    beforeEach(function () {
+    beforeEach(() => {
         wrapper = shallow(<TestComponent title="ahoj" />);
     });
 
-    it('should run successfully', function () {
+    it('should run successfully', () => {
         expect(wrapper.type()).to.equal('div');
     });
 
-    it('should run successfully too', function () {
+    it('should run successfully too', () => {
         expect(wrapper.text()).to.equal('ahoj');
     });
 });

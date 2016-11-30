@@ -64,7 +64,7 @@ export default {
         ]
     },
 
-    postcss: function () {
+    postcss() {
         return [assets, autoprefixer({ browsers: config.autoprefixer })];
     },
 

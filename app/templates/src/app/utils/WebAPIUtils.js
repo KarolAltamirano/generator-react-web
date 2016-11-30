@@ -1,6 +1,6 @@
 // import fetch from 'isomorphic-fetch';
 
-var WebAPIUtils = {
+const WebAPIUtils = {
 };
 
 export default WebAPIUtils;

@@ -6,7 +6,7 @@ import Template from './containers/Template/Template';
 /**
  * Define routes
  */
-var routes = (
+const routes = (
     <Route path="/" component={Template}>
         <Redirect from="*" to="/" />
     </Route>

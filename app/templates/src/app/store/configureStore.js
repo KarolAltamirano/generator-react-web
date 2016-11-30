@@ -12,8 +12,8 @@ import rootReducer from '../reducers';
  * @return {Store}               redux store
  */
 export default function configureStore(initialState) {
-    var middleware,
-        logger = createLogger({ collapsed: true });
+    let middleware;
+    const logger = createLogger({ collapsed: true });
 
     // set middleware for development or production build
     if (process.env.NODE_ENV === 'development') {

@@ -9,7 +9,7 @@ require.extensions['.png'] = noop;
 require.extensions['.jpg'] = noop;
 require.extensions['.gif'] = noop;
 
-var exposedProperties = ['window', 'document'];
+const exposedProperties = ['window', 'document'];
 
 global.document = jsdom('<!doctype html><html><body></body></html>');
 global.window = global.document.defaultView;
