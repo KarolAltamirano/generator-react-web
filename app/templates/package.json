@@ -1,5 +1,5 @@
 {
-  "name": "<%= name %>",
+  "name": "react-boilerplate",
   "version": "0.0.0",
   "time": "00.00.0000 00:00:00 (+0000)",
   "private": true,
@@ -11,7 +11,8 @@
     "start": "babel-node tools/run start",
     "lint": "eslint src test tools",
     "test": "mocha --compilers js:babel-register test/utils/setup.js test/**/*.spec.js",
-    "test:watch": "yarn run test -- -w"
+    "test:watch": "yarn run test -- -w",
+    "e2e": "nightwatch"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.3",
@@ -25,6 +26,7 @@
     "babel-register": "^6.18.0",
     "browser-sync": "^2.18.2",
     "chai": "^3.5.0",
+    "chromedriver": "^2.25.3",
     "connect-history-api-fallback": "^1.3.0",
     "css-loader": "^0.26.0",
     "del": "^2.2.2",
@@ -48,6 +50,7 @@
     "modernizr-loader": "0.0.5",
     "moment": "^2.16.0",
     "napa": "^2.3.0",
+    "nightwatch": "^0.9.11",
     "node-sass": "^3.13.0",
     "postcss-assets": "^4.1.0",
     "postcss-loader": "^1.1.1",
