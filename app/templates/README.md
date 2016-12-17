@@ -35,7 +35,7 @@ Project was generated with Yeoman generator
  ├─── style                    : global scss
  │   ├─── global                 : global styles shared across the whole app
  │   └─── shared                 : scss for defining shared scss variables and mixins
- ├─── utilities                : app utilities
+ ├─── utils                : app utils
  └─── views                    : app entry views (loader, incompatible browser ...)
 ```
 
@@ -103,7 +103,7 @@ autoprefixer : Configuration of autoprefixer
 ```
 
 # Build version
-To hide build version info set `renderVersionInfo` to `false` inside `src/entry/utilities/appSettings.js` file.
+To hide build version info set `renderVersionInfo` to `false` inside `src/entry/utils/AppSettings.js` file.
 To bump version use yarn task `yarn run bump [ major | minor | patch ]`
 
 # Linting
