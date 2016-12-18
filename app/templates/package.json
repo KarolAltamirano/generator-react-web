@@ -9,7 +9,7 @@
     "build": "babel-node tools/run build",
     "server": "babel-node tools/run server",
     "start": "babel-node tools/run start",
-    "lint": "eslint src test tools",
+    "lint": "eslint src test teste2e tools",
     "test": "mocha --compilers js:babel-register test/utils/setup.js test/**/*.spec.js",
     "test:watch": "yarn run test -- -w",
     "e2e": "nightwatch"
