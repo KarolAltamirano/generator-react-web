@@ -23,14 +23,14 @@
   "dependencies": {
     "chalk": "^1.1.3",
     "lodash": "^4.17.2",
-    "yeoman-generator": "^0.24.1",
+    "yeoman-generator": "^1.0.0",
     "yosay": "^1.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-es2015": "^6.18.0",
-    "eslint": "^3.11.1",
-    "eslint-config-airbnb-base": "^10.0.1",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb-base": "^11.0.0",
     "eslint-plugin-import": "^2.2.0",
     "js-beautify": "^1.6.4"
   }
