@@ -9,17 +9,17 @@ import './style/global/global.scss';
 import copy from '../copy/copy.json';
 
 // incompatible browser screen
-import Incompatible from './utilities/Incompatible';
+import Incompatible from './utils/Incompatible';
 import incompatibleTemplate from './views/incompatible/incompatible.html';
 import incompatibleStyle from './views/incompatible/incompatible.scss';
 
 // build version
-import Version from './utilities/Version';
+import Version from './utils/Version';
 import versionTemplate from './views/version/version.html';
 import versionStyle from './views/version/version.scss';
 
 // loader
-import Loader from './utilities/Loader';
+import Loader from './utils/Loader';
 import loaderTemplate from './views/loader/loader.html';
 import loaderStyle from './views/loader/loader.scss';
 

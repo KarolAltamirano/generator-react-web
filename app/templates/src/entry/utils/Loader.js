@@ -20,7 +20,24 @@ function runFallback() {
     return result;
 }
 
+// generate initial loader state
+const initialState = Object.keys(loaderData).reduce((prev, curr) => (
+    Object.assign({}, prev, {
+        [curr]: 'none'
+    })
+), {});
+
 const Loader = {
+    /**
+     * Loader state
+     *     'none'     loader was not created yet
+     *     'progress' loader is in progress
+     *     'done'     loader has already loaded all assets
+     *
+     * @type {Object}
+     */
+    state: initialState,
+
     /**
      * Create loader
      *
@@ -28,7 +45,7 @@ const Loader = {
      * @param  {Function} progress callback function during loading
      * @param  {Function} complete callback function when loading is completed
      */
-    createLoader(id, progress, complete) {
+    createLoader(id, progress = null, complete = null) {
         if (loaderList[id] != null) {
             throw new Error(`Loader with id: '${id}' already exists.`);
         }
@@ -49,14 +66,37 @@ const Loader = {
             });
         }
 
+        // initialize cache
         cache[id] = [];
+
+        // set state to in progress
+        this.state[id] = 'progress';
 
         // create loader - dont use xhr in fallback mode
         loaderList[id] = new createjs.LoadQueue(!runFallback());
+        loaderList[id].setMaxConnections(3);
 
-        loaderList[id].addEventListener('progress', progress);
-        loaderList[id].addEventListener('complete', complete);
-        loaderList[id].loadManifest(loaderData[id]);
+        // createjs.Sound.alternateExtensions = ['mp3'];
+        // loaderList[id].installPlugin(createjs.Sound);
+
+        if (typeof progress === 'function') {
+            loaderList[id].addEventListener('progress', progress);
+        }
+
+        return new Promise((resolve) => {
+            loaderList[id].addEventListener('complete', (e) => {
+                if (typeof complete === 'function') {
+                    complete(e);
+                }
+
+                // set state when loader complete loading
+                this.state[id] = 'done';
+
+                resolve();
+            });
+
+            loaderList[id].loadManifest(loaderData[id]);
+        });
     },
 
     /**
@@ -88,25 +128,49 @@ const Loader = {
      * @param {string} assetId  asset id
      */
     getAsset(loaderId, assetId) {
-        const cachedAsset = cache[loaderId].find(element => element.id === assetId);
+        const asset = loaderData[loaderId].find(element => element.id === assetId);
 
-        if (cachedAsset) {
-            return cachedAsset.url;
+        // check if asset with id exists
+        if (asset == null) {
+            throw new Error(`Asset with id '${assetId}' does not exists. Loader id '${loaderId}'`);
         }
 
-        const asset = loaderData[loaderId].find(element => element.id === assetId);
+        // check if asset is loaded as binary, if not return asset as it is in loader
+        if (asset.type !== 'binary') {
+            return this.getLoader(loaderId).getResult(assetId);
+        }
 
         // don't create blob in fallback mode
         if (runFallback()) {
             return asset.src;
         }
 
+        const cachedAsset = cache[loaderId].find(element => element.id === assetId);
+
+        if (cachedAsset) {
+            return cachedAsset.url;
+        }
+
+        // mimeType of the file
+        // NOTE: add new mimeType here if needed
+        let mimeType;
+
+        if (asset.ext === 'png') {
+            mimeType = 'image/png';
+        }
+
+        if (asset.ext === 'jpg') {
+            mimeType = 'image/jpeg';
+        }
+
+        // create blob
         const newAssetURL = URL.createObjectURL(
             new Blob([this.getLoader(loaderId).getResult(assetId)], {
-                type: asset.mimeType
+                type: mimeType
             })
         );
 
+        // cache
         cache[loaderId].push({
             id: assetId,
             url: newAssetURL

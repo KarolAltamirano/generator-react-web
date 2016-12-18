@@ -5,20 +5,16 @@
  * @license     MIT
  */
 
-/* eslint-disable */
+const Generator = require('yeoman-generator');
+const chalk = require('chalk');
+const yosay = require('yosay');
+const _ = require('lodash');
 
-'use strict';
+module.exports = class extends Generator {
+    prompting() {
+        this.log(yosay(`Welcome to the ${chalk.green('React Web')} Generator!`));
 
-var generators = require('yeoman-generator'),
-    chalk      = require('chalk'),
-    yosay      = require('yosay'),
-    _          = require('lodash');
-
-module.exports = generators.Base.extend({
-    prompting: function () {
-        this.log(yosay('Welcome to the ' + chalk.green('React web') + ' generator!'));
-
-        var prompts = [
+        const prompts = [
             {
                 type: 'input',
                 name: 'name',
@@ -27,12 +23,12 @@ module.exports = generators.Base.extend({
             }
         ];
 
-        return this.prompt(prompts).then(function (props) {
+        return this.prompt(prompts).then((props) => {
             this.props = props;
-        }.bind(this));
-    },
+        });
+    }
 
-    writing: function () {
+    writing() {
         // copy all files except .gitignore and package.json
         this.fs.copy(
             this.templatePath('**/!(.gitignore|.npmignore|package.json)'),
@@ -58,9 +54,9 @@ module.exports = generators.Base.extend({
             this.destinationPath('package.json'),
             { name: _.kebabCase(this.props.name) }
         );
-    },
+    }
 
-    install: function () {
+    install() {
         this.runInstall('yarn');
     }
-});
+};
