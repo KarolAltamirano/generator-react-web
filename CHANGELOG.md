@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.3.3 - 2016-12-19
+- Add nightwatch for e2e tests
+- Rename utilities folder to utils
+- Refactor Loader
+- Update packages
+- Update yeoman script
+
 ## v0.3.2 - 2016-12-01
 - Fix package name not using kebab-case
 - Rename task test-watch to test:watch
