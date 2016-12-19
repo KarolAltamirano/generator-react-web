@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.3.4 - 2016-12-19
+- Fix Loader fallback mode issue
+
 ## v0.3.3 - 2016-12-19
 - Add nightwatch for e2e tests
 - Rename utilities folder to utils
