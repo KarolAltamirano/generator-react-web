@@ -3,5 +3,5 @@ import sprite from '../../assets/scssSprite/assetsNoRetina.scss';
 
 export default [
     { id: 'scssSprite', src: sprite },
-    { id: 'plane', type: 'binary', src: planeImg }
+    { id: 'plane', src: planeImg }
 ];
