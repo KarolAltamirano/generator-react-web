@@ -59,7 +59,8 @@ const Loader = {
             loaderData[id] = loaderData[id].map((item) => {
                 if (item.type === 'binary') {
                     return Object.assign({}, item, {
-                        type: undefined
+                        type: undefined,
+                        getURL: true
                     });
                 }
                 return item;
@@ -135,13 +136,13 @@ const Loader = {
             throw new Error(`Asset with id '${assetId}' does not exists. Loader id '${loaderId}'`);
         }
 
-        // check if asset is loaded as binary, if not return asset as it is in loader
-        if (asset.type !== 'binary') {
+        // return asset as it is in loader if it was not loaded as binary
+        if (asset.type !== 'binary' && asset.getURL !== true) {
             return this.getLoader(loaderId).getResult(assetId);
         }
 
         // don't create blob in fallback mode
-        if (runFallback()) {
+        if (runFallback() && asset.getURL === true) {
             return asset.src;
         }
 
