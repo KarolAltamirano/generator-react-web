@@ -15,9 +15,10 @@ Project was generated with Yeoman generator
 # Root folders
 ```
 .
-├─── src   : source code
-├─── test  : unit tests
-└─── tools : build tools
+├─── src     : source code
+├─── test    : unit tests
+├─── teste2e : e2e tests
+└─── tools   : build tools
 ```
 
 # 'src' folder
@@ -35,21 +36,25 @@ Project was generated with Yeoman generator
  ├─── style                    : global scss
  │   ├─── global                 : global styles shared across the whole app
  │   └─── shared                 : scss for defining shared scss variables and mixins
- ├─── utils                : app utils
+ ├─── utils                    : app utils
  └─── views                    : app entry views (loader, incompatible browser ...)
 ```
 
 # Tasks
 ```
-yarn run start      : start dev server and rebuild on file change
-yarn test           : run unit tests
-yarn run test:watch : run unit tests in watch mode
-yarn run lint       : run JavaScript linter
 yarn run bump major : bump major version
 yarn run bump minor : bump minor version
 yarn run bump patch : bump patch version
 yarn run build      : build for production
 yarn run server     : run server to test production build
+yarn run start      : start dev server and rebuild on file change
+yarn run lint:html  : run HTML linter
+yarn run lint:style : run style linter
+yarn run lint:all   : run all linters (HTML, style, JavaScript)
+yarn run lint       : run JavaScript linter
+yarn test           : run unit tests
+yarn run test:watch : run unit tests in watch mode
+yarn run e2e        : run e2e tests
 ```
 
 # Webpack
@@ -66,8 +71,7 @@ yarn run server     : run server to test production build
   install it.
 - If you want to install library not published in npm and without `package.json` you can install it
   from git repository with [`napa`](https://github.com/shama/napa).
-    - To install new library add it to `package.json` file to `napa` variable and run `npm install`.
-      More details how to use `napa` can be found [here](https://github.com/shama/napa).
+    - More information how to use `napa` can be found [here](https://github.com/shama/napa).
     - Probably you will need to set `resolve.alias` and `loaders` inside `webpack.config.js` for
       libraries not published in npm.
 
@@ -116,21 +120,20 @@ Use linter in your text editor for JavaScript and SCSS.
 - ESLint for Sublime Text - [show](https://github.com/roadhump/SublimeLinter-eslint)
 
 ## SCSS
-- For SCSS use [SCSS-Lint](https://github.com/brigade/scss-lint). The project contains SCSS-Lint
-  configuration file `.scss-lint.yml`
-- SCSS-Lint for Atom - [show](https://github.com/AtomLinter/linter-scss-lint)
-- SCSS-Lint for Sublime Text - [show](https://github.com/attenzione/SublimeLinter-scss-lint)
+- For SCSS use [stylelint](https://github.com/stylelint/stylelint). The project contains stylelint
+  configuration file `.stylelintrc`
+- stylelint for Atom - [show](https://github.com/AtomLinter/linter-stylelint)
+- stylelint for Sublime Text - [show](https://github.com/kungfusheep/SublimeLinter-contrib-stylelint)
 
-# Susy and Breakpoint
-- To create page layout use Susy. Susy is Sass library for creating powerful, custom layouts.
-  For more information check out Susy [homepage](http://susy.oddbird.net/).
-- For creating breakpoints use Susy mixin `susy-breakpoint`. The mixin uses internally
-  Sass library Breakpoint. Check out Breakpoint [homepage](http://breakpoint-sass.com/) for
-  all possible queries.
+## HTML
+- For HTML use [HTMLHint](https://github.com/yaniswang/HTMLHint). The project contains HTMLHint
+  configuration file `.htmlhintrc`
+- HTMLHint for Atom - [show](https://github.com/AtomLinter/linter-htmlhint)
+- HTMLHint for Sublime Text - [show](https://github.com/mmaday/SublimeLinter-contrib-htmlhint)
 
 # Image sprite-sheet
 - Inside directory `src/app/assets/scssSprite` there are `scss` files that handle
-  generating image sprite-sheet. To add image to sprite-sheet use `etina-inline-asset`
+  generating image sprite-sheet. To add image to sprite-sheet use `retina-inline-asset`
   mixin inside `_assets.scss` file.
 
 # Assets mixins
