@@ -4,7 +4,6 @@
   "time": "00.00.0000 00:00:00 (+0000)",
   "private": true,
   "scripts": {
-    "install": "napa",
     "bump": "babel-node tools/run bump",
     "build": "babel-node tools/run build",
     "server": "babel-node tools/run server",
@@ -56,7 +55,6 @@
     "modernizr": "^3.3.1",
     "modernizr-loader": "0.0.5",
     "moment": "^2.17.1",
-    "napa": "^2.3.0",
     "nightwatch": "^0.9.11",
     "node-sass": "^4.0.0",
     "postcss-assets": "^4.1.0",
@@ -96,6 +94,5 @@
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
     "ua-parser-js": "^0.7.12"
-  },
-  "napa": {}
+  }
 }
