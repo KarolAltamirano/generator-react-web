@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 
 ## v0.4.0
+- Add HTMLHint
+- Add stylelint and remove SCSS lint
+- Add precommit hooks
+- Remove Susy
+- Remove Breakpoint.scss
+- Remove napa
+- Update README.md
 
 ## v0.3.4 - 2016-12-19
 - Fix Loader fallback mode issue
