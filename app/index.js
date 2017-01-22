@@ -1,7 +1,7 @@
 /**
  * @file        Main file of Yeoman generator for React web
  * @author      Karol Altamirano <karlos.altamirano@gmail.com>
- * @copyright   2016 Karol Altamirano
+ * @copyright   2016 - 2017 Karol Altamirano
  * @license     MIT
  */
 

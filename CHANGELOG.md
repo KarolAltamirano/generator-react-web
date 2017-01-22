@@ -1,6 +1,8 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.4.0
+
 ## v0.3.4 - 2016-12-19
 - Fix Loader fallback mode issue
 
