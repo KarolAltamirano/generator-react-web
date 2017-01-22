@@ -38,7 +38,6 @@ const App = {
     }
 };
 
-
 if (module.hot) {
     module.hot.accept('./routes', () => {
         const nextRoutes = require('./routes').default;
