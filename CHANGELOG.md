@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - Remove Breakpoint.scss
 - Remove napa
 - Update README.md
+- Update dependencies
 
 ## v0.3.4 - 2016-12-19
 - Fix Loader fallback mode issue
