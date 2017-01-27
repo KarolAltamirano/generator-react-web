@@ -59,7 +59,7 @@ export default {
                 include: path.resolve(__dirname, 'src', 'assets', 'scssSprite'),
                 loader: 'file?name=cssSprite/[name]---[hash].css!postcss!sass!sass-resources'
             },
-            { test: /\.modernizrrc$/, loader: 'modernizr' },
+            { test: /\.modernizrrc$/, loader: 'modernizr!json' },
             { test: /createjs-preloadjs/, loader: 'imports?this=>global!exports?window.createjs' },
             { test: /gsap/, loader: 'exports?window' }
         ]
