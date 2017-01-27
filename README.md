@@ -17,6 +17,7 @@ Generator helps you initialize new interactive web site project. It contains ass
 - Yarn
 - npm Scripts
 - CSS Modules
+- SCSS
 
 ## Getting Started
 ### Requirements

@@ -29,7 +29,8 @@ export default {
 
     module: {
         preLoaders: [
-            { test: /\.js$/, exclude: /node_modules/, loader: 'eslint' }
+            { test: /\.js$/, exclude: /node_modules/, loader: 'eslint' },
+            { test: /\.html$/, exclude: /node_modules/, loader: 'htmlhint' }
         ],
         loaders: [
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
@@ -58,7 +59,7 @@ export default {
                 include: path.resolve(__dirname, 'src', 'assets', 'scssSprite'),
                 loader: 'file?name=cssSprite/[name]---[hash].css!postcss!sass!sass-resources'
             },
-            { test: /\.modernizrrc$/, loader: 'modernizr' },
+            { test: /\.modernizrrc$/, loader: 'modernizr!json' },
             { test: /createjs-preloadjs/, loader: 'imports?this=>global!exports?window.createjs' },
             { test: /gsap/, loader: 'exports?window' }
         ]

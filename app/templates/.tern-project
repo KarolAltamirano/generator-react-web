@@ -6,6 +6,7 @@
     "loadEagerly": [
         "src/**/*.js",
         "test/**/*.js",
+        "teste2e/**/*.js",
         "tools/**/*.js"
     ],
     "plugins": {
