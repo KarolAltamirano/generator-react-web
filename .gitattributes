@@ -13,11 +13,11 @@
 
 .babelrc text eol=lf
 .editorconfig text eol=lf
+.eslintignore text eol=lf
 .eslintrc text eol=lf
 .gitattributes text eol=lf
 .gitignore text eol=lf
 .gitkeep text eol=lf
-.modernizrrc text eol=lf
 .tern-project text eol=lf
 
 # Binary files
