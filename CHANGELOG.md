@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## v0.4.1 - 2017-01-28
 - Update .editorconfig
 - Update .gitattributes
+- Update README.md
 
 ## v0.4.0 - 2017-01-27
 - Add HTMLHint
