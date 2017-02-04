@@ -83,7 +83,7 @@ yarn run e2e        : run e2e tests
 # SCSS Source maps
 - Source maps are disabled for SCSS files because of an issue with style-loader
   ([read more here](https://github.com/webpack/style-loader/issues/93)). As a workaround add to each
-  SCSS file a comment containing its path.
+  SCSS file a comment containing its module name.
 - In case SCSS source map are necessary for debugging
     - set `publicPath` inside `webpack.config.js` file to `http://localhost:3000/`
     - enable source maps inside `webpack.config.js` as described
