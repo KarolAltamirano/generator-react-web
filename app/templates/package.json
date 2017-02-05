@@ -15,7 +15,7 @@
     "test": "mocha --compilers js:babel-register test/utils/setup.js test/**/*.spec.js",
     "test:watch": "yarn run test -- -w",
     "e2e": "nightwatch",
-    "precommit": "yarn run lint:all"
+    "precommit": "yarn run lint:all && yarn run test"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
