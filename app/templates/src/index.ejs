@@ -8,6 +8,9 @@
     <% if (htmlWebpackPlugin.files.favicon) { %>
     <link rel="shortcut icon" href="<%= htmlWebpackPlugin.files.favicon%>">
     <% } %>
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+    <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[css] %>">
+    <% } %>
     <!-- incompatible browser -->
     <style> .incompatibleBrowser { display: none; } </style>
 </head>
