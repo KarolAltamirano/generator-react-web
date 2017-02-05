@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## v0.4.2
+## v0.4.2 - 2017-02-05
 - Add extract-text-webpack-plugin
 - Update header comments in scss files
 
