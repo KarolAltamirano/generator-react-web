@@ -1,5 +1,5 @@
 {
-  "name": "<%= name %>",
+  "name": "dev-mode",
   "version": "0.0.0",
   "time": "00.00.0000 00:00:00 (+0000)",
   "private": true,
@@ -83,7 +83,6 @@
     "debug": "^2.6.0",
     "gsap": "^1.19.1",
     "ismobilejs": "^0.4.0",
-    "isomorphic-fetch": "^2.2.1",
     "mustache": "^2.3.0",
     "normalize.css": "^5.0.0",
     "react": "^15.4.2",
@@ -95,6 +94,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.2.0",
-    "ua-parser-js": "^0.7.12"
+    "ua-parser-js": "^0.7.12",
+    "whatwg-fetch": "^2.0.2"
   }
 }

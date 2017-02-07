@@ -12,6 +12,9 @@ Project was generated with Yeoman generator
 - To install all development dependencies of existing project run `yarn` inside the root
   directory of the project.
 
+# Install git hooks
+yarn add husky
+
 # Root folders
 ```
 .
