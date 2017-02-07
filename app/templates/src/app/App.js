@@ -14,6 +14,24 @@ let history;
 
 const App = {
     /**
+     * Render application
+     *
+     * @param  {Store}     pStore   redux store
+     * @param  {History}   pHistory router history method
+     * @param  {Component} pRoutes  application routes
+     */
+    render(pStore, pHistory, pRoutes) {
+        ReactDOM.render(
+            <AppContainer key={Math.random()}>
+                <Provider store={pStore}>
+                    <Router history={pHistory}>{pRoutes}</Router>
+                </Provider>
+            </AppContainer>,
+            document.getElementById('container')
+        );
+    },
+
+    /**
      * Run application
      */
     run() {
@@ -24,14 +42,7 @@ const App = {
         history = syncHistoryWithStore(browserHistory, store);
 
         // render aplication
-        ReactDOM.render(
-            <AppContainer key={Math.random()}>
-                <Provider store={store}>
-                    <Router history={history}>{routes}</Router>
-                </Provider>
-            </AppContainer>,
-            document.getElementById('container')
-        );
+        this.render(store, history, routes);
 
         // dispatch initialize action
         store.dispatch(AppActions.initialize());
@@ -40,16 +51,7 @@ const App = {
 
 if (module.hot) {
     module.hot.accept('./routes', () => {
-        const nextRoutes = require('./routes').default;
-
-        ReactDOM.render(
-            <AppContainer key={Math.random()}>
-                <Provider store={store}>
-                    <Router history={history}>{nextRoutes}</Router>
-                </Provider>
-            </AppContainer>,
-            document.getElementById('container')
-        );
+        App.render(store, history, require('./routes').default);
     });
 }
 
