@@ -9,28 +9,28 @@ import configureStore from './store/configureStore';
 import routes from './routes';
 import AppActions from './actions/AppActions';
 
+/**
+ * Render application
+ *
+ * @param {Store}     pStore   redux store
+ * @param {History}   pHistory router history method
+ * @param {Component} pRoutes  application routes
+ */
+function render(pStore, pHistory, pRoutes) {
+    ReactDOM.render(
+        <AppContainer key={Math.random()}>
+            <Provider store={pStore}>
+                <Router history={pHistory}>{pRoutes}</Router>
+            </Provider>
+        </AppContainer>,
+        document.getElementById('container')
+    );
+}
+
 let store;
 let history;
 
 const App = {
-    /**
-     * Render application
-     *
-     * @param  {Store}     pStore   redux store
-     * @param  {History}   pHistory router history method
-     * @param  {Component} pRoutes  application routes
-     */
-    render(pStore, pHistory, pRoutes) {
-        ReactDOM.render(
-            <AppContainer key={Math.random()}>
-                <Provider store={pStore}>
-                    <Router history={pHistory}>{pRoutes}</Router>
-                </Provider>
-            </AppContainer>,
-            document.getElementById('container')
-        );
-    },
-
     /**
      * Run application
      */
@@ -42,7 +42,7 @@ const App = {
         history = syncHistoryWithStore(browserHistory, store);
 
         // render aplication
-        this.render(store, history, routes);
+        render(store, history, routes);
 
         // dispatch initialize action
         store.dispatch(AppActions.initialize());
@@ -51,7 +51,7 @@ const App = {
 
 if (module.hot) {
     module.hot.accept('./routes', () => {
-        App.render(store, history, require('./routes').default);
+        render(store, history, require('./routes').default);
     });
 }
 
