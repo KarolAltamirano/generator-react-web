@@ -15,6 +15,7 @@
     "test": "mocha --compilers js:babel-register test/utils/setup.js test/**/*.spec.js",
     "test:watch": "yarn run test -- -w",
     "e2e": "nightwatch",
+    "hooks:install": "node node_modules/husky/bin/install",
     "precommit": "yarn run lint:all && yarn run test"
   },
   "devDependencies": {
