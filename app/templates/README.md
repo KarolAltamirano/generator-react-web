@@ -8,11 +8,11 @@ Project was generated with Yeoman generator
 - yarn
 
 # Install dependencies for development
-## New project
+## New project / repository
 - create git repository: run `git init` in terminal
 - install git hooks: run `yarn run hooks:install` in terminal
 
-## Existing project
+## Existing project / repository
 - clone repository
 - install all dependencies: run `yarn` in terminal
 
