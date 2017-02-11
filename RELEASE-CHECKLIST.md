@@ -1,0 +1,6 @@
+- Update CHANGELOG.md
+- Run `npm run start` to build release version
+- Bump version
+- Create PR
+- Create tag on master after PR is merged
+- Run `npm publish`

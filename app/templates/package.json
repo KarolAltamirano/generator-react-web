@@ -15,6 +15,7 @@
     "test": "mocha --compilers js:babel-register test/utils/setup.js test/**/*.spec.js",
     "test:watch": "yarn run test -- -w",
     "e2e": "nightwatch",
+    "hooks:install": "node node_modules/husky/bin/install",
     "precommit": "yarn run lint:all && yarn run test"
   },
   "devDependencies": {
@@ -35,10 +36,10 @@
     "del": "^2.2.2",
     "enzyme": "^2.7.1",
     "eslint": "^3.15.0",
-    "eslint-config-airbnb": "^14.0.0",
+    "eslint-config-airbnb": "^14.1.0",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
     "exports-loader": "^0.6.3",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -49,7 +50,7 @@
     "htmlhint-loader": "^1.1.1",
     "husky": "^0.13.1",
     "imports-loader": "^0.7.0",
-    "js-beautify": "^1.6.8",
+    "js-beautify": "^1.6.9",
     "jsdom": "^9.10.0",
     "json-loader": "^0.5.4",
     "mocha": "^3.2.0",
@@ -68,7 +69,8 @@
     "sinon": "^1.17.7",
     "style-loader": "^0.13.1",
     "stylelint": "^7.8.0",
-    "stylelint-config-standard": "^15.0.1",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-declaration-use-variable": "^1.6.0",
     "stylelint-order": "^0.2.2",
     "stylelint-scss": "^1.4.1",
     "webpack": "^1.14.0",
@@ -80,10 +82,9 @@
   "dependencies": {
     "babel-polyfill": "^6.22.0",
     "createjs-preloadjs": "^0.6.3",
-    "debug": "^2.6.0",
+    "debug": "^2.6.1",
     "gsap": "^1.19.1",
     "ismobilejs": "^0.4.0",
-    "isomorphic-fetch": "^2.2.1",
     "mustache": "^2.3.0",
     "normalize.css": "^5.0.0",
     "react": "^15.4.2",
@@ -91,10 +92,11 @@
     "react-hot-loader": "^3.0.0-beta.6",
     "react-redux": "^5.0.2",
     "react-router": "^3.0.2",
-    "react-router-redux": "^4.0.7",
+    "react-router-redux": "^4.0.8",
     "redux": "^3.6.0",
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.2.0",
-    "ua-parser-js": "^0.7.12"
+    "ua-parser-js": "^0.7.12",
+    "whatwg-fetch": "^2.0.2"
   }
 }

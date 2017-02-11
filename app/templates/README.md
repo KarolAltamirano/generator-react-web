@@ -7,10 +7,14 @@ Project was generated with Yeoman generator
 - npm v3.10 or newer
 - yarn
 
-# Install all dependencies for development
-- Skip this step if you have generated the project with Yeoman. Yeoman install all dependencies for you.
-- To install all development dependencies of existing project run `yarn` inside the root
-  directory of the project.
+# Install dependencies for development
+## New project / repository
+- create git repository: run `git init` in terminal
+- install git hooks: run `yarn run hooks:install` in terminal
+
+## Existing project / repository
+- clone repository
+- install all dependencies: run `yarn` in terminal
 
 # Root folders
 ```
@@ -42,19 +46,20 @@ Project was generated with Yeoman generator
 
 # Tasks
 ```
-yarn run bump major : bump major version
-yarn run bump minor : bump minor version
-yarn run bump patch : bump patch version
-yarn run build      : build for production
-yarn run server     : run server to test production build
-yarn run start      : start dev server and rebuild on file change
-yarn run lint:html  : run HTML linter
-yarn run lint:style : run style linter
-yarn run lint:all   : run all linters (HTML, style, JavaScript)
-yarn run lint       : run JavaScript linter
-yarn test           : run unit tests
-yarn run test:watch : run unit tests in watch mode
-yarn run e2e        : run e2e tests
+yarn run bump major    : bump major version
+yarn run bump minor    : bump minor version
+yarn run bump patch    : bump patch version
+yarn run build         : build for production
+yarn run server        : run server to test production build
+yarn run start         : start dev server and rebuild on file change
+yarn run lint:html     : run HTML linter
+yarn run lint:style    : run style linter
+yarn run lint:all      : run all linters (HTML, style, JavaScript)
+yarn run lint          : run JavaScript linter
+yarn test              : run unit tests
+yarn run test:watch    : run unit tests in watch mode
+yarn run e2e           : run e2e tests
+yarn run hooks:install : install git hooks
 ```
 
 # Webpack
