@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - Update packages
 - Replace isomorphic-fetch with whatwg-fetch
 - Refactor App.js run method
+- Add RELEASE-CHECKLIST.md file
 
 ## v0.4.2 - 2017-02-06
 - Add extract-text-webpack-plugin
