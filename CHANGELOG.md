@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.4.3 - 2017-02-11
+- Use variables in sass for color, z-index, font-size
+- Add stylelint plugin stylelint-declaration-use-variable
+- Update README.md
+- Add npm script to install git hooks
+- Update packages
+- Replace isomorphic-fetch with whatwg-fetch
+- Refactor App.js run method
+
 ## v0.4.2 - 2017-02-06
 - Add extract-text-webpack-plugin
 - Update header comments in scss files
