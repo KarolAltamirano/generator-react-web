@@ -32,6 +32,6 @@
     "eslint": "^3.15.0",
     "eslint-config-airbnb-base": "^11.1.0",
     "eslint-plugin-import": "^2.2.0",
-    "js-beautify": "^1.6.8"
+    "js-beautify": "^1.6.9"
   }
 }
