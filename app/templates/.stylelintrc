@@ -1,6 +1,12 @@
 {
-    "plugins": ["stylelint-scss", "stylelint-order"],
+    "plugins": [
+        "stylelint-scss",
+        "stylelint-order",
+        "stylelint-declaration-use-variable"
+    ],
+
     "extends": "stylelint-config-standard",
+
     "rules": {
         "indentation": 4,
         "selector-id-pattern": "^[a-z]+([A-Z0-9][a-z0-9]+)*$",
@@ -34,6 +40,7 @@
         "scss/at-if-closing-brace-newline-after": "always-last-in-chain",
         "scss/at-if-closing-brace-space-after": "always-intermediate",
         "scss/at-else-closing-brace-newline-after": "always-last-in-chain",
-        "scss/at-else-closing-brace-space-after": "always-intermediate"
+        "scss/at-else-closing-brace-space-after": "always-intermediate",
+        "sh-waqar/declaration-use-variable": [["/color/", "z-index", "font-size"]],
     }
 }
