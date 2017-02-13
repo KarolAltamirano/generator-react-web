@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.4.4 - 2017-02-13
+- Fix .stylelintrc syntax error
+
 ## v0.4.3 - 2017-02-11
 - Use variables in sass for color, z-index, font-size
 - Add stylelint plugin stylelint-declaration-use-variable
