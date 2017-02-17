@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.4.5 - 2017-02-17
+- Add stylelint plugin stylelint-csstree-validator
+- Update packages
+
 ## v0.4.4 - 2017-02-13
 - Fix .stylelintrc syntax error
 
