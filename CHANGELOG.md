@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## v0.4.6 - 2017-02-21
+## v0.4.6 - 2017-02-22
 - Add leasot
 - Update packages
 
