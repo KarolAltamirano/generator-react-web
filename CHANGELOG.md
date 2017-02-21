@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.4.6 - 2017-02-22
+- Add leasot
+- Update packages
+
 ## v0.4.5 - 2017-02-17
 - Add stylelint plugin stylelint-csstree-validator
 - Update packages

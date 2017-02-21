@@ -59,6 +59,7 @@ yarn run lint          : run JavaScript linter
 yarn test              : run unit tests
 yarn run test:watch    : run unit tests in watch mode
 yarn run e2e           : run e2e tests
+yarn run leasot        : print all TODOs and FIXMEs to the console
 yarn run hooks:install : install git hooks
 ```
 
