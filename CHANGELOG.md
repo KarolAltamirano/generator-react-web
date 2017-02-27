@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.4.7 - 2017-02-28
+- Add configuration file for atom-postcss-sorting plugin
+- Document how to sort css properties automatically
+
 ## v0.4.6 - 2017-02-22
 - Add leasot
 - Update packages
