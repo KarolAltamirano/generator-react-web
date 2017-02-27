@@ -86,6 +86,17 @@ yarn run hooks:install : install git hooks
 - Read more about CSS Modules [here](https://github.com/css-modules/css-modules)
     - "A CSS Module is a CSS file in which all class names and animation names are scoped locally by default."
 
+# SCSS properties order
+Stylelint configuration contains strict order of properties. To help you order properties automatically
+you can use one of the [postcss-sorting](https://github.com/hudochenkov/postcss-sorting) plugins.
+This project already contains `.postcss-sorting.json` file that is configuration file for
+atom-postcss-sorting plugin. To configure postcss-sorting plugin for your favorite editor please
+check the documentation of the plugin created for your editor and create configuration file
+based on `.postcss-sorting.json` file located in root directory of the project.
+
+- plugin for Atom [atom-postcss-sorting](https://github.com/lysyi3m/atom-postcss-sorting)
+- plugin for Sublime Text [sublime-postcss-sorting](https://github.com/hudochenkov/sublime-postcss-sorting)
+
 # SCSS Source maps
 - Source maps are disabled for SCSS files because of an issue with style-loader
   ([read more here](https://github.com/webpack/style-loader/issues/93)). As a workaround add to each
