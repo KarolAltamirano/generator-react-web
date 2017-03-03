@@ -40,8 +40,8 @@ function progress(e) {
 
 function complete() {
     // create new chunk
-    require.ensure([], (require) => {
-        const App = require('../app/App').default;
+    import('../app/App').then((module) => {
+        const App = module.default;
 
         // hide loader
         Loader.hide();

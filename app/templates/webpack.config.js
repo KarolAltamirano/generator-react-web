@@ -7,6 +7,16 @@ import assets from 'postcss-assets';
 import autoprefixer from 'autoprefixer';
 import config from './config.json';
 
+// hide deprecation warrings
+process.noDeprecation = true;
+
+// set path to scss shared file
+const sassResources = path.resolve(__dirname, 'src', 'entry', 'style', 'shared', 'shared.scss');
+
+// set postcss plugins
+const postcssPlugins = () => [assets, autoprefixer({ browsers: config.autoprefixer })];
+
+// webpack configuration
 export default {
     output: {
         path: path.resolve(__dirname, config.buildDir),
@@ -29,45 +39,98 @@ export default {
     },
 
     module: {
-        preLoaders: [
-            { test: /\.js$/, exclude: /node_modules/, loader: 'eslint' },
-            { test: /\.html$/, exclude: /node_modules/, loader: 'htmlhint' }
-        ],
-        loaders: [
-            { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
-            { test: /\.json$/, loader: 'json' },
-            { test: /\.html$/, loader: 'html' },
-            { test: /\.(eot|woff(2)?|ttf|svg)(\?v=\d+\.\d+\.\d+)?$/, loader: 'file?name=fonts/[name]---[hash].[ext]' },
-            { test: /\.(png|jpg)$/, loader: 'file?name=images/[name]---[hash].[ext]' },
-            { test: /\.(mp3|mp4|webm|ogg)$/, loader: 'file?name=media/[name]---[hash].[ext]' },
-            { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1!postcss') },
+        rules: [
+            { test: /\.js$/, exclude: /node_modules/, enforce: 'pre', use: ['eslint-loader'] },
+            { test: /\.html$/, exclude: /node_modules/, enforce: 'pre', use: ['htmlhint-loader'] },
+            { test: /\.js$/, exclude: /node_modules/, use: ['babel-loader'] },
+            { test: /\.html$/, use: ['html-loader'] },
+            {
+                test: /\.(eot|woff(2)?|ttf|svg|png|jp(e)?g|mp3|mp4|webm|ogg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: { name: 'static/[path][name]---[hash].[ext]' }
+                    }
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: { importLoaders: 1 }
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: { plugins: postcssPlugins }
+                        }
+                    ]
+                })
+            },
             {
                 test: /\.scss$/,
                 include: [
                     path.resolve(__dirname, 'src', 'app'),
                     path.resolve(__dirname, 'src', 'entry')
                 ],
-                loader: ExtractTextPlugin.extract('style', [
-                    'css?importLoaders=1&modules&localIdentName=[local]---[hash:base64:5]',
-                    'postcss',
-                    'sass',
-                    'sass-resources'
-                ])
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                importLoaders: 1,
+                                modules: true,
+                                localIdentName: '[path][name]__[local]---[hash:base64:5]'
+                            }
+                        },
+                        {
+                            loader: 'postcss-loader',
+                            options: { plugins: postcssPlugins }
+                        },
+                        {
+                            loader: 'sass-loader'
+                        },
+                        {
+                            loader: 'sass-resources-loader',
+                            options: { resources: sassResources }
+                        }
+                    ]
+                })
             },
             {
                 test: /\.scss$/,
                 include: path.resolve(__dirname, 'src', 'assets', 'scssSprite'),
-                loader: 'file?name=cssSprite/[name]---[hash].css!postcss!sass!sass-resources'
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: { name: 'static/[path][name]---[hash].css' }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: { plugins: postcssPlugins }
+                    },
+                    {
+                        loader: 'sass-loader'
+                    },
+                    {
+                        loader: 'sass-resources-loader',
+                        options: { resources: sassResources }
+                    }
+                ]
             },
-            { test: /\.modernizrrc$/, loader: 'modernizr!json' },
-            { test: /createjs-preloadjs/, loader: 'imports?this=>global!exports?window.createjs' },
-            { test: /gsap/, loader: 'exports?window' }
+            {
+                test: /\.modernizrrc$/, use: ['modernizr-loader', 'json-loader']
+            },
+            {
+                test: /createjs-preloadjs/,
+                use: ['imports-loader?this=>global', 'exports-loader?window.createjs']
+            },
+            {
+                test: /gsap/, use: ['exports-loader?window']
+            }
         ]
-    },
-
-    postcss() {
-        return [assets, autoprefixer({ browsers: config.autoprefixer })];
-    },
-
-    sassResources: path.resolve(__dirname, 'src', 'entry', 'style', 'shared', 'shared.scss')
+    }
 };
