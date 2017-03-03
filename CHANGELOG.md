@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.5.0 - 2017-03-04
+- Update to webpack 2
+- Update all packages
+- Configure class name of css modules to contain path
+  to source files to help with debugging
+
 ## v0.4.7 - 2017-02-28
 - Add configuration file for atom-postcss-sorting plugin
 - Document how to sort css properties automatically

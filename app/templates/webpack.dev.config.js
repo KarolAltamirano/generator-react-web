@@ -16,8 +16,7 @@ export default merge(common, {
         new webpack.DefinePlugin({
             'process.env': { NODE_ENV: JSON.stringify('development') }
         }),
-        new ExtractTextPlugin('[name]---[hash].css', { disable: true }),
-        new webpack.optimize.OccurrenceOrderPlugin(),
+        new ExtractTextPlugin({ disable: true }),
         new webpack.HotModuleReplacementPlugin()
     ]
 });

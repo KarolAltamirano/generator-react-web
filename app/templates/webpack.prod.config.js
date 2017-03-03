@@ -12,8 +12,7 @@ export default merge(common, {
         new webpack.DefinePlugin({
             'process.env': { NODE_ENV: JSON.stringify('production') }
         }),
-        new ExtractTextPlugin('[name]---[hash].css', { disable: false }),
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } })
+        new ExtractTextPlugin({ filename: '[name]---[hash].css' }),
+        new webpack.optimize.UglifyJsPlugin({ sourceMap: true })
     ]
 });
