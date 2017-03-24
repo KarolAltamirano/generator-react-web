@@ -1,3 +1,5 @@
+// @flow
+
 /**
  * Initial states for reducers
  *

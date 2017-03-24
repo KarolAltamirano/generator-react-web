@@ -1,3 +1,5 @@
+// @flow
+
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -12,6 +14,9 @@ import TemplateTwo from '../../components/TemplateTwo/TemplateTwo';
  * Template React Component
  */
 class Template extends React.Component {
+    elOne: ?HTMLElement;
+    elTwo: ?HTMLElement;
+
     static propTypes = {
         actions: PropTypes.object.isRequired,
         template: PropTypes.number.isRequired
@@ -19,13 +24,13 @@ class Template extends React.Component {
 
     static defaultProps = {};
 
-    constructor(props, context) {
+    constructor(props: any, context: any) {
         super(props, context);
 
         this.elOne = null;
         this.elTwo = null;
 
-        this.animate = this.animate.bind(this);
+        (this: any).animate = this.animate.bind(this);
     }
 
     componentDidMount() {
@@ -36,7 +41,7 @@ class Template extends React.Component {
         this.animate(0.4);
     }
 
-    animate(time) {
+    animate(time: number) {
         gsap.TweenMax.to(this.elOne, time, {
             x: this.props.template * 10
         });
@@ -46,7 +51,7 @@ class Template extends React.Component {
         });
     }
 
-    render() {
+    render(): ?React$Element<any> {
         return (
             <div>
                 <button
@@ -80,7 +85,7 @@ class Template extends React.Component {
  *
  * @return {Object}
  */
-function mapStateToProps(state) {
+function mapStateToProps(state: Object): Object {
     return {
         template: state.template
     };
@@ -93,7 +98,7 @@ function mapStateToProps(state) {
  *
  * @return {Object}
  */
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Function): Object {
     return {
         actions: bindActionCreators(AppActions, dispatch)
     };

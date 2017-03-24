@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, browserHistory } from 'react-router';
@@ -16,7 +18,7 @@ import AppActions from './actions/AppActions';
  * @param {History}   pHistory router history method
  * @param {Component} pRoutes  application routes
  */
-function render(pStore, pHistory, pRoutes) {
+function render(pStore: Store, pHistory: any, pRoutes: React$Element<any>) {
     ReactDOM.render(
         <AppContainer key={Math.random()}>
             <Provider store={pStore}>
@@ -50,7 +52,7 @@ const App = {
 };
 
 if (module.hot) {
-    module.hot.accept('./routes', () => {
+    (module: any).hot.accept('./routes', () => {
         render(store, history, require('./routes').default);
     });
 }

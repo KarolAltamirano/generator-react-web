@@ -1,3 +1,5 @@
+// @flow
+
 import ActionTypes from '../constants/ActionTypes';
 // import WebAPIUtils from '../utils/WebAPIUtils';
 
@@ -12,7 +14,7 @@ const AppActions = {
      *
      * @return {Object}
      */
-    initialize() {
+    initialize(): Object {
         return {
             type: ActionTypes.INITIALIZE
         };
@@ -25,7 +27,7 @@ const AppActions = {
      *
      * @return {Object}
      */
-    placeholder(inc) {
+    placeholder(inc: number): Object {
         return {
             type: ActionTypes.PLACEHOLDER,
             inc
@@ -39,9 +41,9 @@ const AppActions = {
      *
      * @return {Function}
      */
-    placeholderAsync(inc) {
-        return function thunk(dispatch) {
-            return new Promise((resolve) => {
+    placeholderAsync(inc: number): Function {
+        return function thunk(dispatch: Function): Promise<void> {
+            return new Promise((resolve: Function) => {
                 setTimeout(() => {
                     dispatch(AppActions.placeholder(inc));
                     resolve();

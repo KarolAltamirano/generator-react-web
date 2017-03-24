@@ -1,3 +1,5 @@
+// @flow
+
 import { createStore, applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
@@ -11,7 +13,7 @@ import rootReducer from '../reducers';
  *
  * @return {Store}               redux store
  */
-export default function configureStore(initialState) {
+export default function configureStore(initialState?: Object): Store {
     let middleware;
     const logger = createLogger({ collapsed: true });
 

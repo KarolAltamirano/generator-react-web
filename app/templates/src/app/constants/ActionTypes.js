@@ -1,3 +1,5 @@
+// @flow
+
 /**
  * Action types constants
  *
