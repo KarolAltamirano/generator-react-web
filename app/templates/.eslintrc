@@ -24,7 +24,7 @@
         "static-methods",
         "lifecycle",
         "everything-else",
-        "render",
+        "render"
       ],
     }],
     "flowtype/no-primitive-constructor-types": 2,
