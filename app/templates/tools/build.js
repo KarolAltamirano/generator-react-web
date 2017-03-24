@@ -1,3 +1,5 @@
+// @flow
+
 import webpack from 'webpack';
 import clean from './common/clean';
 import webpackProdConfig from '../webpack.prod.config';
@@ -7,9 +9,9 @@ import webpackProdConfig from '../webpack.prod.config';
  *
  * @return {Promise}
  */
-function bundle() {
-    return new Promise((resolve, reject) => {
-        webpack(webpackProdConfig, (err, stats) => {
+function bundle(): Promise<void> {
+    return new Promise((resolve: Function, reject: Function) => {
+        webpack(webpackProdConfig, (err: any, stats: any) => {
             if (err) {
                 reject(err);
                 return;
@@ -22,6 +24,6 @@ function bundle() {
     });
 }
 
-export default function build() {
+export default function build(): Promise<void> {
     return clean().then(bundle);
 }

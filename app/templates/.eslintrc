@@ -40,7 +40,6 @@
             "excludeArrowFunctions": "expressionsOnly"
         }],
         "flowtype/require-valid-file-annotation": [2, "always", { "annotationStyle": "line" }],
-        "flowtype/require-variable-type": 2,
         "flowtype/type-id-match": [2, "^([A-Z][a-z0-9]+)+Type$"],
         "flowtype/semi": 2
     },

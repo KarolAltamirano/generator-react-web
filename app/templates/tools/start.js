@@ -1,3 +1,5 @@
+// @flow
+
 import webpack from 'webpack';
 import browserSync from 'browser-sync';
 import historyApiFallback from 'connect-history-api-fallback';
@@ -12,7 +14,7 @@ import config from '../config.json';
  *
  * @return {Promise}
  */
-function serve() {
+function serve(): Promise<Object> {
     const compiler = webpack(webpackDevConfig);
     const bs = browserSync.create();
 
@@ -37,6 +39,6 @@ function serve() {
     return Promise.resolve({ skip: true });
 }
 
-export default function start() {
+export default function start(): Promise<Object> {
     return clean().then(serve);
 }

@@ -1,3 +1,5 @@
+// @flow
+
 import moment from 'moment';
 
 /**
@@ -7,7 +9,7 @@ import moment from 'moment';
  *
  * @return {string}      formated time
  */
-function formatTime(time) {
+function formatTime(time: moment$Moment): string {
     return time.format('HH:mm:ss');
 }
 
@@ -18,12 +20,12 @@ function formatTime(time) {
  *
  * @return {Promise}
  */
-function exec(task) {
+function exec(task: Function): Promise<void> {
     const start = moment();
 
     console.log(`[${formatTime(start)}] Starting '${task.name}'...`);
 
-    return task().then((data) => {
+    return task().then((data?: Object) => {
         const end = moment();
         const duration = end.valueOf() - start.valueOf();
 

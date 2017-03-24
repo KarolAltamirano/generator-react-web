@@ -1,3 +1,5 @@
+// @flow
+
 import fs from 'fs';
 import moment from 'moment';
 import { exec } from 'child_process';
@@ -11,8 +13,8 @@ const argv = process.argv[3];
  *
  * @return {Promise}
  */
-function validateParam() {
-    return new Promise((resolve, reject) => {
+function validateParam(): Promise<void> {
+    return new Promise((resolve: Function, reject: Function) => {
         if (argv !== 'patch' && argv !== 'minor' && argv !== 'major') {
             reject('Specify valid semver version type to bump!');
             return;
@@ -27,18 +29,18 @@ function validateParam() {
  *
  * @return {Promise}
  */
-function updateBuildTime() {
+function updateBuildTime(): Promise<void> {
     let time;
     let content;
 
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve: Function, reject: Function) => {
         time = moment().format('DD.MM.YYYY HH:mm:ss (ZZ)');
         pkg.time = time;
 
         // eslint-disable-next-line camelcase
         content = beautify(JSON.stringify(pkg), { indent_size: 2, end_with_newline: true });
 
-        fs.writeFile('package.json', content, (err) => {
+        fs.writeFile('package.json', content, (err: any) => {
             if (err) {
                 reject(err);
                 return;
@@ -54,12 +56,12 @@ function updateBuildTime() {
  *
  * @return {Promise}
  */
-function bumpVersion() {
-    return new Promise((resolve, reject) => {
+function bumpVersion(): Promise<void> {
+    return new Promise((resolve: Function, reject: Function) => {
         const oldVersion = pkg.version;
         let newVersion;
 
-        exec(`npm --no-git-tag-version version ${argv}`, (err, stdout) => {
+        exec(`npm --no-git-tag-version version ${argv}`, (err: any, stdout: any) => {
             if (err) {
                 reject(err);
                 return;
@@ -73,7 +75,7 @@ function bumpVersion() {
     });
 }
 
-export default function bump() {
+export default function bump(): Promise<void> {
     return validateParam()
         .then(updateBuildTime)
         .then(bumpVersion);

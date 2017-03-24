@@ -1,3 +1,5 @@
+// @flow
+
 import del from 'del';
 import config from '../../config.json';
 
@@ -6,6 +8,6 @@ import config from '../../config.json';
  *
  * @return {Promise}
  */
-export default function clean() {
+export default function clean(): Promise<any> {
     return del([`${config.buildDir}/**`], { dot: true });
 }
