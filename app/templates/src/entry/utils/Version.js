@@ -1,3 +1,5 @@
+// @flow
+
 import Mustache from 'mustache';
 
 import data from '../../../package.json';
@@ -29,7 +31,7 @@ const Version = {
      *
      * @return {Object} version information
      */
-    getCopy() {
+    getCopy(): Object {
         return data;
     },
 
@@ -40,7 +42,7 @@ const Version = {
      * @param  {Object} style    css style object
      * @param  {Object} copy     page copy
      */
-    render(template, style, copy) {
+    render(template: string, style: Object, copy: Object) {
         const output = Mustache.render(template, { style, copy });
         const el = document.createElement('div');
 
@@ -50,6 +52,7 @@ const Version = {
 
         // print version to page
         el.innerHTML = output;
+        // $FlowFixMe
         document.body.appendChild(el.firstChild);
     }
 };

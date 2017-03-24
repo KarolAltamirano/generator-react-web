@@ -1,3 +1,5 @@
+// @flow
+
 const AppSettings = {
     /**
      * Print version info on the page
@@ -11,7 +13,7 @@ const AppSettings = {
      *
      * @return {boolean} 'true' for production enviroment, 'false' for development
      */
-    isProduction() {
+    isProduction(): boolean {
         const host = window.location.hostname;
 
         if (host === 'localhost') {
@@ -26,7 +28,7 @@ const AppSettings = {
      *
      * @return {boolean} 'false' for production enviroment, 'true' for development
      */
-    isNotProduction() {
+    isNotProduction(): boolean {
         return !this.isProduction();
     }
 };

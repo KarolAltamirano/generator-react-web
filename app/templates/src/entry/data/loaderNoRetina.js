@@ -1,3 +1,5 @@
+// @flow
+
 import planeImg from '../../assets/images/plane.png';
 import sprite from '../../assets/scssSprite/assetsNoRetina.scss';
 

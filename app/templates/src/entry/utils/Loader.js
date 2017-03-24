@@ -1,3 +1,5 @@
+// @flow
+
 import Mustache from 'mustache';
 import createjs from 'createjs-preloadjs'; // eslint-disable-line import/no-unresolved
 import loaderData from './loaderData';
@@ -11,7 +13,7 @@ const loaderElement = document.querySelector('.loader');
  *
  * @return {boolean}
  */
-function runFallback() {
+function runFallback(): boolean {
     // eslint-disable-next-line prefer-const
     let result = false;
 
@@ -45,7 +47,7 @@ const Loader = {
      * @param  {Function} progress callback function during loading
      * @param  {Function} complete callback function when loading is completed
      */
-    createLoader(id, progress = null, complete = null) {
+    createLoader(id: string, progress?: Function, complete?: Function): Promise<void> {
         if (loaderList[id] != null) {
             throw new Error(`Loader with id: '${id}' already exists.`);
         }
@@ -56,7 +58,7 @@ const Loader = {
 
         // don't load as a binnary data in fallback mode
         if (runFallback()) {
-            loaderData[id] = loaderData[id].map((item) => {
+            loaderData[id] = loaderData[id].map((item: Object): Object => {
                 if (item.type === 'binary') {
                     return Object.assign({}, item, {
                         type: undefined,
@@ -84,8 +86,8 @@ const Loader = {
             loaderList[id].addEventListener('progress', progress);
         }
 
-        return new Promise((resolve) => {
-            loaderList[id].addEventListener('complete', (e) => {
+        return new Promise((resolve: Function) => {
+            loaderList[id].addEventListener('complete', (e: any) => {
                 if (typeof complete === 'function') {
                     complete(e);
                 }
@@ -105,7 +107,7 @@ const Loader = {
      *
      * @param  {string} id loaderData id
      */
-    getLoader(id) {
+    getLoader(id: string): Object {
         if (loaderList[id] == null) {
             throw new Error(`Loader with id: '${id}' does not exist.`);
         }
@@ -118,7 +120,7 @@ const Loader = {
      *
      * @param  {string} id loader id
      */
-    exists(id) {
+    exists(id: string): boolean {
         return loaderList[id] != null;
     },
 
@@ -128,7 +130,7 @@ const Loader = {
      * @param {string} loaderId loader id
      * @param {string} assetId  asset id
      */
-    getAsset(loaderId, assetId) {
+    getAsset(loaderId: string, assetId: string): any {
         const asset = loaderData[loaderId].find(element => element.id === assetId);
 
         // check if asset with id exists
@@ -186,7 +188,7 @@ const Loader = {
      * @param {string} loaderId loader id
      * @param {string} assetId  asset id
      */
-    destroyAsset(loaderId, assetId) {
+    destroyAsset(loaderId: string, assetId: string) {
         const cachedAsset = cache[loaderId].find(element => element.id === assetId);
 
         if (cachedAsset) {
@@ -202,9 +204,10 @@ const Loader = {
      * @param  {Object} style    css style object
      * @param  {Object} copy     page copy
      */
-    render(template, style, copy) {
+    render(template: string, style: Object, copy: Object) {
         const output = Mustache.render(template, { style, copy });
 
+        // $FlowFixMe
         loaderElement.innerHTML = output;
     },
 
@@ -212,6 +215,7 @@ const Loader = {
      * Show loader
      */
     show() {
+        // $FlowFixMe
         loaderElement.style.display = 'block';
     },
 
@@ -219,6 +223,7 @@ const Loader = {
      * Hide loader
      */
     hide() {
+        // $FlowFixMe
         loaderElement.style.display = 'none';
     }
 };

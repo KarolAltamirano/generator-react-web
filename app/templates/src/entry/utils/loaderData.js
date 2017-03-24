@@ -1,10 +1,12 @@
+// @flow
+
 import loaderCommon from '../data/loaderCommon';
 import loaderNoRetina from '../data/loaderNoRetina';
 import loaderRetina from '../data/loaderRetina';
 
 const isRetina = window.devicePixelRatio > 1;
 
-function mainLoaderData() {
+function mainLoaderData(): Array<Object> {
     let data;
 
     if (isRetina) {

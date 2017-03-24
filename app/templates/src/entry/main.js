@@ -1,3 +1,5 @@
+// @flow
+
 import 'babel-polyfill';
 import 'whatwg-fetch';
 import 'modernizr';
@@ -31,7 +33,7 @@ Version.logConsole();
 Version.render(versionTemplate, versionStyle, Version.getCopy());
 
 // set loader callbacks
-function progress(e) {
+function progress(e: any) {
     const p = Math.round(100 * e.progress);
 
     // render progress in loader
@@ -40,8 +42,8 @@ function progress(e) {
 
 function complete() {
     // create new chunk
-    import('../app/App').then((module) => {
-        const App = module.default;
+    (require: any).ensure([], (require: Function) => {
+        const App = require('../app/App').default;
 
         // hide loader
         Loader.hide();

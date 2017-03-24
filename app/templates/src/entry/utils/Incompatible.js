@@ -1,3 +1,5 @@
+// @flow
+
 import UAParser from 'ua-parser-js';
 import Mustache from 'mustache';
 
@@ -11,7 +13,7 @@ const Incompatible = {
      *
      * @return {boolean} for uncompatible browser return 'true', otherwise 'false'
      */
-    isIncompatibleBrowser() {
+    isIncompatibleBrowser(): boolean {
         const listOfSupported = [
             { browser: 'Chrome', version: 43 },
             { browser: 'Firefox', version: 38 },
@@ -39,6 +41,7 @@ const Incompatible = {
     addClass() {
         if (this.isIncompatibleBrowser()) {
             // if browser is incompatible
+            // $FlowFixMe
             document.documentElement.className = `incompatible ${document.documentElement.className}`;
         }
     },
@@ -50,11 +53,12 @@ const Incompatible = {
      * @param  {Object} style    css style object
      * @param  {Object} copy     page copy
      */
-    render(template, style, copy) {
+    render(template: string, style: Object, copy: Object) {
         const output = Mustache.render(template, { style, copy });
         const el = document.getElementById('incompatibleBrowser');
 
         if (this.isIncompatibleBrowser()) {
+            // $FlowFixMe
             el.innerHTML = output;
         }
     }
