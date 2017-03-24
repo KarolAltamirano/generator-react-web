@@ -7,9 +7,7 @@ import gsap from 'gsap';
 
 import style from './template.scss';
 import AppActions from '../../actions/AppActions';
-import AppSettings from '../../utils/AppSettings';
 
-import Version from '../../components/Version/Version';
 import TemplateTwo from '../../components/TemplateTwo/TemplateTwo';
 
 /**
@@ -75,7 +73,6 @@ class Template extends React.Component {
                 <div className={style.container}>
                     <div ref={el => this.elTwo = el} className={style.element} />
                 </div>
-                {AppSettings.renderVersionInfo ? <Version /> : null}
             </div>
         );
     }

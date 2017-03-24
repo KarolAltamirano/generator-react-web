@@ -1,12 +1,10 @@
 // @flow
 
-import Mustache from 'mustache';
 import createjs from 'createjs-preloadjs'; // eslint-disable-line import/no-unresolved
-import loaderData from './loaderData';
+import manifest from '../manifest';
 
 const loaderList = {};
 const cache = {};
-const loaderElement = document.querySelector('.loader');
 
 /**
  * Check if loader should be run in fallback mode
@@ -23,13 +21,13 @@ function runFallback(): boolean {
 }
 
 // generate initial loader state
-const initialState = Object.keys(loaderData).reduce((prev, curr) => (
+const initialState: Object = Object.keys(manifest).reduce((prev, curr) => (
     Object.assign({}, prev, {
         [curr]: 'none'
     })
 ), {});
 
-const Loader = {
+const LoaderUtil = {
     /**
      * Loader state
      *     'none'     loader was not created yet
@@ -52,13 +50,13 @@ const Loader = {
             throw new Error(`Loader with id: '${id}' already exists.`);
         }
 
-        if (loaderData[id] == null) {
+        if (manifest[id] == null) {
             throw new Error(`No data was found for loader with id '${id}'`);
         }
 
         // don't load as a binnary data in fallback mode
         if (runFallback()) {
-            loaderData[id] = loaderData[id].map((item: Object): Object => {
+            manifest[id] = manifest[id].map((item: Object): Object => {
                 if (item.type === 'binary') {
                     return Object.assign({}, item, {
                         type: undefined,
@@ -98,14 +96,47 @@ const Loader = {
                 resolve();
             });
 
-            loaderList[id].loadManifest(loaderData[id]);
+            loaderList[id].loadManifest(manifest[id]);
         });
+    },
+
+    /**
+     * Register loader
+     *
+     * @param  {string} id         loader id
+     * @param  {Function} progress callback function
+     * @param  {Function} complete callback function
+     */
+    registerLoader(id: string, progress?: Function, complete?: Function) {
+        switch (this.state[id]) {
+            case 'none':
+                this.createLoader(id, progress, complete);
+                break;
+            case 'progress':
+                progress && this.getLoader(id).addEventListener('progress', progress);
+                complete && this.getLoader(id).addEventListener('complete', complete);
+                break;
+            case 'done':
+                complete && complete();
+                break;
+            default:
+                break;
+        }
+    },
+
+    /**
+     * Unregister loader
+     *
+     * @param  {string} id loader id
+     */
+    unregisterLoader(id: string) {
+        this.getLoader(id).removeAllEventListeners();
     },
 
     /**
      * Get loader by its id
      *
-     * @param  {string} id loaderData id
+     * @param  {string} id loaderList id
      */
     getLoader(id: string): Object {
         if (loaderList[id] == null) {
@@ -131,7 +162,7 @@ const Loader = {
      * @param {string} assetId  asset id
      */
     getAsset(loaderId: string, assetId: string): any {
-        const asset = loaderData[loaderId].find(element => element.id === assetId);
+        const asset = manifest[loaderId].find(element => element.id === assetId);
 
         // check if asset with id exists
         if (asset == null) {
@@ -195,37 +226,7 @@ const Loader = {
             cache[loaderId].splice(cache[loaderId].indexOf(cachedAsset), 1);
             URL.revokeObjectURL(cachedAsset.url);
         }
-    },
-
-    /**
-     * Render loader to the DOM
-     *
-     * @param  {string} template html template
-     * @param  {Object} style    css style object
-     * @param  {Object} copy     page copy
-     */
-    render(template: string, style: Object, copy: Object) {
-        const output = Mustache.render(template, { style, copy });
-
-        // $FlowFixMe
-        loaderElement.innerHTML = output;
-    },
-
-    /**
-     * Show loader
-     */
-    show() {
-        // $FlowFixMe
-        loaderElement.style.display = 'block';
-    },
-
-    /**
-     * Hide loader
-     */
-    hide() {
-        // $FlowFixMe
-        loaderElement.style.display = 'none';
     }
 };
 
-export default Loader;
+export default LoaderUtil;

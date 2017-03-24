@@ -6,7 +6,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import common from './webpack.config';
 
 export default merge(common, {
-    entry: './src/entry/main.js',
+    entry: './src/app/main.js',
 
     devtool: '#source-map',
 

@@ -14,7 +14,7 @@ import config from './config.json';
 (process: any).noDeprecation = true;
 
 // set path to scss shared file
-const sassResources = path.resolve(__dirname, 'src', 'entry', 'style', 'shared', 'shared.scss');
+const sassResources = path.resolve(__dirname, 'src', 'app', 'style', 'shared', 'shared.scss');
 
 // set postcss plugins
 const postcssPlugins = () => [assets, autoprefixer({ browsers: config.autoprefixer })];
@@ -78,8 +78,7 @@ export default {
             {
                 test: /\.scss$/,
                 include: [
-                    path.resolve(__dirname, 'src', 'app'),
-                    path.resolve(__dirname, 'src', 'entry')
+                    path.resolve(__dirname, 'src', 'app')
                 ],
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
