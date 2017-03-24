@@ -1,3 +1,5 @@
+// @flow
+
 import webpack from 'webpack';
 import merge from 'webpack-merge';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';

@@ -1,3 +1,5 @@
+// @flow
+
 import path from 'path';
 import webpack from 'webpack';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
@@ -9,7 +11,7 @@ import autoprefixer from 'autoprefixer';
 import config from './config.json';
 
 // hide deprecation warrings
-process.noDeprecation = true;
+(process: any).noDeprecation = true;
 
 // set path to scss shared file
 const sassResources = path.resolve(__dirname, 'src', 'entry', 'style', 'shared', 'shared.scss');
