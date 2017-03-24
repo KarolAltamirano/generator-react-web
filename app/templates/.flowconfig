@@ -1,0 +1,18 @@
+[ignore]
+.*/node_modules/babel-plugin-flow-runtime/.*
+.*/node_modules/stylelint/.*
+.*/node_modules/createjs-preloadjs/_assets/static/.*
+.*/node_modules/config-chain/.*
+
+[include]
+
+[libs]
+
+[options]
+module.use_strict=true
+module.ignore_non_literal_requires=true
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/flow/CSSModule.js.flow'
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/flow/CSSModule.js.flow'
+module.name_mapper.extension='png' -> '<PROJECT_ROOT>/flow/WebpackAsset.js.flow'
+module.name_mapper.extension='jpg' -> '<PROJECT_ROOT>/flow/WebpackAsset.js.flow'
+module.name_mapper.extension='html' -> '<PROJECT_ROOT>/flow/WebpackAsset.js.flow'

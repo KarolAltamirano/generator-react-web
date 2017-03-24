@@ -9,9 +9,6 @@ export default merge(common, {
     devtool: '#source-map',
 
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env': { NODE_ENV: JSON.stringify('production') }
-        }),
         new ExtractTextPlugin({ filename: '[name]---[hash].css' }),
         new webpack.optimize.UglifyJsPlugin({ sourceMap: true })
     ]

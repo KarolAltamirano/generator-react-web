@@ -13,9 +13,6 @@ export default merge(common, {
     devtool: '#cheap-module-source-map',
 
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env': { NODE_ENV: JSON.stringify('development') }
-        }),
         new ExtractTextPlugin({ disable: true }),
         new webpack.HotModuleReplacementPlugin()
     ]

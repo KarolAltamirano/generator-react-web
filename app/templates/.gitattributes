@@ -15,6 +15,7 @@
 .editorconfig text eol=lf
 .eslintignore text eol=lf
 .eslintrc text eol=lf
+.flowconfig text eol=lf
 .gitattributes text eol=lf
 .gitignore text eol=lf
 .gitkeep text eol=lf

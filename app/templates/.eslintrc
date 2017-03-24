@@ -20,7 +20,29 @@
         "react/jsx-indent": [2, 4],
         "react/jsx-indent-props": [2, 4],
         "react/forbid-prop-types": 0,
-        "react/jsx-filename-extension": 0
+        "react/jsx-filename-extension": 0,
+        "react/sort-comp": [1, {
+            order: [
+                "type-annotations",
+                "static-methods",
+                "lifecycle",
+                "everything-else",
+                "render",
+            ],
+        }],
+        "flowtype/no-primitive-constructor-types": 2,
+        "flowtype/object-type-delimiter": 2,
+        "flowtype/require-parameter-type": [2, {
+            "excludeArrowFunctions": "expressionsOnly"
+        }],
+        "flowtype/require-return-type": [2, "always", {
+            "annotateUndefined": "never",
+            "excludeArrowFunctions": "expressionsOnly"
+        }],
+        "flowtype/require-valid-file-annotation": [2, "always", { "annotationStyle": "line" }],
+        "flowtype/require-variable-type": 2,
+        "flowtype/type-id-match": [2, "^([A-Z][a-z0-9]+)+Type$"],
+        "flowtype/semi": 2
     },
 
     "env": {
@@ -30,7 +52,20 @@
         "mocha": true
     },
 
-    "extends": "airbnb",
+    "plugins": [
+        "flowtype"
+    ],
+
+    "extends": [
+        "airbnb",
+        "plugin:flowtype/recommended"
+    ],
+
+    "settings": {
+        "flowtype": {
+            "onlyFilesWithFlowAnnotation": true
+        }
+    },
 
     "globals": {}
 }
