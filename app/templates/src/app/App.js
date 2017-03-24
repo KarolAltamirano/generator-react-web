@@ -25,7 +25,7 @@ function render(pStore: Store, pHistory: any, pRoutes: React$Element<any>) {
         <Router history={pHistory}>{pRoutes}</Router>
       </Provider>
     </AppContainer>,
-    document.getElementById('container')
+    document.getElementById('app')
   );
 }
 

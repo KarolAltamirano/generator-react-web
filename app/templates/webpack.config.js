@@ -30,7 +30,7 @@ export default {
   plugins: [
     new ProgressBarPlugin(),
     new WebpackNotifierPlugin({ alwaysNotify: true }),
-    new HtmlWebpackPlugin({ template: 'src/index.ejs', favicon: 'src/favicon.ico', inject: false }),
+    new HtmlWebpackPlugin({ template: 'src/index.ejs', favicon: 'src/favicon.ico' }),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) }
     })

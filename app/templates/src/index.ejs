@@ -1,25 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="no-js">
   <head>
     <title>Project Title</title>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <% if (htmlWebpackPlugin.files.favicon) { %>
-    <link rel="shortcut icon" href="<%= htmlWebpackPlugin.files.favicon%>">
-    <% } %>
-    <% for (var css in htmlWebpackPlugin.files.css) { %>
-    <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[css] %>">
-    <% } %>
   </head>
 
   <body>
-    <!-- loader -->
-    <div class="loader"></div>
-    <!-- main app -->
-    <div id="container" class="container"></div>
-    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-    <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-    <% } %>
+    <div id="app"></div>
   </body>
 </html>
