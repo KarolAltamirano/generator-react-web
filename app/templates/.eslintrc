@@ -60,11 +60,5 @@
         "plugin:flowtype/recommended"
     ],
 
-    "settings": {
-        "flowtype": {
-            "onlyFilesWithFlowAnnotation": true
-        }
-    },
-
     "globals": {}
 }
