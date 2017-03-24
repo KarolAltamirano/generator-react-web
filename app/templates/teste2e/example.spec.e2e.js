@@ -1,5 +1,8 @@
+// @flow
+
 /* eslint func-names: 0 */
 
+/*
 module.exports = {
     'Demo test': function (browser) {
         browser
@@ -10,3 +13,4 @@ module.exports = {
             .end();
     }
 };
+*/

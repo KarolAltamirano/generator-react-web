@@ -1,5 +1,8 @@
+// @flow
+
 /* eslint no-var: 0, camelcase: 0, object-shorthand: 0, func-names: 0 */
 
+/*
 var chromedriver = require('chromedriver');
 
 module.exports = {
@@ -31,3 +34,4 @@ module.exports = {
         }
     }
 };
+*/
