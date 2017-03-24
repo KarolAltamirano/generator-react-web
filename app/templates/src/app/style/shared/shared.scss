@@ -18,17 +18,17 @@ $retina: 192dpi;
 
 // mixins
 @mixin retina-asset($name, $ext: 'png') {
-    $image: $name + '.' + $ext;
-    $image-retina: $name + '@2x.' + $ext;
+  $image: $name + '.' + $ext;
+  $image-retina: $name + '@2x.' + $ext;
 
-    display: block;
-    width: width($image);
-    height: height($image);
-    background-image: url($image);
-    background-repeat: no-repeat;
-    background-size: size($image);
+  display: block;
+  width: width($image);
+  height: height($image);
+  background-image: url($image);
+  background-repeat: no-repeat;
+  background-size: size($image);
 
-    @media (min-resolution: $retina) {
-        background-image: url($image-retina);
-    }
+  @media (min-resolution: $retina) {
+    background-image: url($image-retina);
+  }
 }

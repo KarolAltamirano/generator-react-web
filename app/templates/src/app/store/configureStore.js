@@ -14,23 +14,23 @@ import rootReducer from '../reducers';
  * @return {Store}               redux store
  */
 export default function configureStore(initialState?: Object): Store {
-    let middleware;
-    const logger = createLogger({ collapsed: true });
+  let middleware;
+  const logger = createLogger({ collapsed: true });
 
-    // set middleware for development or production build
-    if (process.env.NODE_ENV === 'development') {
-        middleware = [thunk, reduxImmutableStateInvariant(), logger];
-    } else {
-        middleware = [thunk];
-    }
+  // set middleware for development or production build
+  if (process.env.NODE_ENV === 'development') {
+    middleware = [thunk, reduxImmutableStateInvariant(), logger];
+  } else {
+    middleware = [thunk];
+  }
 
-    // create store
-    return createStore(
-        rootReducer,
-        initialState,
-        compose(
-            applyMiddleware(...middleware),
-            window.devToolsExtension ? window.devToolsExtension() : f => f
-        )
-    );
+  // create store
+  return createStore(
+    rootReducer,
+    initialState,
+    compose(
+      applyMiddleware(...middleware),
+      window.devToolsExtension ? window.devToolsExtension() : f => f
+    )
+  );
 }

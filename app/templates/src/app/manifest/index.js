@@ -7,17 +7,17 @@ import retina from './retina';
 const isRetina = window.devicePixelRatio > 1;
 
 function mainLoaderData(): Array<Object> {
-    let data;
+  let data;
 
-    if (isRetina) {
-        data = common.concat(retina);
-    } else {
-        data = common.concat(noRetina);
-    }
+  if (isRetina) {
+    data = common.concat(retina);
+  } else {
+    data = common.concat(noRetina);
+  }
 
-    return data;
+  return data;
 }
 
 export default {
-    main: mainLoaderData()
+  main: mainLoaderData()
 };

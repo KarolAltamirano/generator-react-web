@@ -15,14 +15,14 @@ const argv = process.argv[3];
  * @return {Promise}
  */
 function validateParam(): Promise<void> {
-    return new Promise((resolve: Function, reject: Function) => {
-        if (argv !== 'patch' && argv !== 'minor' && argv !== 'major') {
-            reject('Specify valid semver version type to bump!');
-            return;
-        }
+  return new Promise((resolve: Function, reject: Function) => {
+    if (argv !== 'patch' && argv !== 'minor' && argv !== 'major') {
+      reject('Specify valid semver version type to bump!');
+      return;
+    }
 
-        resolve();
-    });
+    resolve();
+  });
 }
 
 /**
@@ -31,22 +31,22 @@ function validateParam(): Promise<void> {
  * @return {Promise}
  */
 function updateBuildTime(): Promise<void> {
-    return new Promise((resolve: Function, reject: Function) => {
-        const time = moment().format('DD.MM.YYYY HH:mm:ss (ZZ)');
-        pkg.time = time;
+  return new Promise((resolve: Function, reject: Function) => {
+    const time = moment().format('DD.MM.YYYY HH:mm:ss (ZZ)');
+    pkg.time = time;
 
-        // eslint-disable-next-line camelcase
-        const content = beautify(JSON.stringify(pkg), { indent_size: 2, end_with_newline: true });
+    // eslint-disable-next-line camelcase
+    const content = beautify(JSON.stringify(pkg), { indent_size: 2, end_with_newline: true });
 
-        fs.writeFile('package.json', content, (err: any) => {
-            if (err) {
-                reject(err);
-                return;
-            }
+    fs.writeFile('package.json', content, (err: any) => {
+      if (err) {
+        reject(err);
+        return;
+      }
 
-            resolve();
-        });
+      resolve();
     });
+  });
 }
 
 /**
@@ -55,22 +55,22 @@ function updateBuildTime(): Promise<void> {
  * @return {Promise}
  */
 function bumpVersion(): Promise<void> {
-    return new Promise((resolve: Function, reject: Function) => {
-        const oldVersion = pkg.version;
-        let newVersion;
+  return new Promise((resolve: Function, reject: Function) => {
+    const oldVersion = pkg.version;
+    let newVersion;
 
-        exec(`npm --no-git-tag-version version ${argv}`, (err: any, stdout: any) => {
-            if (err) {
-                reject(err);
-                return;
-            }
+    exec(`npm --no-git-tag-version version ${argv}`, (err: any, stdout: any) => {
+      if (err) {
+        reject(err);
+        return;
+      }
 
-            newVersion = stdout.slice(0, -1);
+      newVersion = stdout.slice(0, -1);
 
-            console.log(`Bumped v${oldVersion} to ${newVersion} with type: ${argv}`);
-            resolve();
-        });
+      console.log(`Bumped v${oldVersion} to ${newVersion} with type: ${argv}`);
+      resolve();
     });
+  });
 }
 
 /**
@@ -79,20 +79,20 @@ function bumpVersion(): Promise<void> {
  * @return {Promise}
  */
 function getNewVersion(): Promise<Object> {
-    return new Promise((resolve: Function, reject: Function) => {
-        fs.readFile('package.json', 'utf8', (err: any, data: string) => {
-            if (err) {
-                reject(err);
-                return;
-            }
+  return new Promise((resolve: Function, reject: Function) => {
+    fs.readFile('package.json', 'utf8', (err: any, data: string) => {
+      if (err) {
+        reject(err);
+        return;
+      }
 
-            const content = JSON.parse(data);
-            const version = content.version;
-            const time = content.time;
+      const content = JSON.parse(data);
+      const version = content.version;
+      const time = content.time;
 
-            resolve({ version, time });
-        });
+      resolve({ version, time });
     });
+  });
 }
 
 /**
@@ -103,27 +103,27 @@ function getNewVersion(): Promise<Object> {
  * @return {Promise}
  */
 function writeConfig(data: Object): Promise<void> {
-    return new Promise((resolve: Function, reject: Function) => {
-        let content = { ...config, build: { ...data } };
+  return new Promise((resolve: Function, reject: Function) => {
+    let content = { ...config, build: { ...data } };
 
-        // eslint-disable-next-line camelcase
-        content = beautify(JSON.stringify(content), { indent_size: 2, end_with_newline: true });
+    // eslint-disable-next-line camelcase
+    content = beautify(JSON.stringify(content), { indent_size: 2, end_with_newline: true });
 
-        fs.writeFile('config.json', content, (err: any) => {
-            if (err) {
-                reject(err);
-                return;
-            }
+    fs.writeFile('config.json', content, (err: any) => {
+      if (err) {
+        reject(err);
+        return;
+      }
 
-            resolve();
-        });
+      resolve();
     });
+  });
 }
 
 export default function bump(): Promise<void> {
-    return validateParam()
-        .then(updateBuildTime)
-        .then(bumpVersion)
-        .then(getNewVersion)
-        .then(writeConfig);
+  return validateParam()
+    .then(updateBuildTime)
+    .then(bumpVersion)
+    .then(getNewVersion)
+    .then(writeConfig);
 }

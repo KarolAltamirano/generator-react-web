@@ -10,20 +10,20 @@ import webpackProdConfig from '../webpack.prod.config';
  * @return {Promise}
  */
 function bundle(): Promise<void> {
-    return new Promise((resolve: Function, reject: Function) => {
-        webpack(webpackProdConfig, (err: any, stats: any) => {
-            if (err) {
-                reject(err);
-                return;
-            }
+  return new Promise((resolve: Function, reject: Function) => {
+    webpack(webpackProdConfig, (err: any, stats: any) => {
+      if (err) {
+        reject(err);
+        return;
+      }
 
-            console.log(stats.toString({ chunks: false, colors: true }));
+      console.log(stats.toString({ chunks: false, colors: true }));
 
-            resolve();
-        });
+      resolve();
     });
+  });
 }
 
 export default function build(): Promise<void> {
-    return clean().then(bundle);
+  return clean().then(bundle);
 }

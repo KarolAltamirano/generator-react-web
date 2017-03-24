@@ -9,8 +9,8 @@ import template from './templateReducer';
  * Combine reducers
  */
 const rootReducer = combineReducers({
-    template,
-    routing
+  template,
+  routing
 });
 
 export default rootReducer;

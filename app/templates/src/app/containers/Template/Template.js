@@ -14,68 +14,68 @@ import TemplateTwo from '../../components/TemplateTwo/TemplateTwo';
  * Template React Component
  */
 class Template extends React.Component {
-    elOne: ?HTMLElement;
-    elTwo: ?HTMLElement;
+  elOne: ?HTMLElement;
+  elTwo: ?HTMLElement;
 
-    static propTypes = {
-        actions: PropTypes.object.isRequired,
-        template: PropTypes.number.isRequired
-    };
+  static propTypes = {
+    actions: PropTypes.object.isRequired,
+    template: PropTypes.number.isRequired
+  };
 
-    static defaultProps = {};
+  static defaultProps = {};
 
-    constructor(props: any, context: any) {
-        super(props, context);
+  constructor(props: any, context: any) {
+    super(props, context);
 
-        this.elOne = null;
-        this.elTwo = null;
+    this.elOne = null;
+    this.elTwo = null;
 
-        (this: any).animate = this.animate.bind(this);
-    }
+    (this: any).animate = this.animate.bind(this);
+  }
 
-    componentDidMount() {
-        this.animate(0);
-    }
+  componentDidMount() {
+    this.animate(0);
+  }
 
-    componentDidUpdate() {
-        this.animate(0.4);
-    }
+  componentDidUpdate() {
+    this.animate(0.4);
+  }
 
-    animate(time: number) {
-        gsap.TweenMax.to(this.elOne, time, {
-            x: this.props.template * 10
-        });
-        gsap.TweenMax.to(this.elTwo, time, {
-            x: this.props.template * 10,
-            rotation: this.props.template * 90
-        });
-    }
+  animate(time: number) {
+    gsap.TweenMax.to(this.elOne, time, {
+      x: this.props.template * 10
+    });
+    gsap.TweenMax.to(this.elTwo, time, {
+      x: this.props.template * 10,
+      rotation: this.props.template * 90
+    });
+  }
 
-    render(): ?React$Element<any> {
-        return (
-            <div>
-                <button
-                    className={style.template}
-                    onClick={() => this.props.actions.placeholder(2)}
-                >
-                    Hello React
-                </button>
-                <button
-                    className={style.template}
-                    onClick={() => this.props.actions.placeholderAsync(2)}
-                >
-                    Hello React (Async)
-                </button>
-                <TemplateTwo number={this.props.template} />
-                <div className={style.container}>
-                    <div ref={el => this.elOne = el} className={style.element} />
-                </div>
-                <div className={style.container}>
-                    <div ref={el => this.elTwo = el} className={style.element} />
-                </div>
-            </div>
-        );
-    }
+  render(): ?React$Element<any> {
+    return (
+      <div>
+        <button
+          className={style.template}
+          onClick={() => this.props.actions.placeholder(2)}
+        >
+          Hello React
+        </button>
+        <button
+          className={style.template}
+          onClick={() => this.props.actions.placeholderAsync(2)}
+        >
+          Hello React (Async)
+        </button>
+        <TemplateTwo number={this.props.template} />
+        <div className={style.container}>
+          <div ref={el => this.elOne = el} className={style.element} />
+        </div>
+        <div className={style.container}>
+          <div ref={el => this.elTwo = el} className={style.element} />
+        </div>
+      </div>
+    );
+  }
 }
 
 /**
@@ -86,9 +86,9 @@ class Template extends React.Component {
  * @return {Object}
  */
 function mapStateToProps(state: Object): Object {
-    return {
-        template: state.template
-    };
+  return {
+    template: state.template
+  };
 }
 
 /**
@@ -99,9 +99,9 @@ function mapStateToProps(state: Object): Object {
  * @return {Object}
  */
 function mapDispatchToProps(dispatch: Function): Object {
-    return {
-        actions: bindActionCreators(AppActions, dispatch)
-    };
+  return {
+    actions: bindActionCreators(AppActions, dispatch)
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Template);

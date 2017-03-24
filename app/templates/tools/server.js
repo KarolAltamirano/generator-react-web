@@ -10,15 +10,15 @@ import config from '../config.json';
  * @return {Promise}
  */
 export default function server(): Promise<Object> {
-    const bs = browserSync.create();
+  const bs = browserSync.create();
 
-    bs.init({
-        open: false,
-        server: {
-            baseDir: `./${config.buildDir}`,
-            middleware: [historyApiFallback()]
-        }
-    });
+  bs.init({
+    open: false,
+    server: {
+      baseDir: `./${config.buildDir}`,
+      middleware: [historyApiFallback()]
+    }
+  });
 
-    return Promise.resolve({ skip: true });
+  return Promise.resolve({ skip: true });
 }

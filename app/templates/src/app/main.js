@@ -12,6 +12,6 @@ import './style/global/global.scss';
 
 // bootstrap application
 window.addEventListener('load', () => {
-    // run app
-    App.run();
+  // run app
+  App.run();
 });

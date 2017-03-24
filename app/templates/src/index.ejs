@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js">
-<head>
+  <head>
     <title>Project Title</title>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -11,9 +11,9 @@
     <% for (var css in htmlWebpackPlugin.files.css) { %>
     <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[css] %>">
     <% } %>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- loader -->
     <div class="loader"></div>
     <!-- main app -->
@@ -21,5 +21,5 @@
     <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
     <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
     <% } %>
-</body>
+  </body>
 </html>

@@ -1,19 +1,19 @@
 .template {
-    position: relative;
-    padding: 10px;
+  position: relative;
+  padding: 10px;
 }
 
 .container {
-    position: relative;
-    height: 100px;
-    margin: 10px;
+  position: relative;
+  height: 100px;
+  margin: 10px;
 
-    .element {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100px;
-        height: 100px;
-        background: $color05;
-    }
+  .element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: $color05;
+  }
 }

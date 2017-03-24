@@ -17,8 +17,8 @@ global.document = jsdom('<!doctype html><html><body></body></html>');
 global.window = global.document.defaultView;
 
 Object.keys(global.window).forEach((property: string) => {
-    if (typeof global[property] === 'undefined') {
-        exposedProperties.push(property);
-        global[property] = global.window[property];
-    }
+  if (typeof global[property] === 'undefined') {
+    exposedProperties.push(property);
+    global[property] = global.window[property];
+  }
 });

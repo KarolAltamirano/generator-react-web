@@ -6,12 +6,12 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import common from './webpack.config';
 
 export default merge(common, {
-    entry: './src/app/main.js',
+  entry: './src/app/main.js',
 
-    devtool: '#source-map',
+  devtool: '#source-map',
 
-    plugins: [
-        new ExtractTextPlugin({ filename: '[name]---[hash].css' }),
-        new webpack.optimize.UglifyJsPlugin({ sourceMap: true })
-    ]
+  plugins: [
+    new ExtractTextPlugin({ filename: '[name]---[hash].css' }),
+    new webpack.optimize.UglifyJsPlugin({ sourceMap: true })
+  ]
 });

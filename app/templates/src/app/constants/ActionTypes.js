@@ -6,8 +6,8 @@
  * @type {Object}
  */
 const ActionTypes = {
-    INITIALIZE: 'INITIALIZE',
-    PLACEHOLDER: 'PLACEHOLDER'
+  INITIALIZE: 'INITIALIZE',
+  PLACEHOLDER: 'PLACEHOLDER'
 };
 
 export default ActionTypes;

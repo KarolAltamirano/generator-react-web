@@ -1,22 +1,22 @@
 html {
-    font-size: $fontSizeHtml;
+  font-size: $fontSizeHtml;
 }
 
 body {
-    color: $color03;
-    font-family: Arial, Helvetica, sans-serif;
+  color: $color03;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
-    color: $color04;
-    text-decoration: underline;
-    cursor: pointer;
+  color: $color04;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 a:hover {
-    color: $color05;
+  color: $color05;
 }
 
 canvas {
-    display: block;
+  display: block;
 }

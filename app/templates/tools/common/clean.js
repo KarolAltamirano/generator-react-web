@@ -9,5 +9,5 @@ import config from '../../config.json';
  * @return {Promise}
  */
 export default function clean(): Promise<any> {
-    return del([`${config.buildDir}/**`], { dot: true });
+  return del([`${config.buildDir}/**`], { dot: true });
 }

@@ -19,42 +19,42 @@ import AppActions from './actions/AppActions';
  * @param {Component} pRoutes  application routes
  */
 function render(pStore: Store, pHistory: any, pRoutes: React$Element<any>) {
-    ReactDOM.render(
-        <AppContainer key={Math.random()}>
-            <Provider store={pStore}>
-                <Router history={pHistory}>{pRoutes}</Router>
-            </Provider>
-        </AppContainer>,
-        document.getElementById('container')
-    );
+  ReactDOM.render(
+    <AppContainer key={Math.random()}>
+      <Provider store={pStore}>
+        <Router history={pHistory}>{pRoutes}</Router>
+      </Provider>
+    </AppContainer>,
+    document.getElementById('container')
+  );
 }
 
 let store;
 let history;
 
 const App = {
-    /**
-     * Run application
-     */
-    run() {
-        // create store
-        store = configureStore();
+  /**
+   * Run application
+   */
+  run() {
+    // create store
+    store = configureStore();
 
-        // create browser history for router
-        history = syncHistoryWithStore(browserHistory, store);
+    // create browser history for router
+    history = syncHistoryWithStore(browserHistory, store);
 
-        // render aplication
-        render(store, history, routes);
+    // render aplication
+    render(store, history, routes);
 
-        // dispatch initialize action
-        store.dispatch(AppActions.initialize());
-    }
+    // dispatch initialize action
+    store.dispatch(AppActions.initialize());
+  }
 };
 
 if (module.hot) {
-    (module: any).hot.accept('./routes', () => {
-        render(store, history, require('./routes').default);
-    });
+  (module: any).hot.accept('./routes', () => {
+    render(store, history, require('./routes').default);
+  });
 }
 
 export default App;
