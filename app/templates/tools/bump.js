@@ -5,6 +5,7 @@ import moment from 'moment';
 import { exec } from 'child_process';
 import { js_beautify as beautify } from 'js-beautify'; // eslint-disable-line camelcase
 import pkg from '../package.json';
+import config from '../config.json';
 
 const argv = process.argv[3];
 
@@ -30,15 +31,12 @@ function validateParam(): Promise<void> {
  * @return {Promise}
  */
 function updateBuildTime(): Promise<void> {
-    let time;
-    let content;
-
     return new Promise((resolve: Function, reject: Function) => {
-        time = moment().format('DD.MM.YYYY HH:mm:ss (ZZ)');
+        const time = moment().format('DD.MM.YYYY HH:mm:ss (ZZ)');
         pkg.time = time;
 
         // eslint-disable-next-line camelcase
-        content = beautify(JSON.stringify(pkg), { indent_size: 2, end_with_newline: true });
+        const content = beautify(JSON.stringify(pkg), { indent_size: 2, end_with_newline: true });
 
         fs.writeFile('package.json', content, (err: any) => {
             if (err) {
@@ -75,8 +73,57 @@ function bumpVersion(): Promise<void> {
     });
 }
 
+/**
+ * Get new version from package.json
+ *
+ * @return {Promise}
+ */
+function getNewVersion(): Promise<Object> {
+    return new Promise((resolve: Function, reject: Function) => {
+        fs.readFile('package.json', 'utf8', (err: any, data: string) => {
+            if (err) {
+                reject(err);
+                return;
+            }
+
+            const content = JSON.parse(data);
+            const version = content.version;
+            const time = content.time;
+
+            resolve({ version, time });
+        });
+    });
+}
+
+/**
+ * Write new version to config
+ *
+ * @param  {Object} data new version
+ *
+ * @return {Promise}
+ */
+function writeConfig(data: Object): Promise<void> {
+    return new Promise((resolve: Function, reject: Function) => {
+        let content = { ...config, build: { ...data } };
+
+        // eslint-disable-next-line camelcase
+        content = beautify(JSON.stringify(content), { indent_size: 2, end_with_newline: true });
+
+        fs.writeFile('config.json', content, (err: any) => {
+            if (err) {
+                reject(err);
+                return;
+            }
+
+            resolve();
+        });
+    });
+}
+
 export default function bump(): Promise<void> {
     return validateParam()
         .then(updateBuildTime)
-        .then(bumpVersion);
+        .then(bumpVersion)
+        .then(getNewVersion)
+        .then(writeConfig);
 }

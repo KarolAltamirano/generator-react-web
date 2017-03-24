@@ -1,23 +1,20 @@
 // @flow
 
-import React, { PropTypes } from 'react';
+import React from 'react';
 
 import style from './version.scss';
 
-export default class Version extends React.Component {
-    static propTypes = {
-        version: PropTypes.string,
-        time: PropTypes.string
-    };
+import config from '../../../../config.json';
 
-    static defaultProps = {
-        version: '',
-        time: ''
+export default class Version extends React.Component {
+    state: Object = {
+        version: config.build.version,
+        time: config.build.time
     };
 
     componentDidMount() {
         console.log(
-            `\n%cv${this.props.version}%c %c${this.props.time}%c\n\n`,
+            `\n%cv${this.state.version}%c %c${this.state.time}%c\n\n`,
             'color: #ffffff; background: #00aa00; padding: 1px 5px;',
             'color: #ffffff; background: #d1eeee; padding: 1px 5px;',
             'color: #ffffff; background: #00aa00; padding: 1px 5px;',
@@ -28,7 +25,7 @@ export default class Version extends React.Component {
     render(): ?React$Element<any> {
         return (
             <div className={style.version}>
-                v{this.props.version} <span>| {this.props.time}</span>
+                v{this.state.version} <span>| {this.state.time}</span>
             </div>
         );
     }
