@@ -41,7 +41,7 @@ Project was generated with Yeoman generator
  │   ├─── global                 : global styles shared across the whole app
  │   └─── shared                 : scss for defining shared scss variables and mixins
  ├─── utils                    : app utils
- └─── views                    : app entry views (loader, incompatible browser ...)
+ └─── views                    : app entry views (loader)
 ```
 
 # Tasks

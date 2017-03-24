@@ -11,15 +11,9 @@
     <% for (var css in htmlWebpackPlugin.files.css) { %>
     <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[css] %>">
     <% } %>
-    <!-- incompatible browser -->
-    <style> .incompatibleBrowser { display: none; } </style>
 </head>
 
 <body>
-    <!-- incompatible browser -->
-    <div id="incompatibleBrowser" class="incompatibleBrowser">
-        Yout Browser is outdated. Please update your browser for better experience.
-    </div>
     <!-- loader -->
     <div class="loader"></div>
     <!-- main app -->
@@ -27,7 +21,5 @@
     <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
     <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
     <% } %>
-    <!-- incompatible browser -->
-    <style> .no-js .incompatibleBrowser { display: block; } </style>
 </body>
 </html>
