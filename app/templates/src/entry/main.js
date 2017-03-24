@@ -11,18 +11,10 @@ import './style/global/global.scss';
 // import copy
 import copy from '../copy/copy.json';
 
-// build version
-import Version from './utils/Version';
-import versionTemplate from './views/version/version.html';
-import versionStyle from './views/version/version.scss';
-
 // loader
 import Loader from './utils/Loader';
 import loaderTemplate from './views/loader/loader.html';
 import loaderStyle from './views/loader/loader.scss';
-
-Version.logConsole();
-Version.render(versionTemplate, versionStyle, Version.getCopy());
 
 // set loader callbacks
 function progress(e: any) {
