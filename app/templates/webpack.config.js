@@ -6,7 +6,6 @@ import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import WebpackNotifierPlugin from 'webpack-notifier';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import assets from 'postcss-assets';
 import autoprefixer from 'autoprefixer';
 import config from './config.json';
 
@@ -17,7 +16,7 @@ import config from './config.json';
 const sassResources = path.resolve(__dirname, 'src', 'app', 'style', 'shared', 'shared.scss');
 
 // set postcss plugins
-const postcssPlugins = () => [assets, autoprefixer({ browsers: config.autoprefixer })];
+const postcssPlugins = () => [autoprefixer({ browsers: config.autoprefixer })];
 
 // webpack configuration
 export default {
@@ -77,9 +76,6 @@ export default {
             },
             {
                 test: /\.scss$/,
-                include: [
-                    path.resolve(__dirname, 'src', 'app')
-                ],
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
@@ -104,27 +100,6 @@ export default {
                         }
                     ]
                 })
-            },
-            {
-                test: /\.scss$/,
-                include: path.resolve(__dirname, 'src', 'assets', 'scssSprite'),
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: { name: 'static/[path][name]---[hash].css' }
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: { plugins: postcssPlugins }
-                    },
-                    {
-                        loader: 'sass-loader'
-                    },
-                    {
-                        loader: 'sass-resources-loader',
-                        options: { resources: sassResources }
-                    }
-                ]
             },
             {
                 test: /\.modernizrrc$/, use: ['modernizr-loader', 'json-loader']

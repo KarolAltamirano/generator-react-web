@@ -1,9 +1,0 @@
-@import 'mixin';
-
-.assetImg01 {
-    @include retina-inline-asset('IMG-1', 'jpg');
-}
-
-.assetImg02 {
-    @include retina-inline-asset('IMG-2', 'jpg');
-}

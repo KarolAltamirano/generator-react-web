@@ -1,9 +1,11 @@
 // @flow
 
 import planeImg from '../../assets/images/plane@2x.png';
-import sprite from '../../assets/scssSprite/assetsRetina.scss';
+import image01 from '../../assets/images/IMG-1@2x.jpg';
+import image02 from '../../assets/images/IMG-2@2x.jpg';
 
 export default [
-    { id: 'scssSprite', src: sprite },
-    { id: 'plane', src: planeImg }
+    { id: 'plane', src: planeImg },
+    { id: 'image01', src: image01 },
+    { id: 'image02', src: image02 }
 ];

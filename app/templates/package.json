@@ -68,7 +68,6 @@
     "moment": "^2.17.1",
     "nightwatch": "^0.9.12",
     "node-sass": "^4.5.0",
-    "postcss-assets": "^4.1.0",
     "postcss-loader": "^1.3.3",
     "progress-bar-webpack-plugin": "^1.9.3",
     "react-addons-test-utils": "^15.4.2",
