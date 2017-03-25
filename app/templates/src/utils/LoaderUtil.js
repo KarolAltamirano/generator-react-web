@@ -45,7 +45,7 @@ const LoaderUtil = {
    * @param  {Function} progress callback function during loading
    * @param  {Function} complete callback function when loading is completed
    */
-  createLoader(id: string, progress?: Function, complete?: Function): Promise<void> {
+  createLoader(id: string, progress: Function, complete: Function) {
     if (loaderList[id] != null) {
       throw new Error(`Loader with id: '${id}' already exists.`);
     }
@@ -80,24 +80,15 @@ const LoaderUtil = {
     // createjs.Sound.alternateExtensions = ['mp3'];
     // loaderList[id].installPlugin(createjs.Sound);
 
-    if (typeof progress === 'function') {
-      loaderList[id].addEventListener('progress', progress);
-    }
-
-    return new Promise((resolve: Function) => {
-      loaderList[id].addEventListener('complete', (e: any) => {
-        if (typeof complete === 'function') {
-          complete(e);
-        }
-
-        // set state when loader complete loading
-        this.state[id] = 'done';
-
-        resolve();
-      });
-
-      loaderList[id].loadManifest(manifest[id]);
+    // set state when loader complete loading
+    loaderList[id].addEventListener('complete', () => {
+      this.state[id] = 'done';
     });
+
+    loaderList[id].addEventListener('progress', progress);
+    loaderList[id].addEventListener('complete', complete);
+
+    loaderList[id].loadManifest(manifest[id]);
   },
 
   /**
@@ -107,17 +98,17 @@ const LoaderUtil = {
    * @param  {Function} progress callback function
    * @param  {Function} complete callback function
    */
-  registerLoader(id: string, progress?: Function, complete?: Function) {
+  registerLoader(id: string, progress: Function, complete: Function) {
     switch (this.state[id]) {
       case 'none':
         this.createLoader(id, progress, complete);
         break;
       case 'progress':
-        progress && this.getLoader(id).addEventListener('progress', progress);
-        complete && this.getLoader(id).addEventListener('complete', complete);
+        this.getLoader(id).addEventListener('progress', progress);
+        this.getLoader(id).addEventListener('complete', complete);
         break;
       case 'done':
-        complete && complete();
+        complete();
         break;
       default:
         break;
@@ -127,10 +118,13 @@ const LoaderUtil = {
   /**
    * Unregister loader
    *
-   * @param  {string} id loader id
+   * @param  {string}   id       loader id
+   * @param  {Function} progress callback function
+   * @param  {Function} complete callback function
    */
-  unregisterLoader(id: string) {
-    this.getLoader(id).removeAllEventListeners();
+  unregisterLoader(id: string, progress: Function, complete: Function) {
+    this.getLoader(id).removeEventListener('progress', progress);
+    this.getLoader(id).removeEventListener('complete', complete);
   },
 
   /**

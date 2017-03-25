@@ -8,21 +8,31 @@ import AppSettings from '../../utils/AppSettings';
 import LoaderUtil from '../../utils/LoaderUtil';
 
 export default class Main extends React.Component {
+  state: Object;
+
   static propTypes = {
     children: PropTypes.element.isRequired
   };
 
-  state: Object = {
-    progress: 0,
-    completed: false
-  };
+  constructor(props: any, context: any) {
+    super(props, context);
+
+    this.state = {
+      progress: 0,
+      completed: false
+    };
+
+    (this: any).progress = this.progress.bind(this);
+    (this: any).complete = this.complete.bind(this);
+  }
+
 
   componentDidMount() {
-    LoaderUtil.registerLoader('main', e => this.progress(e), () => this.complete());
+    LoaderUtil.registerLoader('main', this.progress, this.complete);
   }
 
   componentWillUnmount() {
-    LoaderUtil.unregisterLoader('main');
+    LoaderUtil.unregisterLoader('main', this.progress, this.complete);
   }
 
   progress(e: any) {
