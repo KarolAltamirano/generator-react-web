@@ -12,9 +12,6 @@ import config from './config.json';
 // hide deprecation warrings
 (process: any).noDeprecation = true;
 
-// set path to scss shared file
-const sassResources = path.resolve(__dirname, 'src', 'app', 'style', 'shared', 'shared.scss');
-
 // set postcss plugins
 const postcssPlugins = () => [autoprefixer({ browsers: config.autoprefixer })];
 
@@ -70,33 +67,6 @@ export default {
             {
               loader: 'postcss-loader',
               options: { plugins: postcssPlugins }
-            }
-          ]
-        })
-      },
-      {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 1,
-                modules: true,
-                localIdentName: '[path][name]__[local]---[hash:base64:5]'
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: { plugins: postcssPlugins }
-            },
-            {
-              loader: 'sass-loader'
-            },
-            {
-              loader: 'sass-resources-loader',
-              options: { resources: sassResources }
             }
           ]
         })

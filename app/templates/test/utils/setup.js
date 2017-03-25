@@ -5,7 +5,6 @@ import { jsdom } from 'jsdom';
 const noop = () => 0;
 
 (require: any).extensions['.css'] = noop;
-(require: any).extensions['.scss'] = noop;
 (require: any).extensions['.svg'] = noop;
 (require: any).extensions['.png'] = noop;
 (require: any).extensions['.jpg'] = noop;
