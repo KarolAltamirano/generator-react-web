@@ -9,7 +9,7 @@ export default merge(common, {
   entry: [
     'react-hot-loader/patch',
     'webpack-hot-middleware/client?reload=true',
-    './src/app/main.js'
+    './src/main.js'
   ],
 
   devtool: '#cheap-module-source-map',

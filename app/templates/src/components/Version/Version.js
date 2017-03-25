@@ -3,7 +3,7 @@
 import React from 'react';
 import Wrapper from './Wrapper';
 
-import config from '../../../../config.json';
+import config from '../../../config.json';
 
 export default class Version extends React.Component {
   state: Object = {
