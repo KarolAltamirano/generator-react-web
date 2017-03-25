@@ -6,14 +6,10 @@ import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import WebpackNotifierPlugin from 'webpack-notifier';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import autoprefixer from 'autoprefixer';
 import config from './config.json';
 
 // hide deprecation warrings
 (process: any).noDeprecation = true;
-
-// set postcss plugins
-const postcssPlugins = () => [autoprefixer({ browsers: config.autoprefixer })];
 
 // webpack configuration
 export default {
@@ -57,19 +53,7 @@ export default {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: { importLoaders: 1 }
-            },
-            {
-              loader: 'postcss-loader',
-              options: { plugins: postcssPlugins }
-            }
-          ]
-        })
+        use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
       },
       {
         test: /\.modernizrrc$/, use: ['modernizr-loader', 'json-loader']
