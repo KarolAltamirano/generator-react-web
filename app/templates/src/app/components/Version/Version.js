@@ -1,8 +1,7 @@
 // @flow
 
 import React from 'react';
-
-import style from './version.scss';
+import Wrapper from './Wrapper';
 
 import config from '../../../../config.json';
 
@@ -24,9 +23,9 @@ export default class Version extends React.Component {
 
   render(): ?React$Element<any> {
     return (
-      <div className={style.version}>
+      <Wrapper>
         v{this.state.version} <span>| {this.state.time}</span>
-      </div>
+      </Wrapper>
     );
   }
 }

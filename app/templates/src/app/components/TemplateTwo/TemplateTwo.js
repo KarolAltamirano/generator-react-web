@@ -1,10 +1,10 @@
 // @flow
 
 import React, { PropTypes } from 'react';
-import style from './templateTwo.scss';
+import Wrapper from './Wrapper';
 
 const TemplateTwo = ({ number }: Object) => (
-  <span className={style.templateTwo}>{number}</span>
+  <Wrapper>{number}</Wrapper>
 );
 
 TemplateTwo.propTypes = {
