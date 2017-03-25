@@ -17,7 +17,6 @@
 .gitattributes text eol=lf
 .gitignore text eol=lf
 .gitkeep text eol=lf
-.tern-project text eol=lf
 
 # Binary files
 *.ico binary

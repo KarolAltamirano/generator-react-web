@@ -1,6 +1,5 @@
 [ignore]
 .*/node_modules/babel-plugin-flow-runtime/.*
-.*/node_modules/stylelint/.*
 .*/node_modules/createjs-preloadjs/_assets/static/.*
 .*/node_modules/config-chain/.*
 .*/node_modules/styled-components/.*
