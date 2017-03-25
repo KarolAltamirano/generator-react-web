@@ -6,10 +6,12 @@ import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
+import { ThemeProvider } from 'styled-components';
 
 import configureStore from './store/configureStore';
 import routes from './routes';
 import AppActions from './actions/AppActions';
+import theme from './style/theme';
 
 /**
  * Render application
@@ -22,7 +24,9 @@ function render(pStore: Store, pHistory: any, pRoutes: React$Element<any>) {
   ReactDOM.render(
     <AppContainer key={Math.random()}>
       <Provider store={pStore}>
-        <Router history={pHistory}>{pRoutes}</Router>
+        <ThemeProvider theme={theme}>
+          <Router history={pHistory}>{pRoutes}</Router>
+        </ThemeProvider>
       </Provider>
     </AppContainer>,
     document.getElementById('app')

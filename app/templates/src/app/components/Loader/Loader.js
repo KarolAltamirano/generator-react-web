@@ -2,12 +2,12 @@
 
 import React, { PropTypes } from 'react';
 
-import style from './loader.scss';
+import Wrapper from './Wrapper';
 
 const Loader = ({ progress }: Object) => (
-  <div className={style.loader}>
+  <Wrapper>
     Loading... {progress}%
-  </div>
+  </Wrapper>
 );
 
 Loader.propTypes = {

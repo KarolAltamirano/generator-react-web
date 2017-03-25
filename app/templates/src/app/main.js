@@ -8,7 +8,7 @@ import 'normalize.css';
 import App from './App';
 
 // import global styles
-import './style/global/global.scss';
+import './style/global';
 
 // bootstrap application
 window.addEventListener('load', () => {
