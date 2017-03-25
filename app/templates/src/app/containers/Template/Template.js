@@ -5,7 +5,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import gsap from 'gsap';
 
-import style from './template.scss';
+import Button from './Button';
+import Wrapper from './Wrapper';
+import Element from './Element';
+
 import AppActions from '../../actions/AppActions';
 
 import TemplateTwo from '../../components/TemplateTwo/TemplateTwo';
@@ -24,55 +27,46 @@ class Template extends React.Component {
 
   static defaultProps = {};
 
-  constructor(props: any, context: any) {
-    super(props, context);
-
-    this.elOne = null;
-    this.elTwo = null;
-
-    (this: any).animate = this.animate.bind(this);
-  }
-
   componentDidMount() {
-    this.animate(0);
+    this.animate(0, this.props.template);
   }
 
-  componentDidUpdate() {
-    this.animate(0.4);
+  componentWillReceiveProps(nextProps: Object) {
+    if (nextProps.template === this.props.template) {
+      return;
+    }
+
+    this.animate(0.4, nextProps.template);
   }
 
-  animate(time: number) {
+  animate(time: number, position: number) {
     gsap.TweenMax.to(this.elOne, time, {
-      x: this.props.template * 10
+      x: position * 10,
+      force3D: true
     });
     gsap.TweenMax.to(this.elTwo, time, {
-      x: this.props.template * 10,
-      rotation: this.props.template * 90
+      x: position * 10,
+      rotation: position * 90,
+      force3D: true
     });
   }
 
   render(): ?React$Element<any> {
     return (
       <div>
-        <button
-          className={style.template}
-          onClick={() => this.props.actions.placeholder(2)}
-        >
+        <Button onClick={() => this.props.actions.placeholder(2)}>
           Hello React
-        </button>
-        <button
-          className={style.template}
-          onClick={() => this.props.actions.placeholderAsync(2)}
-        >
+        </Button>
+        <Button onClick={() => this.props.actions.placeholderAsync(2)}>
           Hello React (Async)
-        </button>
+        </Button>
         <TemplateTwo number={this.props.template} />
-        <div className={style.container}>
-          <div ref={el => this.elOne = el} className={style.element} />
-        </div>
-        <div className={style.container}>
-          <div ref={el => this.elTwo = el} className={style.element} />
-        </div>
+        <Wrapper>
+          <Element innerRef={el => this.elOne = el} />
+        </Wrapper>
+        <Wrapper>
+          <Element innerRef={el => this.elTwo = el} />
+        </Wrapper>
       </div>
     );
   }
