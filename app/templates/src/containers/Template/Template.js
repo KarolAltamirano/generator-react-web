@@ -22,7 +22,7 @@ class Template extends React.Component {
 
   static propTypes = {
     actions: PropTypes.object.isRequired,
-    template: PropTypes.number.isRequired
+    template: PropTypes.number.isRequired,
   };
 
   static defaultProps = {};
@@ -42,12 +42,12 @@ class Template extends React.Component {
   animate(time: number, position: number) {
     gsap.TweenMax.to(this.elOne, time, {
       x: position * 10,
-      force3D: true
+      force3D: true,
     });
     gsap.TweenMax.to(this.elTwo, time, {
       x: position * 10,
       rotation: position * 90,
-      force3D: true
+      force3D: true,
     });
   }
 
@@ -81,7 +81,7 @@ class Template extends React.Component {
  */
 function mapStateToProps(state: Object): Object {
   return {
-    template: state.template
+    template: state.template,
   };
 }
 
@@ -94,7 +94,7 @@ function mapStateToProps(state: Object): Object {
  */
 function mapDispatchToProps(dispatch: Function): Object {
   return {
-    actions: bindActionCreators(AppActions, dispatch)
+    actions: bindActionCreators(AppActions, dispatch),
   };
 }
 

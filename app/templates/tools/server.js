@@ -16,8 +16,8 @@ export default function server(): Promise<Object> {
     open: false,
     server: {
       baseDir: `./${config.buildDir}`,
-      middleware: [historyApiFallback()]
-    }
+      middleware: [historyApiFallback()],
+    },
   });
 
   return Promise.resolve({ skip: true });

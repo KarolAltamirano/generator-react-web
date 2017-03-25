@@ -7,7 +7,7 @@
  */
 const ActionTypes = {
   INITIALIZE: 'INITIALIZE',
-  PLACEHOLDER: 'PLACEHOLDER'
+  PLACEHOLDER: 'PLACEHOLDER',
 };
 
 export default ActionTypes;

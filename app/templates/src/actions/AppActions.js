@@ -16,7 +16,7 @@ const AppActions = {
    */
   initialize(): Object {
     return {
-      type: ActionTypes.INITIALIZE
+      type: ActionTypes.INITIALIZE,
     };
   },
 
@@ -30,7 +30,7 @@ const AppActions = {
   placeholder(inc: number): Object {
     return {
       type: ActionTypes.PLACEHOLDER,
-      inc
+      inc,
     };
   },
 
@@ -50,7 +50,7 @@ const AppActions = {
         }, 500);
       });
     };
-  }
+  },
 };
 
 export default AppActions;

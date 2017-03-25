@@ -11,7 +11,7 @@ const Loader = ({ progress }: Object) => (
 );
 
 Loader.propTypes = {
-  progress: PropTypes.number.isRequired
+  progress: PropTypes.number.isRequired,
 };
 
 export default Loader;

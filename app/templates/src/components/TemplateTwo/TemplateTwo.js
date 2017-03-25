@@ -8,7 +8,7 @@ const TemplateTwo = ({ number }: Object) => (
 );
 
 TemplateTwo.propTypes = {
-  number: PropTypes.number.isRequired
+  number: PropTypes.number.isRequired,
 };
 
 export default TemplateTwo;

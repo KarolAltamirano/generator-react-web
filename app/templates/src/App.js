@@ -52,7 +52,7 @@ const App = {
 
     // dispatch initialize action
     store.dispatch(AppActions.initialize());
-  }
+  },
 };
 
 if (module.hot) {

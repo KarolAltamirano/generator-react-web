@@ -6,7 +6,7 @@
  * @type {Object}
  */
 const InitialState = {
-  template: 0
+  template: 0,
 };
 
 export default InitialState;

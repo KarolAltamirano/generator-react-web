@@ -11,7 +11,13 @@
     "new-cap": [2, { "capIsNewExceptions": [] }],
     "no-invalid-this": 2,
     "global-require": 0,
-    "comma-dangle": [2, "never"],
+    "comma-dangle": [2, {
+      arrays: "always-multiline",
+      objects: "always-multiline",
+      imports: "always-multiline",
+      exports: "always-multiline",
+      functions: "never"
+    }],
     "no-plusplus": 0,
     "no-return-assign": 0,
     "import/no-extraneous-dependencies": 0

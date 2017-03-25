@@ -19,5 +19,5 @@ function mainLoaderData(): Array<Object> {
 }
 
 export default {
-  main: mainLoaderData()
+  main: mainLoaderData(),
 };

@@ -14,7 +14,7 @@ describe('Example test', () => {
   );
 
   TestComponent.propTypes = {
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
   };
 
   beforeEach(() => {

@@ -19,8 +19,8 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'name',
         message: 'Your project name (use kebab-case)',
-        default: _.kebabCase(this.appname)
-      }
+        default: _.kebabCase(this.appname),
+      },
     ];
 
     return this.prompt(prompts).then((props) => {

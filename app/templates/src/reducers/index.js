@@ -10,7 +10,7 @@ import template from './templateReducer';
  */
 const rootReducer = combineReducers({
   template,
-  routing
+  routing,
 });
 
 export default rootReducer;

@@ -12,6 +12,6 @@ export default merge(common, {
 
   plugins: [
     new ExtractTextPlugin({ filename: '[name]---[hash].css' }),
-    new webpack.optimize.UglifyJsPlugin({ sourceMap: true })
-  ]
+    new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
+  ],
 });

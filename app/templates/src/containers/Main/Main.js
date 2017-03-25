@@ -11,7 +11,7 @@ export default class Main extends React.Component {
   state: Object;
 
   static propTypes = {
-    children: PropTypes.element.isRequired
+    children: PropTypes.element.isRequired,
   };
 
   constructor(props: any, context: any) {
@@ -19,7 +19,7 @@ export default class Main extends React.Component {
 
     this.state = {
       progress: 0,
-      completed: false
+      completed: false,
     };
 
     (this: any).progress = this.progress.bind(this);

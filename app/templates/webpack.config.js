@@ -17,7 +17,7 @@ export default {
     path: path.resolve(__dirname, config.buildDir),
     publicPath: '/',
     filename: '[name]---[hash].js',
-    sourceMapFilename: 'maps/[file].map'
+    sourceMapFilename: 'maps/[file].map',
   },
 
   plugins: [
@@ -25,15 +25,15 @@ export default {
     new WebpackNotifierPlugin({ alwaysNotify: true }),
     new HtmlWebpackPlugin({ template: 'src/index.ejs', favicon: 'src/favicon.ico' }),
     new webpack.DefinePlugin({
-      'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) }
-    })
+      'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
+    }),
   ],
 
   resolve: {
     alias: {
       'createjs-preloadjs$': 'createjs-preloadjs/lib/preloadjs-0.6.2.combined.js',
-      modernizr$: path.resolve(__dirname, '.modernizrrc')
-    }
+      modernizr$: path.resolve(__dirname, '.modernizrrc'),
+    },
   },
 
   module: {
@@ -47,24 +47,24 @@ export default {
         use: [
           {
             loader: 'file-loader',
-            options: { name: 'static/[path][name]---[hash].[ext]' }
-          }
-        ]
+            options: { name: 'static/[path][name]---[hash].[ext]' },
+          },
+        ],
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
+        use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }),
       },
       {
-        test: /\.modernizrrc$/, use: ['modernizr-loader', 'json-loader']
+        test: /\.modernizrrc$/, use: ['modernizr-loader', 'json-loader'],
       },
       {
         test: /createjs-preloadjs/,
-        use: ['imports-loader?this=>global', 'exports-loader?window.createjs']
+        use: ['imports-loader?this=>global', 'exports-loader?window.createjs'],
       },
       {
-        test: /gsap/, use: ['exports-loader?window']
-      }
-    ]
-  }
+        test: /gsap/, use: ['exports-loader?window'],
+      },
+    ],
+  },
 };

@@ -26,14 +26,14 @@ function serve(): Promise<Object> {
         historyApiFallback(),
         webpackDevMiddleware(compiler, {
           publicPath: webpackDevConfig.output.publicPath,
-          stats: { chunks: false, colors: true }
+          stats: { chunks: false, colors: true },
         }),
-        webpackHotMiddleware(compiler)
-      ]
+        webpackHotMiddleware(compiler),
+      ],
     },
     files: [
-      './src/index.ejs'
-    ]
+      './src/index.ejs',
+    ],
   });
 
   return Promise.resolve({ skip: true });

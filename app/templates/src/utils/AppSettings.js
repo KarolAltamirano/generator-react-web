@@ -30,7 +30,7 @@ const AppSettings = {
    */
   isNotProduction(): boolean {
     return !this.isProduction();
-  }
+  },
 };
 
 export default AppSettings;

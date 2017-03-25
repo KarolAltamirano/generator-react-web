@@ -14,7 +14,7 @@ const theme = {
   fontSize16: '1.6rem', // 16px
 
   // z-index
-  zIndexVersion: 9999
+  zIndexVersion: 9999,
 };
 
 export default theme;

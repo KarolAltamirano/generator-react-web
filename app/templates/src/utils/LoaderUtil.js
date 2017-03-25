@@ -23,7 +23,7 @@ function runFallback(): boolean {
 // generate initial loader state
 const initialState: Object = Object.keys(manifest).reduce((prev, curr) => (
   Object.assign({}, prev, {
-    [curr]: 'none'
+    [curr]: 'none',
   })
 ), {});
 
@@ -60,7 +60,7 @@ const LoaderUtil = {
         if (item.type === 'binary') {
           return Object.assign({}, item, {
             type: undefined,
-            getURL: true
+            getURL: true,
           });
         }
         return item;
@@ -194,14 +194,14 @@ const LoaderUtil = {
     // create blob
     const newAssetURL = URL.createObjectURL(
       new Blob([this.getLoader(loaderId).getResult(assetId)], {
-        type: mimeType
+        type: mimeType,
       })
     );
 
     // cache
     cache[loaderId].push({
       id: assetId,
-      url: newAssetURL
+      url: newAssetURL,
     });
 
     return newAssetURL;
@@ -220,7 +220,7 @@ const LoaderUtil = {
       cache[loaderId].splice(cache[loaderId].indexOf(cachedAsset), 1);
       URL.revokeObjectURL(cachedAsset.url);
     }
-  }
+  },
 };
 
 export default LoaderUtil;

@@ -8,7 +8,7 @@ import config from '../../../config.json';
 export default class Version extends React.Component {
   state: Object = {
     version: config.build.version,
-    time: config.build.time
+    time: config.build.time,
   };
 
   componentDidMount() {
