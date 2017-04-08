@@ -41,14 +41,10 @@ const AppActions = {
    *
    * @return {Function}
    */
-  placeholderAsync(inc: number): Function {
-    return function thunk(dispatch: Function): Promise<void> {
-      return new Promise((resolve: Function) => {
-        setTimeout(() => {
-          dispatch(AppActions.placeholder(inc));
-          resolve();
-        }, 500);
-      });
+  placeholderAsync(inc: number): Object {
+    return {
+      type: ActionTypes.PLACEHOLDER_ASYNC,
+      inc,
     };
   },
 };

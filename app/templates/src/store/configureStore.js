@@ -3,8 +3,9 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
-import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 import rootReducer from '../reducers';
+import rootSaga from '../sagas';
 
 /**
  * Create Redux store
@@ -16,16 +17,17 @@ import rootReducer from '../reducers';
 export default function configureStore(initialState?: Object): Store {
   let middleware;
   const logger = createLogger({ collapsed: true });
+  const sagaMiddleware = createSagaMiddleware();
 
   // set middleware for development or production build
   if (process.env.NODE_ENV === 'development') {
-    middleware = [thunk, reduxImmutableStateInvariant(), logger];
+    middleware = [sagaMiddleware, reduxImmutableStateInvariant(), logger];
   } else {
-    middleware = [thunk];
+    middleware = [sagaMiddleware];
   }
 
   // create store
-  return createStore(
+  const store = createStore(
     rootReducer,
     initialState,
     compose(
@@ -33,4 +35,9 @@ export default function configureStore(initialState?: Object): Store {
       window.devToolsExtension ? window.devToolsExtension() : f => f
     )
   );
+
+  // run the saga
+  sagaMiddleware.run(rootSaga);
+
+  return store;
 }
