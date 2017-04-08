@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react';
 
 import Loader from '../../components/Loader';
-import Version from '../../components/Version/Version';
+import Version from '../../components/Version';
 import AppSettings from '../../utils/AppSettings';
 import LoaderUtil from '../../utils/LoaderUtil';
 

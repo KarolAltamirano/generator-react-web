@@ -3,8 +3,8 @@
 import React from 'react';
 import { Route, IndexRoute, Redirect } from 'react-router';
 
-import Main from './containers/Main/Main';
-import Template from './containers/Template/Template';
+import Main from './containers/Main';
+import Template from './containers/Template';
 
 /**
  * Define routes

@@ -11,7 +11,7 @@ import Element from './Element';
 
 import AppActions from '../../actions/AppActions';
 
-import TemplateTwo from '../../components/TemplateTwo/TemplateTwo';
+import TemplateTwo from '../../components/TemplateTwo';
 
 /**
  * Template React Component
