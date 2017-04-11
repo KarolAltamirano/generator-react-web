@@ -1,4 +1,5 @@
 {
+  "components.Loader.loading": "Loading... {progress}%",
   "containers.Template.button": "Hello React",
   "containers.Template.buttonAsync": "Hello React (Async)"
 }

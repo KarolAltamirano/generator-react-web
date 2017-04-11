@@ -4,17 +4,15 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { FormattedMessage } from 'react-intl';
-
 import gsap from 'gsap';
+
+import messages from './messages';
 
 import Button from './Button';
 import Wrapper from './Wrapper';
 import Element from './Element';
 
-import messages from './messages';
-
 import AppActions from '../../actions/AppActions';
-
 import TemplateTwo from '../../components/TemplateTwo';
 
 /**

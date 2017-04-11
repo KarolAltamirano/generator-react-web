@@ -1,12 +1,14 @@
 // @flow
 
 import React, { PropTypes } from 'react';
+import { FormattedMessage } from 'react-intl';
 
+import messages from './messages';
 import Wrapper from './Wrapper';
 
 const Loader = ({ progress }: Object) => (
   <Wrapper>
-    Loading... {progress}%
+    <FormattedMessage {...messages.loading} values={{ progress }} />
   </Wrapper>
 );
 
