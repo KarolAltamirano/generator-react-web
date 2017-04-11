@@ -1,6 +1,10 @@
 // @flow
 
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
+
+import messages from './messages';
+
 import Wrapper from './Wrapper';
 
 import config from '../../../config.json';
@@ -24,7 +28,10 @@ export default class Version extends React.Component {
   render(): ?React$Element<any> {
     return (
       <Wrapper>
-        v{this.state.version} <span>| {this.state.time}</span>
+        <FormattedMessage
+          {...messages.version}
+          values={{ version: this.state.version, time: this.state.time }}
+        />
       </Wrapper>
     );
   }
