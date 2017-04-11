@@ -1,1 +1,4 @@
-{}
+{
+  "containers.Template.button": "Hello React",
+  "containers.Template.buttonAsync": "Hello React (Async)"
+}

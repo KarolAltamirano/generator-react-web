@@ -3,11 +3,15 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { FormattedMessage } from 'react-intl';
+
 import gsap from 'gsap';
 
 import Button from './Button';
 import Wrapper from './Wrapper';
 import Element from './Element';
+
+import messages from './messages';
 
 import AppActions from '../../actions/AppActions';
 
@@ -54,12 +58,16 @@ class Template extends React.Component {
   render(): ?React$Element<any> {
     return (
       <div>
-        <Button onClick={() => this.props.actions.placeholder(2)}>
-          Hello React
-        </Button>
-        <Button onClick={() => this.props.actions.placeholderAsync(2)}>
-          Hello React (Async)
-        </Button>
+        <FormattedMessage {...messages.button}>
+          {value => (
+            <Button onClick={() => this.props.actions.placeholder(2)}>{value}</Button>
+          )}
+        </FormattedMessage>
+        <FormattedMessage {...messages.buttonAsync}>
+          {value => (
+            <Button onClick={() => this.props.actions.placeholderAsync(2)}>{value}</Button>
+          )}
+        </FormattedMessage>
         <TemplateTwo number={this.props.template} />
         <Wrapper>
           <Element innerRef={el => this.elOne = el} />

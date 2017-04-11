@@ -7,11 +7,13 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 import { ThemeProvider } from 'styled-components';
+import { IntlProvider } from 'react-intl';
 
 import configureStore from './store/configureStore';
 import routes from './routes';
 import AppActions from './actions/AppActions';
 import theme from './style/theme';
+import translationMessages from './i18n';
 
 /**
  * Render application
@@ -25,7 +27,9 @@ function render(pStore: Store, pHistory: any, pRoutes: React$Element<any>) {
     <AppContainer key={Math.random()}>
       <Provider store={pStore}>
         <ThemeProvider theme={theme}>
-          <Router history={pHistory}>{pRoutes}</Router>
+          <IntlProvider locale="en" messages={translationMessages.en}>
+            <Router history={pHistory}>{pRoutes}</Router>
+          </IntlProvider>
         </ThemeProvider>
       </Provider>
     </AppContainer>,
