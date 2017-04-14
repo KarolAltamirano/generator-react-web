@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable no-console */
 
 import fs from 'fs';
 import moment from 'moment';

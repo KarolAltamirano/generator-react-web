@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable no-console */
 
 import webpack from 'webpack';
 import clean from './common/clean';
