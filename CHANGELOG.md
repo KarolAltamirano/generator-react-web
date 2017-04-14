@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.6.1 - 2017-04-14
+- Remove flow-typed from package source
+
 ## v0.6.0 - 2017-04-14
 - Add Flow
 - Refactor folder structure
