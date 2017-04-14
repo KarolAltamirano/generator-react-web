@@ -2,33 +2,33 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, browserHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 import { ThemeProvider } from 'styled-components';
 import { IntlProvider } from 'react-intl';
 
 import configureStore from './store/configureStore';
-import routes from './routes';
 import AppActions from './actions/AppActions';
 import theme from './style/theme';
 import translationMessages from './i18n';
 
+import Main from './containers/Main';
+
 /**
  * Render application
  *
- * @param {Store}     pStore   redux store
- * @param {History}   pHistory router history method
- * @param {Component} pRoutes  application routes
+ * @param {Store} store redux store
  */
-function render(pStore: Store, pHistory: any, pRoutes: React$Element<any>) {
+function render(store: Store) {
   ReactDOM.render(
     <AppContainer key={Math.random()}>
-      <Provider store={pStore}>
+      <Provider store={store}>
         <ThemeProvider theme={theme}>
           <IntlProvider locale="en" messages={translationMessages.en}>
-            <Router history={pHistory}>{pRoutes}</Router>
+            <Router>
+              <Route path="/" component={Main} />
+            </Router>
           </IntlProvider>
         </ThemeProvider>
       </Provider>
@@ -38,7 +38,6 @@ function render(pStore: Store, pHistory: any, pRoutes: React$Element<any>) {
 }
 
 let store;
-let history;
 
 const App = {
   /**
@@ -48,11 +47,8 @@ const App = {
     // create store
     store = configureStore();
 
-    // create browser history for router
-    history = syncHistoryWithStore(browserHistory, store);
-
     // render aplication
-    render(store, history, routes);
+    render(store);
 
     // dispatch initialize action
     store.dispatch(AppActions.initialize());
@@ -60,8 +56,8 @@ const App = {
 };
 
 if (module.hot) {
-  (module: any).hot.accept('./routes', () => {
-    render(store, history, require('./routes').default);
+  (module: any).hot.accept('./containers/Main', () => {
+    render(store);
   });
 }
 

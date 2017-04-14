@@ -2,7 +2,6 @@
   "parser": "babel-eslint",
 
   "rules": {
-    "no-console": 0,
     "camelcase": [2, {"properties": "always"}],
     "wrap-iife": [2, "inside"],
     "new-cap": [2, { "capIsNewExceptions": [] }],

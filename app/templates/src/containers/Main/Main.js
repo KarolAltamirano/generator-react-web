@@ -1,7 +1,8 @@
 // @flow
 
-import React, { PropTypes } from 'react';
+import React from 'react';
 
+import Template from '../Template';
 import Loader from '../../components/Loader';
 import Version from '../../components/Version';
 import AppSettings from '../../utils/AppSettings';
@@ -9,10 +10,6 @@ import LoaderUtil from '../../utils/LoaderUtil';
 
 export default class Main extends React.Component {
   state: Object;
-
-  static propTypes = {
-    children: PropTypes.element.isRequired,
-  };
 
   constructor(props: any, context: any) {
     super(props, context);
@@ -48,7 +45,7 @@ export default class Main extends React.Component {
       <div>
         {
           this.state.completed
-            ? this.props.children
+            ? <Template />
             : <Loader progress={this.state.progress} />
         }
         {AppSettings.renderVersionInfo ? <Version /> : null}
