@@ -1,0 +1,8 @@
+// @flow
+
+declare export default any;
+declare export var css: any;
+declare export var keyframes: any;
+declare export var ThemeProvider: any;
+declare export var injectGlobal: any;
+declare export var withTheme: any;

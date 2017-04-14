@@ -1,3 +1,6 @@
+// @flow
+/* eslint-disable no-console */
+
 import moment from 'moment';
 
 /**
@@ -5,10 +8,10 @@ import moment from 'moment';
  *
  * @param  {Object} time moment.js Object
  *
- * @return {string}      formated time
+ * @return {string}    formated time
  */
-function formatTime(time) {
-    return time.format('HH:mm:ss');
+function formatTime(time: moment$Moment): string {
+  return time.format('HH:mm:ss');
 }
 
 /**
@@ -18,27 +21,27 @@ function formatTime(time) {
  *
  * @return {Promise}
  */
-function exec(task) {
-    const start = moment();
+function exec(task: Function): Promise<void> {
+  const start = moment();
 
-    console.log(`[${formatTime(start)}] Starting '${task.name}'...`);
+  console.log(`[${formatTime(start)}] Starting '${task.name}'...`);
 
-    return task().then((data) => {
-        const end = moment();
-        const duration = end.valueOf() - start.valueOf();
+  return task().then((data?: Object) => {
+    const end = moment();
+    const duration = end.valueOf() - start.valueOf();
 
-        if (typeof data === 'object' && data.skip === true) {
-            return;
-        }
+    if (typeof data === 'object' && data.skip === true) {
+      return;
+    }
 
-        console.log(`\n[${formatTime(end)}] Finished '${task.name}' after ${duration} ms`);
-    });
+    console.log(`\n[${formatTime(end)}] Finished '${task.name}' after ${duration} ms`);
+  });
 }
 
 // run task
 if (process.argv[2]) {
-    // eslint-disable-next-line import/no-dynamic-require
-    const module = require(`./${process.argv[2]}`).default;
+  // eslint-disable-next-line import/no-dynamic-require
+  const module = require(`./${process.argv[2]}`).default;
 
-    exec(module).catch(err => console.error(err));
+  exec(module).catch(err => console.error(err));
 }

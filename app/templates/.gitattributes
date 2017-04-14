@@ -3,7 +3,6 @@
 
 # Text files - normalize line endings to LF on checkout
 *.js text eol=lf
-*.scss text eol=lf
 *.html text eol=lf
 *.css text eol=lf
 *.ejs text eol=lf
@@ -15,14 +14,12 @@
 .editorconfig text eol=lf
 .eslintignore text eol=lf
 .eslintrc text eol=lf
+.flowconfig text eol=lf
 .gitattributes text eol=lf
 .gitignore text eol=lf
 .gitkeep text eol=lf
 .htmlhintrc text eol=lf
 .modernizrrc text eol=lf
-.stylelintignore text eol=lf
-.stylelintrc text eol=lf
-.tern-project text eol=lf
 
 # Binary files
 *.ico binary

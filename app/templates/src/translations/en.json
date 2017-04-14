@@ -1,0 +1,6 @@
+{
+  "components.Loader.loading": "Loading... {progress}%",
+  "components.Version.version": "v{version} | {time}",
+  "containers.Template.button": "Hello React",
+  "containers.Template.buttonAsync": "Hello React (Async)"
+}

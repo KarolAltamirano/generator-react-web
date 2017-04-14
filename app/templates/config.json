@@ -1,7 +1,7 @@
 {
-    "buildDir": "dist",
-
-    "autoprefixer": [
-        "last 2 versions"
-    ]
+  "build": {
+    "version": "0.0.0",
+    "time": "00.00.0000 00:00:00 (+0000)"
+  },
+  "buildDir": "dist"
 }

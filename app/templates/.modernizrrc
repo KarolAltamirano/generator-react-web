@@ -1,6 +1,6 @@
 {
-    "options": [
-        "setClasses"
-    ],
-    "feature-detects": []
+  "options": [
+    "setClasses"
+  ],
+  "feature-detects": []
 }

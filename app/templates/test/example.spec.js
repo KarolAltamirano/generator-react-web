@@ -1,3 +1,5 @@
+// @flow
+
 import React, { PropTypes } from 'react';
 import { shallow } from 'enzyme';
 
@@ -5,25 +7,25 @@ import { expect } from 'chai';
 // import sinon from 'sinon';
 
 describe('Example test', () => {
-    let wrapper;
+  let wrapper;
 
-    const TestComponent = ({ title }) => (
-        <div>{title}</div>
-    );
+  const TestComponent = ({ title }) => (
+    <div>{title}</div>
+  );
 
-    TestComponent.propTypes = {
-        title: PropTypes.string.isRequired
-    };
+  TestComponent.propTypes = {
+    title: PropTypes.string.isRequired,
+  };
 
-    beforeEach(() => {
-        wrapper = shallow(<TestComponent title="ahoj" />);
-    });
+  beforeEach(() => {
+    wrapper = shallow(<TestComponent title="ahoj" />);
+  });
 
-    it('should run successfully', () => {
-        expect(wrapper.type()).to.equal('div');
-    });
+  it('should run successfully', () => {
+    expect(wrapper.type()).to.equal('div');
+  });
 
-    it('should run successfully too', () => {
-        expect(wrapper.text()).to.equal('ahoj');
-    });
+  it('should run successfully too', () => {
+    expect(wrapper.text()).to.equal('ahoj');
+  });
 });

@@ -1,23 +1,25 @@
 # React web
-> Yeoman generator for creating interactive web sites with React and Redux + Webpack, ES7+, Babel, Yarn, npm Scripts, CSS Modules, SCSS
+> Yeoman generator for creating interactive web sites with React and Redux + Webpack, Flow, ES7+, Babel, Yarn, npm Scripts, i18n, Redux Saga, styled components
 
 [![Build Status](https://travis-ci.org/KarolAltamirano/generator-react-web.svg?branch=master)](https://travis-ci.org/KarolAltamirano/generator-react-web)
 [![Dependency Status](https://david-dm.org/KarolAltamirano/generator-react-web.svg)](https://david-dm.org/KarolAltamirano/generator-react-web)
 [![npm version](https://badge.fury.io/js/generator-react-web.svg)](https://badge.fury.io/js/generator-react-web)
 
 ## About generator
-Generator helps you initialize new interactive web site project. It contains asset loader and browser version detection.
+Generator helps you initialize new interactive web site project.
 
 ## Features
+- Flow
 - React
 - Redux
+- i18n
+- Redux Saga
 - Webpack
 - ES7+
 - Babel
 - Yarn
 - npm Scripts
-- CSS Modules
-- SCSS
+- styled components
 
 ## Getting Started
 ### Requirements
@@ -25,6 +27,7 @@ Generator helps you initialize new interactive web site project. It contains ass
 - npm v3.10 or newer
 - yarn (to install run `npm install --global yarn`)
 - yo (to install run `npm install -g yo`, to update run `npm update -g yo`)
+- flow-typed (to install run `npm install -g flow-typed`)
 
 ### Installation
 - Install: `npm install -g generator-react-web`

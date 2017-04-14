@@ -1,36 +1,37 @@
 {
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module"
-    },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
 
-    "rules": {
-        "no-console": 0,
-        "indent": [2, 4, {
-            "SwitchCase": 1,
-            "FunctionDeclaration": { "parameters": 1, "body": 1 },
-            "FunctionExpression": { "parameters": 1, "body": 1 }
-        }],
-        "camelcase": [2, {"properties": "always"}],
-        "wrap-iife": [2, "inside"],
-        "new-cap": [2, { "capIsNewExceptions": [] }],
-        "no-invalid-this": 2,
-        "global-require": 0,
-        "comma-dangle": [2, "never"],
-        "no-plusplus": 0,
-        "no-return-assign": 0,
-        "import/no-extraneous-dependencies": 0
-    },
+  "rules": {
+    "no-console": 0,
+    "camelcase": [2, {"properties": "always"}],
+    "wrap-iife": [2, "inside"],
+    "new-cap": [2, { "capIsNewExceptions": [] }],
+    "no-invalid-this": 2,
+    "global-require": 0,
+    "comma-dangle": [2, {
+      arrays: "always-multiline",
+      objects: "always-multiline",
+      imports: "always-multiline",
+      exports: "always-multiline",
+      functions: "never"
+    }],
+    "no-plusplus": 0,
+    "no-return-assign": 0,
+    "import/no-extraneous-dependencies": 0
+  },
 
-    "env": {
-        "es6": true,
-        "node": true,
-        "browser": true,
-        "commonjs": true,
-        "mocha": true
-    },
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true,
+    "commonjs": true,
+    "mocha": true
+  },
 
-    "extends": "airbnb-base",
+  "extends": "airbnb-base",
 
-    "globals": {}
+  "globals": {}
 }

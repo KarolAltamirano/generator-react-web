@@ -1,7 +1,7 @@
 {
   "name": "generator-react-web",
-  "version": "0.5.0",
-  "description": "Yeoman generator for creating interactive web sites with React and Redux + Webpack, ES7+, Babel, Yarn, npm Scripts, CSS Modules, SCSS",
+  "version": "0.6.0",
+  "description": "Yeoman generator for creating interactive web sites with React and Redux + Webpack, Flow, ES7+, Babel, Yarn, npm Scripts, i18n, Redux Saga, styled components",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "KarolAltamirano/generator-react-web",
@@ -23,15 +23,15 @@
   "dependencies": {
     "chalk": "^1.1.3",
     "lodash": "^4.17.4",
-    "yeoman-generator": "^1.1.0",
+    "yeoman-generator": "^1.1.1",
     "yosay": "^2.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.23.0",
-    "babel-preset-es2015": "^6.22.0",
-    "eslint": "^3.16.1",
-    "eslint-config-airbnb-base": "^11.1.0",
+    "babel-cli": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.3",
     "eslint-plugin-import": "^2.2.0",
-    "js-beautify": "^1.6.11"
+    "js-beautify": "^1.6.12"
   }
 }
