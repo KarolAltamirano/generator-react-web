@@ -12,6 +12,7 @@ Generator helps you initialize new interactive web site project.
 - Flow
 - React
 - Redux
+- Redux Saga
 - Webpack
 - ES7+
 - Babel
