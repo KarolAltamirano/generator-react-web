@@ -71,7 +71,7 @@ To hide build version info set `renderVersionInfo` to `false` inside `src/utils/
 To bump version use yarn task `yarn run bump [ major | minor | patch ]`
 
 # Linting
-Use linter in your text editor for JavaScript.
+Use linter in your code editor.
 
 ## JavaScript
 - For JavaScript use [ESLint](http://eslint.org/). The project contains ESLint configuration
