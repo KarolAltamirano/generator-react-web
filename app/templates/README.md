@@ -17,6 +17,10 @@ Project was generated with Yeoman generator
 - clone repository
 - install all dependencies: run `yarn` in terminal
 
+# Development
+- Run: `yarn run start` to start dev server and watch for file changes
+- Run: `yarn run build` to build for production
+
 # Folders
 ```
 .
