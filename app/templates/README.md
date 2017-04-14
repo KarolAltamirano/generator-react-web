@@ -24,8 +24,8 @@ Project was generated with Yeoman generator
 # Folders
 ```
 .
-├─── flow       : flow configuration files
-├─── flow-typed : flow configuration files installed with flow-typed
+├─── flow       : flow type definitions
+├─── flow-typed : flow type definitions installed with flow-typed
 ├─── src        : source code
 ├─── test       : unit tests
 ├─── teste2e    : e2e tests
