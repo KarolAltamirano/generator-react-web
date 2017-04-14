@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## v0.6.0 - 2017-04-14
 - Add Flow
 - Refactor folder structure
+- Add i18n
 - Add styled components
 - Add Redux Saga
 - Update all packages
