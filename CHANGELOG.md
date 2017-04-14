@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.6.2 - 2017-04-15
+- Update styled-components
+- Use babel plugin for styled-components
+- Rename index.ejs to index.html
+
 ## v0.6.1 - 2017-04-14
 - Remove flow-typed from package source
 
