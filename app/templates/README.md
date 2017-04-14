@@ -16,7 +16,6 @@ Project was generated with Yeoman generator
 ## Existing repository
 - clone repository
 - install all dependencies: run `yarn` in terminal
-- install flow types: run `flow-typed install` in terminal
 
 # Folders
 ```
