@@ -18,16 +18,17 @@ import Main from './containers/Main';
 /**
  * Render application
  *
- * @param {Store} store redux store
+ * @param  {any}   Component react component
+ * @param  {Store} store     redux store
  */
-function render(store: Store) {
+function render(Component: any, store: Store) {
   ReactDOM.render(
     <AppContainer key={Math.random()}>
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <IntlProvider locale="en" messages={translationMessages.en}>
             <Router>
-              <Route path="/" component={Main} />
+              <Route path="/" component={Component} />
             </Router>
           </IntlProvider>
         </ThemeProvider>
@@ -48,7 +49,7 @@ const App = {
     store = configureStore();
 
     // render aplication
-    render(store);
+    render(Main, store);
 
     // dispatch initialize action
     store.dispatch(AppActions.initialize());
@@ -57,7 +58,7 @@ const App = {
 
 if (module.hot) {
   (module: any).hot.accept('./containers/Main', () => {
-    render(store);
+    render(require('./containers/Main').default, store);
   });
 }
 
