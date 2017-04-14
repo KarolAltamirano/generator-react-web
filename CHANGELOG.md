@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## v0.6.3 - 2017-04-15
+- Update eslint
+- Update flowconfig
+
 ## v0.6.2 - 2017-04-15
 - Update styled-components
 - Use babel plugin for styled-components
