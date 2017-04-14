@@ -57,6 +57,8 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.runInstall('yarn');
+    this.yarnInstall(null, null, () => {
+      this.spawnCommandSync('flow-typed', ['install']);
+    });
   }
 };

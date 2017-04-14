@@ -15,7 +15,7 @@
     "test": "mocha --compilers js:babel-register test/utils/setup.js test/**/*.spec.js",
     "test:watch": "yarn run test -- -w",
     "e2e": "mocha --no-timeouts --compilers js:babel-register teste2e/**/*.spec.e2e.js",
-    "leasot": "leasot '{src,test,teste2e,tools}/**/*.{js,html,scss,ejs}' || true",
+    "leasot": "leasot '{src,test,teste2e,tools}/**/*.{js,html,ejs}' || true",
     "check:all": "yarn run lint:all && yarn run flow && yarn run test",
     "hooks:install": "node ./node_modules/husky/bin/install",
     "selenium:install": "selenium-standalone install",
