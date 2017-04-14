@@ -16,6 +16,7 @@ Project was generated with Yeoman generator
 ## Existing repository
 - clone repository
 - install all dependencies: run `yarn` in terminal
+- install flow types: run `flow-typed install` in terminal
 
 # Folders
 ```
@@ -74,6 +75,9 @@ Use linter in your text editor for JavaScript.
   file `.eslintrc`
 - ESLint for Atom - [show](https://github.com/AtomLinter/linter-eslint)
 - ESLint for Sublime Text - [show](https://github.com/roadhump/SublimeLinter-eslint)
+
+## Flow
+- Information about flow integrations for code editors can be found [here](https://flow.org/en/docs/editors/)
 
 ## HTML
 - For HTML use [HTMLHint](https://github.com/yaniswang/HTMLHint). The project contains HTMLHint
