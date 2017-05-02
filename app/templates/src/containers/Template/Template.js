@@ -8,9 +8,7 @@ import gsap from 'gsap';
 
 import messages from './messages';
 
-import Button from './Button';
-import Wrapper from './Wrapper';
-import Element from './Element';
+import styles from './styles';
 
 import AppActions from '../../actions/AppActions';
 import TemplateTwo from '../../components/TemplateTwo';
@@ -58,21 +56,27 @@ class Template extends React.Component {
       <div>
         <FormattedMessage {...messages.button}>
           {value => (
-            <Button onClick={() => this.props.actions.placeholder(2)}>{value}</Button>
+            <button
+              className={styles.button}
+              onClick={() => this.props.actions.placeholder(2)}
+            >{value}</button>
           )}
         </FormattedMessage>
         <FormattedMessage {...messages.buttonAsync}>
           {value => (
-            <Button onClick={() => this.props.actions.placeholderAsync(2)}>{value}</Button>
+            <button
+              className={styles.button}
+              onClick={() => this.props.actions.placeholderAsync(2)}
+            >{value}</button>
           )}
         </FormattedMessage>
         <TemplateTwo number={this.props.template} />
-        <Wrapper>
-          <Element innerRef={el => this.elOne = el} />
-        </Wrapper>
-        <Wrapper>
-          <Element innerRef={el => this.elTwo = el} />
-        </Wrapper>
+        <div className={styles.wrapper}>
+          <div className={styles.element} ref={el => this.elOne = el} />
+        </div>
+        <div className={styles.wrapper}>
+          <div className={styles.element} ref={el => this.elTwo = el} />
+        </div>
       </div>
     );
   }

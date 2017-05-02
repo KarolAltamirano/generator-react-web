@@ -1,7 +1,7 @@
 [ignore]
 .*/node_modules/createjs-preloadjs/_assets/static/.*
 .*/node_modules/config-chain/.*
-.*/node_modules/styled-components/.*
+.*/node_modules/jss/.*
 
 [include]
 
@@ -15,4 +15,4 @@ module.ignore_non_literal_requires=true
 module.name_mapper.extension='png' -> '<PROJECT_ROOT>/flow/WebpackAsset.js.flow'
 module.name_mapper.extension='jpg' -> '<PROJECT_ROOT>/flow/WebpackAsset.js.flow'
 module.name_mapper.extension='html' -> '<PROJECT_ROOT>/flow/WebpackAsset.js.flow'
-module.name_mapper='^styled-components$' -> '<PROJECT_ROOT>/flow/styled-components.js.flow'
+module.name_mapper='^jss$' -> '<PROJECT_ROOT>/flow/jss.js.flow'

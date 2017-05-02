@@ -1,39 +1,40 @@
 // @flow
 
-import { injectGlobal } from 'styled-components';
+import jss from 'jss';
+import preset from 'jss-preset-default';
 import theme from './theme';
 
-/* eslint no-unused-expressions: 0 */
-injectGlobal`
+const styles = {
   /*
-  @font-face {
-    font-family: MyWebFont;
-    src:
+  '@font-face': {
+    fontFamily: 'MyWebFont',
+    src: `
       url('myfont.woff2') format('woff2'),
-      url('myfont.woff') format('woff');
-  }
+      url('myfont.woff') format('woff')
+    `,
+  },
   */
+  '@global': {
+    html: {
+      fontSize: theme.fontSizeHtml,
+    },
+    body: {
+      color: theme.color03,
+      fontFamily: 'Arial, Helvetica, sans-serif',
+    },
+    a: {
+      color: theme.color04,
+      textDecoration: 'underline',
+      cursor: 'pointer',
+      '&:hover': {
+        color: theme.color05,
+      },
+    },
+    canvas: {
+      display: 'block',
+    },
+  },
+};
 
-  html {
-    font-size: ${theme.fontSizeHtml};
-  }
-
-  body {
-    color: ${theme.color03};
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  a {
-    color: ${theme.color04};
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-  a:hover {
-    color: ${theme.color05};
-  }
-
-  canvas {
-    display: block;
-  }
-`;
+jss.setup(preset());
+jss.createStyleSheet(styles, { meta: __filename }).attach();
