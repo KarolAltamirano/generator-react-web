@@ -5,10 +5,8 @@ import 'whatwg-fetch';
 import 'modernizr';
 import 'normalize.css';
 
-import App from './App';
-
-// import global styles
 import './style/global';
+import App from './App';
 
 // bootstrap application
 window.addEventListener('load', () => {

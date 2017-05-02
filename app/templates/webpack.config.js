@@ -20,6 +20,10 @@ export default {
     sourceMapFilename: 'maps/[file].map',
   },
 
+  node: {
+    __filename: true,
+  },
+
   plugins: [
     new ProgressBarPlugin(),
     new WebpackNotifierPlugin({ alwaysNotify: true }),

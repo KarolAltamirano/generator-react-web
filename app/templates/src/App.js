@@ -5,12 +5,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
-import { ThemeProvider } from 'styled-components';
 import { IntlProvider } from 'react-intl';
 
 import configureStore from './store/configureStore';
 import AppActions from './actions/AppActions';
-import theme from './style/theme';
 import translationMessages from './i18n';
 
 import Main from './containers/Main';
@@ -25,13 +23,11 @@ function render(Component: any, store: Store) {
   ReactDOM.render(
     <AppContainer key={Math.random()}>
       <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <IntlProvider locale="en" messages={translationMessages.en}>
-            <Router>
-              <Route path="/" component={Component} />
-            </Router>
-          </IntlProvider>
-        </ThemeProvider>
+        <IntlProvider locale="en" messages={translationMessages.en}>
+          <Router>
+            <Route path="/" component={Component} />
+          </Router>
+        </IntlProvider>
       </Provider>
     </AppContainer>,
     document.getElementById('app')

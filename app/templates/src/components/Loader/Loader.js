@@ -4,12 +4,12 @@ import React, { PropTypes } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import messages from './messages';
-import Wrapper from './Wrapper';
+import styles from './styles';
 
 const Loader = ({ progress }: Object) => (
-  <Wrapper>
+  <div className={styles.wrapper}>
     <FormattedMessage {...messages.loading} values={{ progress }} />
-  </Wrapper>
+  </div>
 );
 
 Loader.propTypes = {

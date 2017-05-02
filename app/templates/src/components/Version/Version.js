@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 
 import messages from './messages';
 
-import Wrapper from './Wrapper';
+import styles from './styles';
 
 import config from '../../../config.json';
 
@@ -28,12 +28,12 @@ export default class Version extends React.Component {
 
   render(): ?React$Element<any> {
     return (
-      <Wrapper>
+      <div className={styles.wrapper}>
         <FormattedMessage
           {...messages.version}
           values={{ version: this.state.version, time: this.state.time }}
         />
-      </Wrapper>
+      </div>
     );
   }
 }
