@@ -63,7 +63,7 @@
     "leasot": "^4.7.0",
     "mocha": "3.3.0",
     "modernizr": "^3.5.0",
-    "modernizr-loader": "1.0.1",
+    "modernizr-loader": "^1.0.1",
     "moment": "^2.18.1",
     "nightwatch": "^0.9.15",
     "progress-bar-webpack-plugin": "^1.9.3",
