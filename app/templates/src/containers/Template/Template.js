@@ -1,6 +1,6 @@
 // @flow
 
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { FormattedMessage } from 'react-intl';
@@ -16,7 +16,7 @@ import TemplateTwo from '../../components/TemplateTwo';
 /**
  * Template React Component
  */
-class Template extends React.Component {
+class Template extends Component {
   elOne: ?HTMLElement;
   elTwo: ?HTMLElement;
 
