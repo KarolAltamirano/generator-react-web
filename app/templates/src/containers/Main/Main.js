@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import React, { Component } from 'react';
 
 import Template from '../Template';
 import Loader from '../../components/Loader';
@@ -8,7 +8,7 @@ import Version from '../../components/Version';
 import AppSettings from '../../utils/AppSettings';
 import LoaderUtil from '../../utils/LoaderUtil';
 
-export default class Main extends React.Component {
+export default class Main extends Component {
   state: Object;
 
   constructor(props: any, context: any) {

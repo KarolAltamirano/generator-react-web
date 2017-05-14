@@ -1,7 +1,7 @@
 // @flow
 /* eslint-disable no-console */
 
-import React from 'react';
+import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import messages from './messages';
@@ -10,7 +10,7 @@ import styles from './styles';
 
 import config from '../../../config.json';
 
-export default class Version extends React.Component {
+export default class Version extends Component {
   state: Object = {
     version: config.build.version,
     time: config.build.time,

@@ -1,6 +1,6 @@
 // @flow
 
-import { jsdom } from 'jsdom';
+import { JSDOM } from 'jsdom';
 
 const noop = () => 0;
 
@@ -12,8 +12,10 @@ const noop = () => 0;
 
 const exposedProperties = ['window', 'document'];
 
-global.document = jsdom('<!doctype html><html><body></body></html>');
-global.window = global.document.defaultView;
+const dom = new JSDOM('<!doctype html><html><body></body></html>');
+
+global.document = dom.window.document;
+global.window = dom.window;
 
 Object.keys(global.window).forEach((property: string) => {
   if (typeof global[property] === 'undefined') {
