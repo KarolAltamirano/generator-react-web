@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## v0.7.1 - 2017-05-15
+## v0.7.1 - 2017-05-14
 - Update packages
 
 ## v0.7.0 - 2017-05-03
