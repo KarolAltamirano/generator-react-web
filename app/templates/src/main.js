@@ -5,7 +5,7 @@ import 'whatwg-fetch';
 import 'modernizr';
 import 'normalize.css';
 
-import './style/global';
+import './style/global.scss';
 import App from './App';
 
 // bootstrap application

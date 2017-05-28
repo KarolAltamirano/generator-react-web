@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
 import messages from './messages';
-import styles from './styles';
+import styles from './styles.scss';
 
 const Loader = ({ progress }: Object) => (
   <div className={styles.wrapper}>
