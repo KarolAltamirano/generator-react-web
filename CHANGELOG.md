@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 - Remove jss
 - Add scss and css modules
 - Add stylelint
+- Update packages
 
 ## v0.7.1 - 2017-05-14
 - Update packages
