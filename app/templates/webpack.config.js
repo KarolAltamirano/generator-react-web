@@ -6,10 +6,18 @@ import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import WebpackNotifierPlugin from 'webpack-notifier';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import autoprefixer from 'autoprefixer';
+import rtl from 'postcss-rtl';
 import config from './config.json';
 
 // hide deprecation warrings
 (process: any).noDeprecation = true;
+
+// set path to scss shared file
+const sassResources = path.resolve(__dirname, 'src', 'style', 'theme.scss');
+
+// set postcss plugins
+const postcssPlugins = () => [autoprefixer({ browsers: config.autoprefixer }), rtl()];
 
 // webpack configuration
 export default {
@@ -57,7 +65,32 @@ export default {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }),
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            { loader: 'postcss-loader', options: { plugins: postcssPlugins } },
+          ],
+        }),
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+                modules: true,
+                localIdentName: '[path][name]__[local]---[hash:base64:5]',
+              },
+            },
+            { loader: 'postcss-loader', options: { plugins: postcssPlugins } },
+            { loader: 'sass-loader' },
+            { loader: 'sass-resources-loader', options: { resources: sassResources } },
+          ],
+        }),
       },
       {
         test: /\.modernizrrc$/, use: ['modernizr-loader', 'json-loader'],

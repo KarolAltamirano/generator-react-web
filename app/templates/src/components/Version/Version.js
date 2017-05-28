@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 
 import messages from './messages';
 
-import styles from './styles';
+import styles from './styles.scss';
 
 import config from '../../../config.json';
 

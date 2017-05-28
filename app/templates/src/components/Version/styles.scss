@@ -1,0 +1,12 @@
+.wrapper {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  max-width: 100%;
+  padding: 0.5em;
+  background: $color01;
+  color: $color02;
+  font-size: $fontSize10;
+  opacity: 0.9;
+  z-index: $zIndexVersion;
+}

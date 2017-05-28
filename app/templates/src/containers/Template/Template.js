@@ -9,7 +9,7 @@ import gsap from 'gsap';
 
 import messages from './messages';
 
-import styles from './styles';
+import styles from './styles.scss';
 
 import AppActions from '../../actions/AppActions';
 import TemplateTwo from '../../components/TemplateTwo';

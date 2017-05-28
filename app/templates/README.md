@@ -63,7 +63,7 @@ yarn run selenium:start   : start selenium for e2e tests
 ```
 build    : Version information, this property is automatically updated when running yarn run bump task
 buildDir : Directory where built page will be placed (default 'dist')
-
+autoprefixer : Configuration of autoprefixer
 ```
 
 # Build version
@@ -79,6 +79,18 @@ Use linter in your code editor.
 - ESLint for Atom - [show](https://github.com/AtomLinter/linter-eslint)
 - ESLint for Sublime Text - [show](https://github.com/roadhump/SublimeLinter-eslint)
 
+## SCSS
+- For SCSS use [stylelint](https://github.com/stylelint/stylelint). The project contains stylelint
+  configuration file `.stylelintrc`
+- stylelint for Atom - [show](https://github.com/AtomLinter/linter-stylelint)
+- stylelint for Sublime Text - [show](https://github.com/kungfusheep/SublimeLinter-contrib-stylelint)
+
+## HTML
+- For HTML use [HTMLHint](https://github.com/yaniswang/HTMLHint). The project contains HTMLHint
+  configuration file `.htmlhintrc`
+- HTMLHint for Atom - [show](https://github.com/AtomLinter/linter-htmlhint)
+- HTMLHint for Sublime Text - [show](https://github.com/mmaday/SublimeLinter-contrib-htmlhint)
+
 ## Flow
 - Information about flow integrations for code editors can be found [here](https://flow.org/en/docs/editors/)
 
@@ -87,3 +99,8 @@ Use linter in your code editor.
   configuration file `.htmlhintrc`
 - HTMLHint for Atom - [show](https://github.com/AtomLinter/linter-htmlhint)
 - HTMLHint for Sublime Text - [show](https://github.com/mmaday/SublimeLinter-contrib-htmlhint)
+
+# CSS Modules
+- This project uses CSS Modules
+- Read more about CSS Modules [here](https://github.com/css-modules/css-modules)
+    - "A CSS Module is a CSS file in which all class names and animation names are scoped locally by default."

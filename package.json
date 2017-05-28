@@ -1,7 +1,7 @@
 {
   "name": "generator-react-web",
   "version": "0.7.1",
-  "description": "Yeoman generator for creating interactive web sites with React and Redux + Webpack, Flow, ES7+, Babel, Yarn, npm Scripts, i18n, Redux Saga, jss",
+  "description": "Yeoman generator for creating interactive web sites with React and Redux + Webpack, Flow, ES7+, Babel, Yarn, npm Scripts, i18n, Redux Saga, SCSS, CSS Modules",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "KarolAltamirano/generator-react-web",
